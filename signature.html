@@ -18,7 +18,8 @@
     <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+    <link href="eat.css" rel="stylesheet">
+    <link href="node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -29,29 +30,31 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
   </head>
 
   <body>
 
     <div class="container">
 
-      <h2 class="form-signin-heading">Free & Reduced Price School Meals</h2>
+      <h2 class="form-signin-heading center-text heading">Before you begin</h2>
 
-      <p>
-        This system will guide you through applying for free and reduced price meals for your <b>entire</b> household, even if the children in your household attend more than one school in the county.
+      <p class="center-text">
+        I cerify that all the information to be filled out on this application is true and that I will report all income earned in my household. I understand that I am giving this information in connection with the receipt of Federal funds and that school officials may verify the information in this application. I am aware that if I purposefully give false information, my children may lose meal benefits and I may be prosecuted under applicable State and Federal law.
       </p>
 
-      <form class="form-signin">
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="exampleInputName2">Signature</label>
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <div class="form-group" id="sandbox-container">
+          <div class="input-group date">
+            <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-default">Send invitation</button>
       </form>
 
     </div> <!-- /container -->
@@ -59,5 +62,6 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

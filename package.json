@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "bootstrap-datepicker": "^1.5.1",
+    "jquery": "^2.1.4"
   },
   "devDependencies": {},
   "scripts": {
