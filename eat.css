@@ -38,6 +38,66 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.center-text {
+
+.container {
   text-align: center;
+  width: 60%;
+}
+
+.btn-proceed {
+  float: right;
+}
+
+.page-description {
+  margin-bottom: 60px;
+}
+
+/**
+  Transitions
+**/
+/* Used to fade in title/desc on the home page */
+@-webkit-keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.container {
+  -webkit-animation: fade-in-down 0.6s;
+  animation: fade-in-down 0.6s;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+/**
+  PAGE 1
+**/
+h3 {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.heading {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
 }
