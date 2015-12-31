@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>EAT Lunch</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="eat.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="header-bar">
+      <img src="assets/img/usda.png" width="50px" />
+      <span>Free & Reduced Price School Meals Application</span>
+    </div>
+
+    <div class="container animate fadeIn">
+
+      <h2 class="form-signin-heading center-text heading" id="desc-heading">tell us about yourself</h2>
+
+      <form class="form-horizontal" id="addressForm" name="addressForm">
+        <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
+          <span style="font-weight: 200;color: grey;text-shadow: 2px 1px 0px rgba(255, 255, 255, 1);margin-bottom: 10px;" class="col-sm-6 col-md-offset-2">REQUIRED</span>
+          <div class="col-sm-6 col-md-offset-2">
+            <label for="city">City</label>
+            <input name="city" type="text" class="form-control" id="city" placeholder="">
+          </div>
+
+          <div class="col-sm-2">
+            <label for="zip">Zip Code</label>
+            <input name="zip" type="text" class="form-control" id="zip" placeholder="">
+          </div>
+        </div>
+
+        <div class="form-group col-md-12" style="margin: 20px 0 30px 0;">
+          <span style="font-weight: 200;color: grey;text-shadow: 2px 1px 0px rgba(255, 255, 255, 1);margin-bottom: 10px;" class="col-sm-6 col-md-offset-2">OPTIONAL</span>
+          <div class="col-md-6 col-md-offset-2">
+            <label for="address">Address</label>
+            <input name="address" type="text" class="form-control" id="address" placeholder="">
+          </div>
+
+          <div class="col-sm-2">
+            <label for="apt">Apt</label>
+            <input name="apt" type="text" class="form-control" id="apt" placeholder="">
+          </div>
+        </div>
+
+        <div class="form-group col-md-12" style="margin: -20px 0 30px 0;">
+          <div class="col-sm-6 col-md-offset-2">
+            <label for="email">Email</label>
+            <input name="email" type="text" class="form-control" id="email" placeholder="">
+          </div>
+
+          <div class="col-sm-3">
+            <label for="phone">Phone</label>
+            <input name="phone" type="text" class="form-control" id="phone" placeholder="">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <a class="btn btn-lg btn-primary btn-proceed" href="howmanychildren.html">Next</a>
+        </div>
+      </form>
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="main.js"></script>
+    <script type="text/javascript" src="assets/js/sisyphus.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&dummy=.js"></script>
+    <script>
+      $( function() {
+        $("form").sisyphus({timeout: 1 }); //Autosave form
+
+        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
+
+        var input = document.getElementById('city');
+        var options = {componentRestrictions: {country: 'us'}};
+        new google.maps.places.Autocomplete(input, options);
+      } );
+    </script>
+  </body>
+</html>
