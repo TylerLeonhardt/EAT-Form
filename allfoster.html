@@ -41,26 +41,25 @@
 
     <div class="container animate fadeIn">
 
-      <h2 class="form-signin-heading center-text heading">Before you begin</h2>
+      <h2 class="form-signin-heading center-text" id="desc-heading">are all children in your household foster children and currently in school?</h2>
+      <h5 class="form-signin-heading center-text heading">and are not considered homeless, migrant, or runaway</h5>
 
-      <h3 class="page-description">
-        I cerify that all the information to be filled out on this application is true and that I will report all income earned in my household. I understand that I am giving this information in connection with the receipt of Federal funds and that school officials may verify the information in this application. I am aware that if I purposefully give false information, my children may lose meal benefits and I may be prosecuted under applicable State and Federal law.
-      </h3>
-
-      <form class="form-horizontal" id="signatureForm" name="signatureForm" action="yourself.html">
-        <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
+      <form class="form-horizontal" id="allFosterForm" name="allFosterForm" action="#">
+        <div class="btn-group col-md-12 btn-group-radio" style="margin: 0 0 30px 0;">
           <div class="col-sm-6 col-md-offset-3">
-            <label for="signature">Signature</label>
-            <input name="signature" type="text" class="form-control" id="signature" placeholder="legal name">
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="yes">
+            <label class="btn btn-lg btn-default" for="optionsRadios1" style="border-bottom-right-radius: 0;border-top-right-radius: 0;">Yes</label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="no">
+            <label class="btn btn-lg btn-default" for="optionsRadios2" style="margin-left: -4px;border-bottom-left-radius: 0;border-top-left-radius: 0;">No</label>
           </div>
         </div>
 
         <div class="form-group col-md-12" style="margin: 30px 0 30px 0;">
           <div class="col-sm-8 col-md-offset-2">
-            <a class="btn btn-lg btn-primary btn-proceed btn-block" href="yourself.html">Next</a>
+            <button class="btn btn-lg btn-primary btn-proceed btn-block">Next</>
           </div>
         </div>
-      </form>
+    </form>
     </div> <!-- /container -->
 
 
@@ -70,9 +69,29 @@
     <script type="text/javascript" src="assets/js/sisyphus.min.js"></script>
     <script>
       $( function() {
-        $("form").sisyphus({timeout: 1, autoRelease: true }); //Autosave form
-        console.log("ok");
+        if(localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") != null) {
+            $("#desc-heading").html("are all " + localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") + " children in your household foster children and currently in school?");
+        }
+        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
       } );
+
+      $("form").submit(function() {
+        if($(this).serializeArray()[0] == undefined) {
+          return false;
+        }
+
+        // Store this value
+        localStorage.setItem("allFosterChildren", $(this).serializeArray()[0].value);
+
+        // Take the user to the correct page based on their answer
+        if($(this).serializeArray()[0].value == "no") {
+          $(location).attr('href', 'aboutchildren.html');
+        } else if($(this).serializeArray()[0].value == "yes") {
+          $(location).attr('href', 'review.html');
+        }
+
+        return false;
+      });
     </script>
   </body>
 </html>
