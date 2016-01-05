@@ -30,6 +30,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/tipped/tipped.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/tipped/tipped.css"/>
   </head>
 
   <body>
@@ -41,23 +43,23 @@
 
     <div class="container animate fadeIn">
 
-      <h2 class="form-signin-heading center-text" id="desc-heading">are all children in your household foster children and currently in school?</h2>
-      <h5 class="form-signin-heading center-text heading">and are not considered homeless, migrant, or runaway</h5>
+      <h2 class="form-signin-heading center-text heading">How many adults live in your household?</h2>
 
-      <form class="form-horizontal" id="allFosterForm" name="allFosterForm" action="#">
-        <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary">
-                <input type="radio" name='Option' value='yes' required />Yes</label>
-          <label class="btn btn-primary">
-            <input type="radio" name='Option' value='no' required />No</label>
-        </div>
+      <form class="form-horizontal" id="howManyAdultsForm" name="howManyAdultsForm">
+        <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
+          <div style="width: 120px; margin: 0 auto;">
 
-        <div class="form-group col-md-12" style="margin: 30px 0 30px 0;">
-          <div class="col-sm-8 col-md-offset-2">
-            <button class="btn btn-lg btn-primary btn-proceed btn-block">Next</>
+            <a id="defineAdult" class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES CHILDREN:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> 18 or younger AND supported with the household’s income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> in your care under foster arrangements<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> homeless, migrant, or runaway<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> attending high school or below, regardless of age" data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
+              <input id="numAdults" type="text" class="form-control" value="" name="numAdults">
+            </a>
+
           </div>
         </div>
-    </form>
+
+        <div class="form-group">
+          <a class="btn btn-lg btn-primary btn-proceed" href="aboutadults.html">Next</a>
+        </div>
+      </form>
     </div> <!-- /container -->
 
 
@@ -66,38 +68,20 @@
     <script src="main.js"></script>
     <script type="text/javascript" src="assets/js/sisyphus.min.js"></script>
 
+    <!-- TouchSpin -->
+    <script src="assets/js/jquery.bootstrap-touchspin.js"></script>
+    <link href="assets/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+
     <!-- Plugins -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script>
-      $('.btn-group').button();
-
       $( function() {
-        if(localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") != null) {
-            $("#desc-heading").html("are all " + localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") + " children in your household foster children and currently in school?");
-        }
-        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
+        $("form").sisyphus(); //Autosave form
+
+          $("input[name='numAdults']").TouchSpin({  });
+          $("#defineAdults").tooltip();
       } );
-
-      $("form").submit(function() {
-        if($(this).serializeArray()[0] == undefined) {
-          return false;
-        }
-
-        console.log($(this).serializeArray()[0]);
-
-        // Store this value
-        localStorage.setItem("allFosterChildren", $(this).serializeArray()[0].value);
-
-        // Take the user to the correct page based on their answer
-        if($(this).serializeArray()[0].value == "no") {
-          $(location).attr('href', 'aboutchildren.html');
-        } else if($(this).serializeArray()[0].value == "yes") {
-          $(location).attr('href', 'review.html');
-        }
-
-        return false;
-      });
     </script>
   </body>
 </html>

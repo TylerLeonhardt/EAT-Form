@@ -41,15 +41,19 @@
 
     <div class="container animate fadeIn">
 
-      <h2 class="form-signin-heading center-text" id="desc-heading">are all children in your household foster children and currently in school?</h2>
-      <h5 class="form-signin-heading center-text heading">and are not considered homeless, migrant, or runaway</h5>
+      <h2 class="form-signin-heading center-text heading" id="desc-heading">do any household members (including you) participate in SNAP, TANF, of FDPIR?</h2>
 
-      <form class="form-horizontal" id="allFosterForm" name="allFosterForm" action="#">
-        <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary">
+      <form class="form-horizontal" id="allFosterForm" name="allFosterForm" action="howmanyadults.html">
+        <div class="btn-group col-md-2 col-md-offset-5" data-toggle="buttons">
+            <label class="btn btn-primary" onclick="show();">
                 <input type="radio" name='Option' value='yes' required />Yes</label>
-          <label class="btn btn-primary">
+          <label class="btn btn-primary" onclick="hide();">
             <input type="radio" name='Option' value='no' required />No</label>
+        </div>
+
+        <div class="col-md-6 col-md-offset-3" id="withCaseNumber" style="margin-top: 40px;">
+          <label for="caseNumber">Case number</label>
+          <input name="caseNumber" type="text" class="form-control" id="caseNumber" placeholder="">
         </div>
 
         <div class="form-group col-md-12" style="margin: 30px 0 30px 0;">
@@ -70,33 +74,27 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script>
-      $('.btn-group').button();
+      var show = function() {
+        console.log("showing");
+        $("#withCaseNumber").show("slow");
+        $("#caseNumber").attr("required", true);
+      };
+
+      var hide = function() {
+        console.log("hiding");
+        $("#withCaseNumber").hide("slow");
+        $("#caseNumber").removeAttr("required");
+      };
+
 
       $( function() {
-        if(localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") != null) {
-            $("#desc-heading").html("are all " + localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") + " children in your household foster children and currently in school?");
-        }
         $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
+
+        hide();
       } );
 
       $("form").submit(function() {
-        if($(this).serializeArray()[0] == undefined) {
-          return false;
-        }
-
-        console.log($(this).serializeArray()[0]);
-
-        // Store this value
-        localStorage.setItem("allFosterChildren", $(this).serializeArray()[0].value);
-
-        // Take the user to the correct page based on their answer
-        if($(this).serializeArray()[0].value == "no") {
-          $(location).attr('href', 'aboutchildren.html');
-        } else if($(this).serializeArray()[0].value == "yes") {
-          $(location).attr('href', 'review.html');
-        }
-
-        return false;
+        return true;
       });
     </script>
   </body>

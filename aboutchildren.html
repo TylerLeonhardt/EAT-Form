@@ -43,7 +43,7 @@
 
       <h2 class="form-signin-heading center-text heading" id="desc-heading">tell us about the children</h2>
 
-      <form class="form-horizontal" id="aboutChildrenForm" name="aboutChildrenForm">
+      <form class="form-horizontal" id="aboutChildrenForm" name="aboutChildrenForm" action="snap.html">
         <div id="childrenInfo">
 
         </div>
@@ -113,10 +113,10 @@
                 "<div class='col-sm-12'>" +
 
                   "<label class='radio-inline'>" +
-                    "<input name='radioGroup_child_" + i + "' id='child_" + i + "_has_income' value='child_" + i + "_has_income' type='radio' onclick='show(child_"+i+"_income_table)'> This child earns income." +
+                    "<input name='radioGroup_child_" + i + "' id='child_" + i + "_has_income' value='child_" + i + "_has_income' type='radio' onclick='show(child_"+i+"_income_table)' required> This child earns income." +
                   "</label>" +
                   "<label class='radio-inline'>" +
-                    "<input name='radioGroup_child_" + i + "' id='child_" + i + "_no_income' value='child_" + i + "_no_income' type='radio' onclick='hide(child_"+i+"_income_table)'> This child does <b>not</b> earn income." +
+                    "<input name='radioGroup_child_" + i + "' id='child_" + i + "_no_income' value='child_" + i + "_no_income' type='radio' onclick='hide(child_"+i+"_income_table)' required> This child does <b>not</b> earn income." +
                   "</label>" +
                 "</div>" +
                 "</div>" +
