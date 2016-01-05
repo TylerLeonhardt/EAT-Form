@@ -47,23 +47,19 @@
 
       <form class="form-horizontal" id="howManyChildrenForm" name="howManyChildrenForm">
         <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
-          <div class="col-md-6 col-md-offset-3">
+          <div style="width: 120px; margin: 0 auto;">
             <!-- <label for="exampleInputName2">How Many Children</label> -->
-            <input name="numChildren" type="text" class="form-control" id="numOfChildren" placeholder="">
-            <div class="form-tooltip">
-              <span style="color:limegreen;" class="glyphicon glyphicon-ok" aria-hidden="true"></span> 18 or younger AND supported with the household’s income
-              <br/>
-              <span style="color:limegreen;" class="glyphicon glyphicon-ok" aria-hidden="true"></span> in your care under foster arrangements
-              <br/>
-              <span style="color:limegreen;" class="glyphicon glyphicon-ok" aria-hidden="true"></span> homeless, migrant, or runaway
-              <br/>
-              <span style="color:limegreen;" class="glyphicon glyphicon-ok" aria-hidden="true"></span> attending high school or below, regardless of age
-            </div>
+            <!-- <input name="numChildren" type="text" class="form-control" id="numOfChildren" placeholder=""> -->
+
+            <a id="defineChild" class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES CHILDREN:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> 18 or younger AND supported with the household’s income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> in your care under foster arrangements<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> homeless, migrant, or runaway<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> attending high school or below, regardless of age" data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
+              <input id="numChildren" type="text" class="form-control" value="" name="numChildren">
+            </a>
+
           </div>
         </div>
 
         <div class="form-group">
-          <a class="btn btn-lg btn-primary btn-proceed" href="yourself.html">Next</a>
+          <a class="btn btn-lg btn-primary btn-proceed" href="allfoster.html">Next</a>
         </div>
       </form>
     </div> <!-- /container -->
@@ -73,23 +69,20 @@
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
     <script src="main.js"></script>
     <script type="text/javascript" src="assets/js/sisyphus.min.js"></script>
+
+    <!-- TouchSpin -->
+    <script src="assets/js/jquery.bootstrap-touchspin.js"></script>
+    <link href="assets/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+
+    <!-- Plugins -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <script>
       $( function() {
         $("form").sisyphus(); //Autosave form
-          // Tipped.create('#numOfChildren', '<span style="color:limegreen;" class="glyphicon glyphicon-ok" aria-hidden="true"><\/span><span> 18 or younger AND supported with the household’s income<\/span>'
-          // + '<br\/>'
-          // + '<span style="color:limegreen;" class="glyphicon glyphicon-ok" aria-hidden="true"><\/span><span> in your care under foster arrangements<\/span>'
-          // + '<br\/>'
-          // + '<span style="color:limegreen;" class="glyphicon glyphicon-ok" aria-hidden="true"><\/span><span> homeless, migrant, or runaway<\/span>'
-          // + '<br\/>'
-          // + '<span style="color:limegreen;" class="glyphicon glyphicon-ok" aria-hidden="true"><\/span><span> attending high school or below, regardless of age<\/span>', {
-          //   showOn: 'focus',
-          //   hideOn:false,
-          //   title: "This includes children",
-          //   position: 'bottom',
-          //   maxWidth: 600,
-          //   showDelay: 1000
-          // });
+
+          $("input[name='numChildren']").TouchSpin({  });
+          $("#defineChild").tooltip();
       } );
     </script>
   </body>

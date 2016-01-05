@@ -45,13 +45,11 @@
       <h5 class="form-signin-heading center-text heading">and are not considered homeless, migrant, or runaway</h5>
 
       <form class="form-horizontal" id="allFosterForm" name="allFosterForm" action="#">
-        <div class="btn-group col-md-12 btn-group-radio" style="margin: 0 0 30px 0;">
-          <div class="col-sm-6 col-md-offset-3">
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="yes">
-            <label class="btn btn-lg btn-default" for="optionsRadios1" style="border-bottom-right-radius: 0;border-top-right-radius: 0;">Yes</label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="no">
-            <label class="btn btn-lg btn-default" for="optionsRadios2" style="margin-left: -4px;border-bottom-left-radius: 0;border-top-left-radius: 0;">No</label>
-          </div>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary">
+                <input type="radio" name='Option' value='yes' />Yes</label>
+          <label class="btn btn-primary">
+            <input type="radio" name='Option' value='no' />No</label>
         </div>
 
         <div class="form-group col-md-12" style="margin: 30px 0 30px 0;">
@@ -67,7 +65,13 @@
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
     <script src="main.js"></script>
     <script type="text/javascript" src="assets/js/sisyphus.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <script>
+      $('.btn-group').button();
+
       $( function() {
         if(localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") != null) {
             $("#desc-heading").html("are all " + localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") + " children in your household foster children and currently in school?");
@@ -79,6 +83,8 @@
         if($(this).serializeArray()[0] == undefined) {
           return false;
         }
+
+        console.log($(this).serializeArray()[0]);
 
         // Store this value
         localStorage.setItem("allFosterChildren", $(this).serializeArray()[0].value);
