@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>EAT Lunch</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="eat.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="header-bar">
+      <img src="assets/img/usda.png" width="50px" />
+      <span>Free & Reduced Price School Meals Application</span>
+    </div>
+
+    <div class="container animate fadeIn">
+
+      <h2 class="form-signin-heading center-text heading" id="desc-heading">tell us about the children</h2>
+
+      <form class="form-horizontal" id="aboutChildrenForm" name="aboutChildrenForm">
+        <div id="childrenInfo">
+
+        </div>
+
+        <div class="form-group col-md-12" style="margin: 30px 0 30px 0;">
+          <div class="col-sm-8 col-md-offset-2">
+            <button type="submit" class="btn btn-lg btn-primary btn-proceed  btn-block" style="border-bottom-left-radius: 0; border-bottom-right-radius: 0;">Next</button>
+            <button type="reset" class="btn btn-sm btn-default btn-block" style="background-color: #f9f9f9;border-top-left-radius: 0;border-top-right-radius: 0;border-bottom-right-radius: 6px;border-bottom-left-radius: 6px;">Clear Data</button>
+          </div>
+        </div>
+      </form>
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="main.js"></script>
+    <script type="text/javascript" src="assets/js/sisyphus.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&dummy=.js"></script>
+    <script>
+      var show = function(el) {
+          console.log("showing ");
+          console.log(el);
+          $("#" + el.id).show("slow");
+      };
+
+      var hide = function(el) {
+          console.log("hiding ");
+          console.log(el);
+          $("#" + el.id).hide("slow");
+      };
+
+      $( function() {
+
+        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
+
+        var numChildren = localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren");
+
+        // Add in a row for each child
+        for(var i = 1; i <= numChildren; i++) {
+          $("#childrenInfo").append(
+            "<div id='child_" + i + "' class='child_info'><div class='form-group col-md-12' style='margin: 0;'>" +
+                "<div class='col-sm-3'>" +
+                  "<label for='first_" + i + "'>first name</label>" +
+                  "<input name='first_" + i + "' type='text' class='form-control' id='first_" + i + "' placeholder='' required='true'>" +
+                "</div>" +
+
+                "<div class='col-sm-4'>" +
+                  "<label for='last_" + i + "'>last name</label>" +
+                  "<input name='last_" + i + "' type='text' class='form-control' id='last_" + i + "' placeholder='' required='true'>" +
+                "</div>" +
+
+                "<div class='col-sm-5' style='margin-top: 16px;'>" +
+                  "<label>" +
+                    "<input type='checkbox'><span class='check-label'>student</span>" +
+                  "</label>" +
+                  "<label style='margin-left: 15px;'>" +
+                    "<input type='checkbox'><span class='check-label'>foster</span>" +
+                  "</label>" +
+                  "<label>" +
+                    "<input type='checkbox'><span class='check-label'>homeless, migrant, or runaway</span>" +
+                  "</label>" +
+                "</div>" +
+              "</div>" +
+
+              "<div class='form-group col-md-12' style='margin: 0 0 30px 0;'>" +
+                "<div class='col-sm-12'>" +
+
+                  "<label class='radio-inline'>" +
+                    "<input name='radioGroup_child_" + i + "' id='child_" + i + "_has_income' value='child_" + i + "_has_income' type='radio' onclick='show(child_"+i+"_income_table)'> This child earns income." +
+                  "</label>" +
+                  "<label class='radio-inline'>" +
+                    "<input name='radioGroup_child_" + i + "' id='child_" + i + "_no_income' value='child_" + i + "_no_income' type='radio' onclick='hide(child_"+i+"_income_table)'> This child does <b>not</b> earn income." +
+                  "</label>" +
+                "</div>" +
+                "</div>" +
+
+                "<div id='child_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 90%;'><tbody>" +
+                  "<thead><tr>" +
+                    "<th style='border: none;'></th>" +
+                    "<th style='border: none;'></th>" +
+                    "<th style='text-align: right; border: none;'>Weekly</th>" +
+                    "<th style='text-align: right; border: none;'>2x Month</th>" +
+                    "<th style='text-align: right; border: none;'>Monthly</th>" +
+                  "</tr></thead>" +
+
+                  // Wages Income
+                  "<tr>" +
+                    "<td class='amount-label'><span><h6>SALARY</h6> or <h6>WAGE</h6> from a job</span></td>" +
+                    "<td class='amount-field'>" +
+                      "<input name='option1_child_" + i + "' type='text' class='form-control' id='option1_child_" + i + "' placeholder=''>" +
+                    "</td>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption1_child_" + i + "' id='option1_child_" + i + "_weekly' value='option1_child_" + i + "_weekly' type='radio'>" +
+                    "</td>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption1_child_" + i + "' id='option1_child_" + i + "_2xmonth' value='option1_child_" + i + "_2xmonth' checked='' type='radio'>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption1_child_" + i + "' id='option1_child_" + i + "_monthly' value='option1_child_" + i + "_monthly' checked='' type='radio'>" +
+                    "</td>" +
+                  "</tr>" +
+
+                  // Child SS Income
+                  "<tr>" +
+                    "<td class='amount-label'><span><h6>SOCIAL SECURITY</h6> income from child’s own disability or blindness</span></td>" +
+                    "<td class='amount-field'>" +
+                      "<input name='option2_child_" + i + "' type='text' class='form-control' id='option2_child_" + i + "' placeholder=''>" +
+                    "</td>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption2_child_" + i + "' id='option2_child_" + i + "_weekly' value='option2_child_" + i + "_weekly' type='radio'>" +
+                    "</td>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption2_child_" + i + "' id='option2_child_" + i + "_2xmonth' value='option2_child_" + i + "_2xmonth' checked='' type='radio'>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption2_child_" + i + "' id='option2_child_" + i + "_monthly' value='option2_child_" + i + "_monthly' checked='' type='radio'>" +
+                    "</td>" +
+                  "</tr>" +
+
+                  // Parent SS Income
+                  "<tr>" +
+                    "<td class='amount-label'><span><h6>SOCIAL SECURITY</h6> income because parent is disabled, retired, or deceased</span></td>" +
+                    "<td class='amount-field'>" +
+                      "<input name='option3_child_" + i + "' type='text' class='form-control' id='option3_child_" + i + "' placeholder=''>" +
+                    "</td>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption3_child_" + i + "' id='option3_child_" + i + "_weekly' value='option3_child_" + i + "_weekly' type='radio'>" +
+                    "</td>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption3_child_" + i + "' id='option3_child_" + i + "_2xmonth' value='option3_child_" + i + "_2xmonth' checked='' type='radio'>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption3_child_" + i + "' id='option3_child_" + i + "_monthly' value='option3_child_" + i + "_monthly' checked='' type='radio'>" +
+                    "</td>" +
+                  "</tr>" +
+
+                  // Regular Income
+                  "<tr>" +
+                    "<td class='amount-label'><span><h6>REGULAR</h6> spending money from a person outside the household</span></td>" +
+                    "<td class='amount-field'>" +
+                      "<input name='option4_child_" + i + "' type='text' class='form-control' id='option4_child_" + i + "' placeholder=''>" +
+                    "</td>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption4_child_" + i + "' id='option4_child_" + i + "_weekly' value='option4_child_" + i + "_weekly' type='radio'>" +
+                    "</td>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption4_child_" + i + "' id='option4_child_" + i + "_2xmonth' value='option4_child_" + i + "_2xmonth' checked='' type='radio'>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption4_child_" + i + "' id='option4_child_" + i + "_monthly' value='option4_child_" + i + "_monthly' checked='' type='radio'>" +
+                    "</td>" +
+                  "</tr>" +
+
+                  // Other Income
+                  "<tr>" +
+                    "<td class='amount-label'><span><h6>OTHER</h6> income such as from a pension fund, annuity, or trust</span></td>" +
+                    "<td class='amount-field'>" +
+                      "<input name='option5_child_" + i + "' type='text' class='form-control' id='option5_child_" + i + "' placeholder=''>" +
+                    "</td>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption5_child_" + i + "' id='option5_child_" + i + "_weekly' value='option5_child_" + i + "_weekly' type='radio'>" +
+                    "</td>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption5_child_" + i + "' id='option5_child_" + i + "_2xmonth' value='option5_child_" + i + "_2xmonth' checked='' type='radio'>" +
+                    "<td class='payment-field'>" +
+                      "<input name='radioOption5_child_" + i + "' id='option5_child_" + i + "_monthly' value='option5_child_" + i + "_monthly' checked='' type='radio'>" +
+                    "</td>" +
+                  "</tr>" +
+                "</tbody></table></div>" +
+              "</div>" +
+            "</div>"
+          );
+
+          $("#child_"+i+"_income_table").hide();
+        }
+
+        $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
+
+      } );
+    </script>
+  </body>
+</html>
