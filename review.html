@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>EAT Lunch</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="eat.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/tipped/tipped.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/tipped/tipped.css"/>
+  </head>
+
+  <body>
+
+    <div class="header-bar">
+      <img src="assets/img/usda.png" width="50px" />
+      <span>Free & Reduced Price School Meals Application</span>
+    </div>
+
+    <div class="container animate fadeIn">
+
+      <h2 class="form-signin-heading center-text heading" id="desc-heading">please confirm that there are # household members, including children and adults</h2>
+
+      <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
+
+          <div id="reviewChildren" class="col-md-6"><h6 style="text-align: left; padding: 6px 10px 6px 10px; background-color: #F7F7F7; margin: 0;">CHILDREN</h6></div>
+          <div id="reviewAdults" class="col-md-6"><h6 style="text-align: left; padding: 6px 10px 6px 10px; background-color: #F7F7F7; margin: 0;">ADULTS</h6></div>
+
+      </div>
+
+      <div class="form-group">
+        <a class="btn btn-lg btn-primary btn-proceed" href="ssn.html">Next</a>
+      </div>
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="main.js"></script>
+    <script type="text/javascript" src="assets/js/sisyphus.min.js"></script>
+
+    <!-- TouchSpin -->
+    <script src="assets/js/jquery.bootstrap-touchspin.js"></script>
+    <link href="assets/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+
+    <!-- Plugins -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script>
+      $( function() {
+        $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
+
+        var numChildren = localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren");
+        var numAdults = localStorage.getItem("howManyAdultsFormhowManyAdultsFormnumAdults");
+
+        if(numChildren != null && numAdults != null ) {
+            $("#desc-heading").html("please confirm that there are " + (+numChildren + +numAdults + 1)
+              + " people in your household, including all children and adults");
+        }
+        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
+
+        for(var i = 1; i <= +numChildren; i++) {
+          console.log("child");
+          $("#reviewChildren").append(
+
+            // Child Template
+            "<span style='display:block; text-align: left; padding: 6px 10px 6px 10px;'>" +
+                localStorage.getItem("aboutChildrenFormaboutChildrenFormfirst_"+i) + " " +
+                localStorage.getItem("aboutChildrenFormaboutChildrenFormmi_"+i) + " " +
+                localStorage.getItem("aboutChildrenFormaboutChildrenFormlast_"+i) +
+            "</span>"
+          );
+        }
+
+        $("#reviewChildren").append("<a style='width: 100%;' class='btn btn-sm btn-primary btn-proceed' href='howmanychildren.html'>Add Another Child</a>");
+
+        for(var i = 1; i <= +numAdults; i++) {
+          console.log("adult " + i);
+          console.log(localStorage.getItem("aboutAdultsFormaboutAdultsFormfirst_"+i));
+
+          $("#reviewAdults").append(
+            // Adult Template
+            "<span style='display:block; text-align: left; padding: 6px 10px 6px 10px;'>" +
+                localStorage.getItem("aboutAdultsFormaboutAdultsFormfirst_"+i) + " " +
+                localStorage.getItem("aboutAdultsFormaboutAdultsFormmi_"+i) + " " +
+                localStorage.getItem("aboutAdultsFormaboutAdultsFormlast_"+i) +
+            "</span>"
+          );
+        }
+
+        // Add Self
+        $("#reviewAdults").append(
+          // Adult Template
+          "<span style='display:block; text-align: left; padding: 6px 10px 6px 10px;'>" +
+              localStorage.getItem("signatureFormsignatureFormsignature") +
+          "</span>"
+        );
+
+        $("#reviewAdults").append("<a style='width: 100%;' class='btn btn-sm btn-primary btn-proceed' href='howmanyadults.html'>Add Another Adult</a>");
+      } );
+    </script>
+  </body>
+</html>

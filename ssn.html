@@ -43,21 +43,21 @@
 
     <div class="container animate fadeIn">
 
-      <h2 class="form-signin-heading center-text heading">How many children live in your household?</h2>
+      <h2 class="form-signin-heading center-text heading" id="desc-heading">tell us the last 4 digits of the Social Security Number of the primary wage earner or another household member</h2>
 
-      <form class="form-horizontal" id="howManyChildrenForm" name="howManyChildrenForm">
+      <form class="form-horizontal" id="ssnForm" name="ssnForm">
         <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
-          <div style="width: 120px; margin: 0 auto;">
-
-            <a id="defineChild" class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES CHILDREN:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> 18 or younger AND supported with the household’s income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> in your care under foster arrangements<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> homeless, migrant, or runaway<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> attending high school or below, regardless of age" data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
-              <input id="numChildren" type="text" class="form-control" value="" name="numChildren">
-            </a>
-
+          <div style="width: 70px; margin: 0 auto;">
+            <input id="ssn" type="text" class="form-control" value="" name="ssn" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' style="font-size: 20px;">
           </div>
+
+          <label style='margin-top: 10px;'>
+            <input type='checkbox'><span style="margin-left: 5px; font-weight: normal;">No SSN</span>
+          </label>
         </div>
 
         <div class="form-group">
-          <a class="btn btn-lg btn-primary btn-proceed" href="allfoster.html">Next</a>
+          <a class="btn btn-lg btn-primary btn-proceed" href="review.html">Next</a>
         </div>
       </form>
     </div> <!-- /container -->
@@ -77,6 +77,7 @@
 
     <script>
       $( function() {
+        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
       } );
     </script>
