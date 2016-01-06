@@ -43,7 +43,7 @@
 
       <h2 class="form-signin-heading center-text heading" id="desc-heading">do any household members (including you) participate in SNAP, TANF, of FDPIR?</h2>
 
-      <form class="form-horizontal" id="allFosterForm" name="allFosterForm" action="howmanyadults.html">
+      <form class="form-horizontal" id="hasSnapForm" name="hasSnapForm" action="howmanyadults.html">
         <div class="btn-group col-md-2 col-md-offset-5" data-toggle="buttons">
             <label class="btn btn-primary" onclick="show();">
                 <input type="radio" name='Option' value='yes' required />Yes</label>
@@ -89,7 +89,7 @@
 
       $( function() {
         $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
-
+        $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
         hide();
       } );
 

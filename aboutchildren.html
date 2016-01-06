@@ -41,7 +41,8 @@
 
     <div class="container animate fadeIn">
 
-      <h2 class="form-signin-heading center-text heading" id="desc-heading">tell us about the children</h2>
+      <h2 class="form-signin-heading center-text" id="desc-heading">tell us about the children</h2>
+      <h5 class="form-signin-heading center-text heading">who live in your household, even if they are not related to you</h5>
 
       <form class="form-horizontal" id="aboutChildrenForm" name="aboutChildrenForm" action="snap.html">
         <div id="childrenInfo">
@@ -86,12 +87,17 @@
         for(var i = 1; i <= numChildren; i++) {
           $("#childrenInfo").append(
             "<div id='child_" + i + "' class='child_info'><div class='form-group col-md-12' style='margin: 0;'>" +
-                "<div class='col-sm-3'>" +
+                "<div class='col-sm-2'>" +
                   "<label for='first_" + i + "'>first name</label>" +
                   "<input name='first_" + i + "' type='text' class='form-control' id='first_" + i + "' placeholder='' required='true'>" +
                 "</div>" +
 
-                "<div class='col-sm-4'>" +
+                "<div class='col-sm-2' style='width: 70px;'>" +
+                  "<label for='mi_" + i + "'>MI</label>" +
+                  "<input name='mi_" + i + "' type='text' class='form-control' id='mi_" + i + "' placeholder='' required='true'>" +
+                "</div>" +
+
+                "<div class='col-sm-3'>" +
                   "<label for='last_" + i + "'>last name</label>" +
                   "<input name='last_" + i + "' type='text' class='form-control' id='last_" + i + "' placeholder='' required='true'>" +
                 "</div>" +
@@ -146,9 +152,9 @@
                     "</td>" +
                   "</tr>" +
 
-                  // Child SS Income
+                  // Military Income
                   "<tr>" +
-                    "<td class='amount-label'><span><h6>SOCIAL SECURITY</h6> income from child’s own disability or blindness</span></td>" +
+                    "<td class='amount-label'><span><h6>MILITARY</h6> basic pay or allowance</span></td>" +
                     "<td class='amount-field'>" +
                       "<input name='option2_child_" + i + "' type='text' class='form-control' id='option2_child_" + i + "' placeholder=''>" +
                     "</td>" +
