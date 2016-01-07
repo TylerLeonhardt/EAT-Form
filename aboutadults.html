@@ -43,7 +43,7 @@
 
     <div class="container animate fadeIn">
 
-      <a id="defineAdult" class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES ADULTS LIVING WITH YOU WHO:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> share household income and expenses<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> even if they are not related to you<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> even if they don't have their own income<br/><br/><span style='font-weight: bold; color: #aab2bd; '>THIS DOESN'T INCLUDE ADULTS LIVING WITH YOU WHO:</span><br/><span style='color:#dd3e3e;' class='glyphicon glyphicon-remove' aria-hidden='true'></span> are not supported by the household income<br/><span style='color:#dd3e3e;' class='glyphicon glyphicon-remove' aria-hidden='true'></span> do not contribute income to the household income"
+      <a id="defineAdult" style='color: #333; text-decoration: none;' class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES ADULTS LIVING WITH YOU WHO:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> share household income and expenses<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> even if they are not related to you<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> even if they don't have their own income<br/><br/><span style='font-weight: bold; color: #aab2bd; '>THIS DOESN'T INCLUDE ADULTS LIVING WITH YOU WHO:</span><br/><span style='color:#dd3e3e;' class='glyphicon glyphicon-remove' aria-hidden='true'></span> are not supported by the household income<br/><span style='color:#dd3e3e;' class='glyphicon glyphicon-remove' aria-hidden='true'></span> do not contribute income to the household income"
         data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
         <h2 class="form-signin-heading center-text" id="desc-heading">tell us about the adults</h2>
         <h5 class="form-signin-heading center-text heading-with-hover">who live in your household, even if they are not related to you</h5>
@@ -119,7 +119,7 @@
 
       $( function() {
 
-        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
+        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
         $("#defineAdult").tooltip();
 
         var numAdults = localStorage.getItem("howManyAdultsFormhowManyAdultsFormnumAdults");
@@ -158,7 +158,7 @@
 
               "<div class='form-group col-md-12' style='margin: 0 0 30px 15px;'>" +
 
-                "<a id='defineIncome' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from salary, wages, bonuses, self-employment <br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> military basic pay or allowances for off-base housing<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  public assistance<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  college financial aid<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  worker’s compensation<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  unemployment benefits<br/>" +
+                "<a id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from salary, wages, bonuses, self-employment <br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> military basic pay or allowances for off-base housing<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  public assistance<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  college financial aid<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  worker’s compensation<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  unemployment benefits<br/>" +
                   "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> strike benefits<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> pensions<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> annuities<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> trusts or estates<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> disability payments<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> child support<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> interest, dividends, or other investment income<br/>" +
                   "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> rental income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> regular cash payments from people outside the household<br/>\"" +
                 "<div class='col-sm-12'>" +
@@ -244,10 +244,16 @@
           } else {
             $("#adult_"+i+"_income_table").hide();
           }
+
+          $("#defineIncome_"+i).tooltip();
         }
 
+        // Set the first person to autofill with your name
+        $("#first_1").val(localStorage.getItem("signatureFormsignatureFormfirst"));
+        $("#mi_1").val(localStorage.getItem("signatureFormsignatureFormmi"));
+        $("#last_1").val(localStorage.getItem("signatureFormsignatureFormlast"));
+
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
-        $("#defineIncome").tooltip();
 
       } );
     </script>

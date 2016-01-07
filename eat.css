@@ -149,7 +149,7 @@ h3 {
   text-align: center;
 }
 
-#defineAdult, #defineIncome {
+.tooltip {
   text-decoration: none;
   color: #333;
 }

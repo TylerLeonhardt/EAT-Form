@@ -103,7 +103,7 @@
       $( function() {
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
 
-        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
+        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
 
         var input = document.getElementById('city');
         var options = {componentRestrictions: {country: 'us'}};

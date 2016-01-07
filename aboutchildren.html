@@ -43,8 +43,10 @@
 
     <div class="container animate fadeIn">
 
-      <h2 class="form-signin-heading center-text" id="desc-heading">tell us about the children</h2>
-      <h5 class="form-signin-heading center-text heading">who live in your household, even if they are not related to you</h5>
+      <a id="defineChild" style='color: #333; text-decoration: none;' class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES CHILDREN:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> 18 or younger AND supported with the household’s income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> in your care under foster arrangements<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> homeless, migrant, or runaway<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> attending high school or below, regardless of age" data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
+        <h2 class="form-signin-heading center-text" id="desc-heading">tell us about the children</h2>
+        <h5 class="form-signin-heading center-text heading">who live in your household, even if they are not related to you</h5>
+      </a>
 
       <form class="form-horizontal" id="aboutChildrenForm" name="aboutChildrenForm" action="snap.html">
         <div id="childrenInfo">
@@ -66,6 +68,9 @@
     <script src="main.js"></script>
     <script type="text/javascript" src="assets/js/sisyphus.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&dummy=.js"></script>
+
+    <!-- Plugins -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
       var deleteIncome = function(childId) {
         console.log("deleting income for " + childId);
@@ -120,7 +125,8 @@
 
       $( function() {
 
-        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
+        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
+        $("#defineChild").tooltip();
 
         var numChildren = localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren");
 
@@ -175,7 +181,10 @@
                 "</div>" +
               "</div>" +
 
-              "<div class='form-group col-md-12' style='margin: 0 0 30px 0;'>" +
+              "<div class='form-group col-md-12' style='margin: 0 0 30px 15px;'>" +
+
+              "<a id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from work<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits for the child’s disability<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits because a parent is disabled, retired, or deceased<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  pension income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> trust income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> annuity income<br/>" +
+                "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> regular income, including spending money, from a relative or friend outside the household<br/>\"" +
                 "<div class='col-sm-12'>" +
 
                   "<label class='radio-inline'>" +
@@ -185,6 +194,7 @@
                     "<input name='radioGroup_child_" + i + "' id='child_" + i + "_no_income' value='child_" + i + "_no_income' type='radio' onclick='hide(child_"+i+"_income_table)' required> This child does <b>not</b> earn income." +
                   "</label>" +
                 "</div>" +
+                "</a>" +
                 "</div>" +
 
                 "<div id='child_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 75%;'><tbody>" +
@@ -277,6 +287,8 @@
           } else {
             $("#child_"+i+"_income_table").hide();
           }
+
+          $("#defineIncome_"+i).tooltip();
         }
 
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
