@@ -33,13 +33,20 @@
 
   <body>
 
-    <noscript>
-     <div style="background-color: #AB5757; padding: 10px; color: white; text-align: center;"><span>For full functionality of this site it is necessary to enable JavaScript.
-     Follow <a href="http://www.enable-javascript.com/" target="_blank" style="color: white; text-decoration: underline;"> these
-     instructions to enable JavaScript in your web browser</a>.</span></div>
-    </noscript>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="header-bar">
+        <img src="assets/img/usda.png" width="50px" />
+        <span>Free & Reduced Price School Meals Application</span>
+      </div>
 
-    <div class="container animate fadeIn">
+      <noscript>
+       <div style="background-color: #AB5757; padding: 10px; color: white; text-align: center;"><span>This application requires JavaScript to be enabled.
+       Follow <a href="http://www.enable-javascript.com/" target="_blank" style="color: white; text-decoration: underline;"> these
+       instructions to enable JavaScript in your web browser</a>.</span></div>
+      </noscript>
+    </nav>
+
+    <div class="container animate fadeIn" style="margin-top: 50px;">
 
       <h1 class="heading">Free & Reduced Price School Meals</h1>
 
@@ -47,7 +54,7 @@
         This system will guide you through applying for free and reduced price meals for your <b>entire</b> household, even if the children in your household attend more than one school in the county.
       </h3>
 
-      <a class="btn btn-lg btn-primary btn-proceed" id="beginButton" href="signature.html">Begin Application</a>
+      <button class="btn btn-lg btn-primary btn-proceed" id="beginButton" disabled>Begin Application</button>
 
     </div> <!-- /container -->
 
@@ -55,5 +62,15 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
     <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $('#beginButton').removeAttr('disabled');
+
+        $("#beginButton").click( function() {
+          $(location).attr('href', 'signature.html');
+        });
+      });
+    </script>
   </body>
 </html>
