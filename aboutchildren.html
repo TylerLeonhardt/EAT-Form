@@ -65,16 +65,55 @@
     <script type="text/javascript" src="assets/js/sisyphus.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&dummy=.js"></script>
     <script>
+      var deleteIncome = function(childId) {
+        console.log("deleting income for " + childId);
+        console.log("aboutChildrenFormaboutChildrenFormoption1_child_"+childId);
+
+        // Delete income
+        localStorage.removeItem("aboutChildrenFormaboutChildrenFormoption1_child_"+childId);
+        localStorage.removeItem("aboutChildrenFormaboutChildrenFormoption2_child_"+childId);
+        localStorage.removeItem("aboutChildrenFormaboutChildrenFormoption3_child_"+childId);
+        localStorage.removeItem("aboutChildrenFormaboutChildrenFormoption4_child_"+childId);
+        localStorage.removeItem("aboutChildrenFormaboutChildrenFormoption5_child_"+childId);
+
+        // Delete income time frame
+        localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioOption1_child_"+childId);
+        localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioOption2_child_"+childId);
+        localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioOption3_child_"+childId);
+        localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioOption4_child_"+childId);
+        localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioOption5_child_"+childId);
+      }
       var show = function(el) {
           console.log("showing ");
           console.log(el);
           $("#" + el.id).show("slow");
+
+          // Get child id
+          var vals = el.id.split("_");
+          var x = +vals[1];
+
+          // Make inputs required
+          $(("#child_"+x+"_income_table input:text")).attr("required", true);
+          $(("#child_"+x+"_income_table input:radio")).attr("required", true);
       };
 
       var hide = function(el) {
           console.log("hiding ");
           console.log(el);
           $("#" + el.id).hide("slow");
+
+          // Delete the data stored locally
+          var vals = el.id.split("_");
+          var x = +vals[1];
+          deleteIncome(x);
+
+          // Delete data in this form
+          $(("#child_"+x+"_income_table input:text")).val('');
+          $(("#child_"+x+"_income_table input:radio")).attr('checked',false);
+
+          // Make hidden inputs not required
+          $(("#child_"+x+"_income_table input:text")).removeAttr("required");
+          $(("#child_"+x+"_income_table input:radio")).removeAttr("required");
       };
 
       $( function() {
@@ -82,6 +121,25 @@
         $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
 
         var numChildren = localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren");
+
+        // Delete old localStorage items (in case we decreased the number of children)
+        for(var x = +numChildren+1; x <= 15; x++) {
+          // Delete name
+          localStorage.removeItem("aboutChildrenFormaboutChildrenFormfirst_"+x);
+          localStorage.removeItem("aboutChildrenFormaboutChildrenFormlast_"+x);
+          localStorage.removeItem("aboutChildrenFormaboutChildrenFormmi_"+x);
+
+          // Delete status
+          localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_foster_child_"+x);
+          localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_student_child_"+x);
+          localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_hmr_child_"+x);
+
+          // Delete has income
+          localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioGroup_child_"+x);
+
+          // Delete income
+          deleteIncome(x);
+        }
 
         // Add in a row for each child
         for(var i = 1; i <= numChildren; i++) {
@@ -104,13 +162,13 @@
 
                 "<div class='col-sm-5' style='margin-top: 16px;'>" +
                   "<label>" +
-                    "<input type='checkbox'><span class='check-label'>student</span>" +
+                    "<input name='is_student_child_" + i + "' id='is_student_child_" + i + "' value='is_student_child_" + i + "' type='checkbox'><span class='check-label'>student</span>" +
                   "</label>" +
                   "<label style='margin-left: 15px;'>" +
-                    "<input type='checkbox'><span class='check-label'>foster</span>" +
+                    "<input name='is_foster_child_" + i + "' id='is_foster_child_" + i + "' value='is_foster_child_" + i + "'type='checkbox'><span class='check-label'>foster</span>" +
                   "</label>" +
                   "<label>" +
-                    "<input type='checkbox'><span class='check-label'>homeless, migrant, or runaway</span>" +
+                    "<input name='is_hmr_child_" + i + "' id='is_hmr_child_" + i + "' value='is_hmr_child_" + i + "' type='checkbox'><span class='check-label'>homeless, migrant, or runaway</span>" +
                   "</label>" +
                 "</div>" +
               "</div>" +
@@ -127,14 +185,7 @@
                 "</div>" +
                 "</div>" +
 
-                "<div id='child_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 90%;'><tbody>" +
-                  "<thead><tr>" +
-                    "<th style='border: none;'></th>" +
-                    "<th style='border: none;'></th>" +
-                    "<th style='text-align: right; border: none;'>Weekly</th>" +
-                    "<th style='text-align: right; border: none;'>2x Month</th>" +
-                    "<th style='text-align: right; border: none;'>Monthly</th>" +
-                  "</tr></thead>" +
+                "<div id='child_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 75%;'><tbody>" +
 
                   // Wages Income
                   "<tr>" +
@@ -142,29 +193,28 @@
                     "<td class='amount-field'>" +
                       "<input name='option1_child_" + i + "' type='text' class='form-control' id='option1_child_" + i + "' placeholder=''>" +
                     "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption1_child_" + i + "' id='option1_child_" + i + "_weekly' value='option1_child_" + i + "_weekly' type='radio'>" +
-                    "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption1_child_" + i + "' id='option1_child_" + i + "_2xmonth' value='option1_child_" + i + "_2xmonth' checked='' type='radio'>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption1_child_" + i + "' id='option1_child_" + i + "_monthly' value='option1_child_" + i + "_monthly' checked='' type='radio'>" +
+                    "<td style='border: none !important;'>" +
+                      "<select id='frequency_income_category_1_child_" + i + "' name='frequency_income_category_1_child_" + i + "' class='form-control'>" +
+                        "<option value='weekly'>weekly</option>" +
+                        "<option value='2x month'>2x month</option>" +
+                        "<option value='monthly'>monthly</option>" +
+                      "</select>" +
                     "</td>" +
                   "</tr>" +
 
-                  // Military Income
+                  // Child SS Income
                   "<tr>" +
-                    "<td class='amount-label'><span><h6>MILITARY</h6> basic pay or allowance</span></td>" +
+                    "<td class='amount-label'><span><h6>SOCIAL SECURITY</h6> income from child’s own disability or blindness</span></td>" +
                     "<td class='amount-field'>" +
                       "<input name='option2_child_" + i + "' type='text' class='form-control' id='option2_child_" + i + "' placeholder=''>" +
                     "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption2_child_" + i + "' id='option2_child_" + i + "_weekly' value='option2_child_" + i + "_weekly' type='radio'>" +
-                    "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption2_child_" + i + "' id='option2_child_" + i + "_2xmonth' value='option2_child_" + i + "_2xmonth' checked='' type='radio'>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption2_child_" + i + "' id='option2_child_" + i + "_monthly' value='option2_child_" + i + "_monthly' checked='' type='radio'>" +
+
+                    "<td style='border: none !important;'>" +
+                      "<select id='frequency_income_category_2_child_" + i + "' name='frequency_income_category_2_child_" + i + "' class='form-control'>" +
+                        "<option value='weekly'>weekly</option>" +
+                        "<option value='2x month'>2x month</option>" +
+                        "<option value='monthly'>monthly</option>" +
+                      "</select>" +
                     "</td>" +
                   "</tr>" +
 
@@ -174,13 +224,13 @@
                     "<td class='amount-field'>" +
                       "<input name='option3_child_" + i + "' type='text' class='form-control' id='option3_child_" + i + "' placeholder=''>" +
                     "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption3_child_" + i + "' id='option3_child_" + i + "_weekly' value='option3_child_" + i + "_weekly' type='radio'>" +
-                    "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption3_child_" + i + "' id='option3_child_" + i + "_2xmonth' value='option3_child_" + i + "_2xmonth' checked='' type='radio'>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption3_child_" + i + "' id='option3_child_" + i + "_monthly' value='option3_child_" + i + "_monthly' checked='' type='radio'>" +
+
+                    "<td style='border: none !important;'>" +
+                      "<select id='frequency_income_category_3_child_" + i + "' name='frequency_income_category_3_child_" + i + "' class='form-control'>" +
+                        "<option value='weekly'>weekly</option>" +
+                        "<option value='2x month'>2x month</option>" +
+                        "<option value='monthly'>monthly</option>" +
+                      "</select>" +
                     "</td>" +
                   "</tr>" +
 
@@ -190,13 +240,13 @@
                     "<td class='amount-field'>" +
                       "<input name='option4_child_" + i + "' type='text' class='form-control' id='option4_child_" + i + "' placeholder=''>" +
                     "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption4_child_" + i + "' id='option4_child_" + i + "_weekly' value='option4_child_" + i + "_weekly' type='radio'>" +
-                    "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption4_child_" + i + "' id='option4_child_" + i + "_2xmonth' value='option4_child_" + i + "_2xmonth' checked='' type='radio'>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption4_child_" + i + "' id='option4_child_" + i + "_monthly' value='option4_child_" + i + "_monthly' checked='' type='radio'>" +
+
+                    "<td style='border: none !important;'>" +
+                      "<select id='frequency_income_category_4_child_" + i + "' name='frequency_income_category_4_child_" + i + "' class='form-control'>" +
+                        "<option value='weekly'>weekly</option>" +
+                        "<option value='2x month'>2x month</option>" +
+                        "<option value='monthly'>monthly</option>" +
+                      "</select>" +
                     "</td>" +
                   "</tr>" +
 
@@ -206,13 +256,13 @@
                     "<td class='amount-field'>" +
                       "<input name='option5_child_" + i + "' type='text' class='form-control' id='option5_child_" + i + "' placeholder=''>" +
                     "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption5_child_" + i + "' id='option5_child_" + i + "_weekly' value='option5_child_" + i + "_weekly' type='radio'>" +
-                    "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption5_child_" + i + "' id='option5_child_" + i + "_2xmonth' value='option5_child_" + i + "_2xmonth' checked='' type='radio'>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption5_child_" + i + "' id='option5_child_" + i + "_monthly' value='option5_child_" + i + "_monthly' checked='' type='radio'>" +
+
+                    "<td style='border: none !important;'>" +
+                      "<select id='frequency_income_category_5_child_" + i + "' name='frequency_income_category_5_child_" + i + "' class='form-control'>" +
+                        "<option value='weekly'>weekly</option>" +
+                        "<option value='2x month'>2x month</option>" +
+                        "<option value='monthly'>monthly</option>" +
+                      "</select>" +
                     "</td>" +
                   "</tr>" +
                 "</tbody></table></div>" +
@@ -220,7 +270,11 @@
             "</div>"
           );
 
-          $("#child_"+i+"_income_table").hide();
+          if(localStorage.getItem("aboutChildrenFormaboutChildrenFormradioGroup_child_"+i) == ("child_"+i+"_has_income")) {
+            $("#child_"+i+"_income_table").show();
+          } else {
+            $("#child_"+i+"_income_table").hide();
+          }
         }
 
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form

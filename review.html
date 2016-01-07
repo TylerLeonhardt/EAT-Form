@@ -43,14 +43,24 @@
 
     <div class="container animate fadeIn">
 
-      <h2 class="form-signin-heading center-text heading" id="desc-heading">please confirm that there are # household members, including children and adults</h2>
+      <h2 class="form-signin-heading center-text heading" id="desc-heading">please review that all the information below is accurate before submitting</h2>
 
-      <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
+      <table id="allChildrenInfo">
+        <tbody>
+          <th>Name</th>
+          <th>Student?</th>
+          <th>Foster?</th>
+          <th>Homeless, Migrant, Runaway?</th>
+          <th>Has income?</th>
+        </tbody>
+      </table>
 
-          <div id="reviewChildren" class="col-md-6"><h6 style="text-align: left; padding: 6px 10px 6px 10px; background-color: #F7F7F7; margin: 0;">CHILDREN</h6></div>
-          <div id="reviewAdults" class="col-md-6"><h6 style="text-align: left; padding: 6px 10px 6px 10px; background-color: #F7F7F7; margin: 0;">ADULTS</h6></div>
-
-      </div>
+      <table id="allAdultsInfo">
+        <tbody>
+          <th>Name</th>
+          <th>Has income?</th>
+        </tbody>
+      </table>
 
       <div class="form-group">
         <a class="btn btn-lg btn-primary btn-proceed" href="ssn.html">Next</a>
@@ -71,56 +81,74 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script>
+    var show = function(el) {
+        console.log("showing ");
+        console.log(el);
+        $("#" + el.id).show("slow");
+    };
+
+    var hide = function(el) {
+        console.log("hiding ");
+        console.log(el);
+        $("#" + el.id).hide("slow");
+    };
+
       $( function() {
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
+        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
 
         var numChildren = localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren");
         var numAdults = localStorage.getItem("howManyAdultsFormhowManyAdultsFormnumAdults");
 
-        if(numChildren != null && numAdults != null ) {
-            $("#desc-heading").html("please confirm that there are " + (+numChildren + +numAdults + 1)
-              + " people in your household, including all children and adults");
-        }
-        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
-
-        for(var i = 1; i <= +numChildren; i++) {
-          console.log("child");
-          $("#reviewChildren").append(
-
-            // Child Template
-            "<span style='display:block; text-align: left; padding: 6px 10px 6px 10px;'>" +
+        // Load children data
+        for(var i = 1; i <= numChildren; i++) {
+          var newRow ="<tr><td>" +
                 localStorage.getItem("aboutChildrenFormaboutChildrenFormfirst_"+i) + " " +
                 localStorage.getItem("aboutChildrenFormaboutChildrenFormmi_"+i) + " " +
-                localStorage.getItem("aboutChildrenFormaboutChildrenFormlast_"+i) +
-            "</span>"
-          );
+                localStorage.getItem("aboutChildrenFormaboutChildrenFormlast_"+i) + "</td>";
+
+          if(localStorage.getItem("aboutChildrenFormaboutChildrenFormis_student_child_"+i) == "true") {
+            newRow += "<td>yes</td>";
+          } else {
+            newRow += "<td>no</td>"
+          }
+
+          if(localStorage.getItem("aboutChildrenFormaboutChildrenFormis_foster_child_"+i) == "true") {
+            newRow += "<td>yes</td>";
+          } else {
+            newRow += "<td>no</td>"
+          }
+
+          if(localStorage.getItem("aboutChildrenFormaboutChildrenFormis_hmr_child_"+i) == "true") {
+            newRow += "<td>yes</td>";
+          } else {
+            newRow += "<td>no</td>"
+          }
+
+          if(localStorage.getItem("aboutChildrenFormaboutChildrenFormradioGroup_child_"+i) == ("child_"+i+"_has_income")) {
+            newRow += "<td>yes</td>";
+          } else {
+            newRow += "<td>no</td>"
+          }
+
+          $('#allChildrenInfo > tbody:last-child').append(newRow);
         }
 
-        $("#reviewChildren").append("<a style='width: 100%;' class='btn btn-sm btn-primary btn-proceed' href='howmanychildren.html'>Add Another Child</a>");
-
-        for(var i = 1; i <= +numAdults; i++) {
-          console.log("adult " + i);
-          console.log(localStorage.getItem("aboutAdultsFormaboutAdultsFormfirst_"+i));
-
-          $("#reviewAdults").append(
-            // Adult Template
-            "<span style='display:block; text-align: left; padding: 6px 10px 6px 10px;'>" +
+        // Load adults data
+        for(var i = 1; i <= numAdults; i++) {
+          var newRow ="<tr><td>" +
                 localStorage.getItem("aboutAdultsFormaboutAdultsFormfirst_"+i) + " " +
                 localStorage.getItem("aboutAdultsFormaboutAdultsFormmi_"+i) + " " +
-                localStorage.getItem("aboutAdultsFormaboutAdultsFormlast_"+i) +
-            "</span>"
-          );
+                localStorage.getItem("aboutAdultsFormaboutAdultsFormlast_"+i) + "</td>";
+
+          if(localStorage.getItem("aboutAdultsFormaboutAdultsFormradioGroup_adult_"+i) == ("adult_"+i+"_has_income")) {
+            newRow += "<td>yes</td>";
+          } else {
+            newRow += "<td>no</td>"
+          }
+
+          $('#allAdultsInfo > tbody:last-child').append(newRow);
         }
-
-        // Add Self
-        $("#reviewAdults").append(
-          // Adult Template
-          "<span style='display:block; text-align: left; padding: 6px 10px 6px 10px;'>" +
-              localStorage.getItem("signatureFormsignatureFormsignature") +
-          "</span>"
-        );
-
-        $("#reviewAdults").append("<a style='width: 100%;' class='btn btn-sm btn-primary btn-proceed' href='howmanyadults.html'>Add Another Adult</a>");
       } );
     </script>
   </body>

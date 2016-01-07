@@ -68,16 +68,51 @@
     <!-- Plugins -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
+      var deleteIncome = function(adultId) {
+        // Delete income
+        localStorage.removeItem("aboutAdultsFormaboutAdultsFormoption1_adult_"+adultId);
+        localStorage.removeItem("aboutAdultsFormaboutAdultsFormoption2_adult_"+adultId);
+        localStorage.removeItem("aboutAdultsFormaboutAdultsFormoption3_adult_"+adultId);
+        localStorage.removeItem("aboutAdultsFormaboutAdultsFormoption4_adult_"+adultId);
+
+        // Delete income time frame
+        localStorage.removeItem("aboutAdultsFormaboutAdultsFormradioOption1_adult_"+adultId);
+        localStorage.removeItem("aboutAdultsFormaboutAdultsFormradioOption2_adult_"+adultId);
+        localStorage.removeItem("aboutAdultsFormaboutAdultsFormradioOption3_adult_"+adultId);
+        localStorage.removeItem("aboutAdultsFormaboutAdultsFormradioOption4_adult_"+adultId);
+      };
+
       var show = function(el) {
           console.log("showing ");
           console.log(el);
           $("#" + el.id).show("slow");
+
+          // Get adult id
+          var vals = el.id.split("_");
+          var x = +vals[1];
+
+          // Make visible inputs required
+          $(("#adult_"+x+"_income_table input:text")).attr('required', true);
+          $(("#adult_"+x+"_income_table input:radio")).attr('required', true);
       };
 
       var hide = function(el) {
           console.log("hiding ");
           console.log(el);
           $("#" + el.id).hide("slow");
+
+          // Delete the data stored locally
+          var vals = el.id.split("_");
+          var x = +vals[1];
+          deleteIncome(x);
+
+          // Delete data in this form
+          $(("#adult_"+x+"_income_table input:text")).val('');
+          $(("#adult_"+x+"_income_table input:radio")).attr('checked', false);
+
+          // Make hidden inputs not required
+          $(("#adult_"+x+"_income_table input:text")).removeAttr("required");
+          $(("#adult_"+x+"_income_table input:radio")).removeAttr("required");
       };
 
       $( function() {
@@ -86,6 +121,18 @@
         $("#defineAdult").tooltip();
 
         var numAdults = localStorage.getItem("howManyAdultsFormhowManyAdultsFormnumAdults");
+
+        // Delete old localStorage items (in case we decreased the number of children)
+        for(var x = +numAdults+1; x <= 15; x++) {
+          console.log("deleting adult " + x);
+          // Delete name
+          localStorage.removeItem("aboutAdultsFormaboutAdultsFormfirst_"+x);
+          localStorage.removeItem("aboutAdultsFormaboutAdultsFormlast_"+x);
+          localStorage.removeItem("aboutAdultsFormaboutAdultsFormmi_"+x);
+
+          // Delete has income
+          localStorage.removeItem("aboutAdultsFormaboutAdultsFormradioGroup_adult_"+x);
+        }
 
         // Add in a row for each adult
         for(var i = 1; i <= numAdults; i++) {
@@ -124,14 +171,7 @@
                 "</a>" +
                 "</div>" +
 
-                "<div id='adult_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 90%;'><tbody>" +
-                  "<thead><tr>" +
-                    "<th style='border: none;'></th>" +
-                    "<th style='border: none;'></th>" +
-                    "<th style='text-align: right; border: none;'>Weekly</th>" +
-                    "<th style='text-align: right; border: none;'>2x Month</th>" +
-                    "<th style='text-align: right; border: none;'>Monthly</th>" +
-                  "</tr></thead>" +
+                "<div id='adult_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 75%;'><tbody>" +
 
                   // Wages Income
                   "<tr>" +
@@ -139,77 +179,57 @@
                     "<td class='amount-field'>" +
                       "<input name='option1_adult_" + i + "' type='text' class='form-control' id='option1_adult_" + i + "' placeholder=''>" +
                     "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption1_adult_" + i + "' id='option1_adult_" + i + "_weekly' value='option1_adult_" + i + "_weekly' type='radio'>" +
-                    "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption1_adult_" + i + "' id='option1_adult_" + i + "_2xmonth' value='option1_adult_" + i + "_2xmonth' checked='' type='radio'>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption1_adult_" + i + "' id='option1_adult_" + i + "_monthly' value='option1_adult_" + i + "_monthly' checked='' type='radio'>" +
+                    "<td style='border: none !important;'>" +
+                      "<select id='frequency_income_category_1_adult_" + i + "' name='frequency_income_category_1_adult_" + i + "' class='form-control'>" +
+                        "<option value='weekly'>weekly</option>" +
+                        "<option value='2x month'>2x month</option>" +
+                        "<option value='monthly'>monthly</option>" +
+                      "</select>" +
                     "</td>" +
                   "</tr>" +
 
-                  // adult SS Income
+                  // Military
                   "<tr>" +
-                    "<td class='amount-label'><span><h6>SOCIAL SECURITY</h6> income from adult’s own disability or blindness</span></td>" +
+                    "<td class='amount-label'><span><h6>MILITARY</h6> basic pay or allowance</span></td>" +
                     "<td class='amount-field'>" +
                       "<input name='option2_adult_" + i + "' type='text' class='form-control' id='option2_adult_" + i + "' placeholder=''>" +
                     "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption2_adult_" + i + "' id='option2_adult_" + i + "_weekly' value='option2_adult_" + i + "_weekly' type='radio'>" +
-                    "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption2_adult_" + i + "' id='option2_adult_" + i + "_2xmonth' value='option2_adult_" + i + "_2xmonth' checked='' type='radio'>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption2_adult_" + i + "' id='option2_adult_" + i + "_monthly' value='option2_adult_" + i + "_monthly' checked='' type='radio'>" +
-                    "</td>" +
-                  "</tr>" +
-
-                  // Parent SS Income
-                  "<tr>" +
-                    "<td class='amount-label'><span><h6>SOCIAL SECURITY</h6> income because parent is disabled, retired, or deceased</span></td>" +
-                    "<td class='amount-field'>" +
-                      "<input name='option3_adult_" + i + "' type='text' class='form-control' id='option3_adult_" + i + "' placeholder=''>" +
-                    "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption3_adult_" + i + "' id='option3_adult_" + i + "_weekly' value='option3_adult_" + i + "_weekly' type='radio'>" +
-                    "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption3_adult_" + i + "' id='option3_adult_" + i + "_2xmonth' value='option3_adult_" + i + "_2xmonth' checked='' type='radio'>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption3_adult_" + i + "' id='option3_adult_" + i + "_monthly' value='option3_adult_" + i + "_monthly' checked='' type='radio'>" +
-                    "</td>" +
-                  "</tr>" +
-
-                  // Regular Income
-                  "<tr>" +
-                    "<td class='amount-label'><span><h6>REGULAR</h6> spending money from a person outside the household</span></td>" +
-                    "<td class='amount-field'>" +
-                      "<input name='option4_adult_" + i + "' type='text' class='form-control' id='option4_adult_" + i + "' placeholder=''>" +
-                    "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption4_adult_" + i + "' id='option4_adult_" + i + "_weekly' value='option4_adult_" + i + "_weekly' type='radio'>" +
-                    "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption4_adult_" + i + "' id='option4_adult_" + i + "_2xmonth' value='option4_adult_" + i + "_2xmonth' checked='' type='radio'>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption4_adult_" + i + "' id='option4_adult_" + i + "_monthly' value='option4_adult_" + i + "_monthly' checked='' type='radio'>" +
+                    "<td style='border: none !important;'>" +
+                      "<select id='frequency_income_category_2_adult_" + i + "' name='frequency_income_category_2_adult_" + i + "' class='form-control'>" +
+                        "<option value='weekly'>weekly</option>" +
+                        "<option value='2x month'>2x month</option>" +
+                        "<option value='monthly'>monthly</option>" +
+                      "</select>" +
                     "</td>" +
                   "</tr>" +
 
                   // Other Income
                   "<tr>" +
-                    "<td class='amount-label'><span><h6>OTHER</h6> income such as from a pension fund, annuity, or trust</span></td>" +
+                    "<td class='amount-label'><span><h6>OTHER</h6> income from public assistance, alimony, or child support</span></td>" +
                     "<td class='amount-field'>" +
-                      "<input name='option5_adult_" + i + "' type='text' class='form-control' id='option5_adult_" + i + "' placeholder=''>" +
+                      "<input name='option3_adult_" + i + "' type='text' class='form-control' id='option3_adult_" + i + "' placeholder=''>" +
                     "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption5_adult_" + i + "' id='option5_adult_" + i + "_weekly' value='option5_adult_" + i + "_weekly' type='radio'>" +
+                    "<td style='border: none !important;'>" +
+                      "<select id='frequency_income_category_3_adult_" + i + "' name='frequency_income_category_3_adult_" + i + "' class='form-control'>" +
+                        "<option value='weekly'>weekly</option>" +
+                        "<option value='2x month'>2x month</option>" +
+                        "<option value='monthly'>monthly</option>" +
+                      "</select>" +
                     "</td>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption5_adult_" + i + "' id='option5_adult_" + i + "_2xmonth' value='option5_adult_" + i + "_2xmonth' checked='' type='radio'>" +
-                    "<td class='payment-field'>" +
-                      "<input name='radioOption5_adult_" + i + "' id='option5_adult_" + i + "_monthly' value='option5_adult_" + i + "_monthly' checked='' type='radio'>" +
+                  "</tr>" +
+
+                  // Investment Income
+                  "<tr>" +
+                    "<td class='amount-label'><span><h6>INVESTMENTS</h6> or any other income</span></td>" +
+                    "<td class='amount-field'>" +
+                      "<input name='option4_adult_" + i + "' type='text' class='form-control' id='option4_adult_" + i + "' placeholder=''>" +
+                    "</td>" +
+                    "<td style='border: none !important;'>" +
+                      "<select id='frequency_income_category_4_adult_" + i + "' name='frequency_income_category_4_adult_" + i + "' class='form-control'>" +
+                        "<option value='weekly'>weekly</option>" +
+                        "<option value='2x month'>2x month</option>" +
+                        "<option value='monthly'>monthly</option>" +
+                      "</select>" +
                     "</td>" +
                   "</tr>" +
                 "</tbody></table></div>" +
@@ -217,7 +237,11 @@
             "</div>"
           );
 
-          $("#adult_"+i+"_income_table").hide();
+          if(localStorage.getItem("aboutAdultsFormaboutAdultsFormradioGroup_adult_"+i) == ("adult_"+i+"_has_income")) {
+            $("#adult_"+i+"_income_table").show();
+          } else {
+            $("#adult_"+i+"_income_table").hide();
+          }
         }
 
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form

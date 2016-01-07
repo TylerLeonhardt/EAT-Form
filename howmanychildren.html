@@ -80,7 +80,7 @@
         $("form").sisyphus(); //Autosave form
         $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
 
-          $("input[name='numChildren']").TouchSpin({  });
+          $("input[name='numChildren']").TouchSpin({ min: 0, max: 15 });
           $("#defineChild").tooltip();
       } );
     </script>
