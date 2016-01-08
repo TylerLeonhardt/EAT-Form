@@ -113,6 +113,25 @@ body {
 }
 
 /**
+  Color scheme
+**/
+.btn-primary {
+  background-color: #5EBBA4;
+  border-color: #3D947F;
+  transition: background-color 0.5s ease;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+  background-color: #3D947F;
+  border-color: #3D947F;
+  transition: background-color 0.5s ease;
+}
+
+.header-bar span {
+  color: #004E3A;
+}
+
+/**
   PAGE 1
 **/
 h3 {
@@ -185,6 +204,7 @@ h3 {
 
 .child_info, .adult_info {
   margin-top: 50px;
+  min-height: 135px;
 }
 
 .radio-label {

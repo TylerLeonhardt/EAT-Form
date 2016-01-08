@@ -152,7 +152,7 @@
         // Add in a row for each child
         for(var i = 1; i <= numChildren; i++) {
           $("#childrenInfo").append(
-            "<div id='child_" + i + "' class='child_info'><div class='form-group col-md-12' style='margin: 0;'>" +
+            "<div id='child_" + i + "' class='child_info well'><div class='form-group col-md-12' style='margin: 0;'>" +
                 "<div class='col-sm-2'>" +
                   "<label for='first_" + i + "'>first name</label>" +
                   "<input name='first_" + i + "' type='text' class='form-control' id='first_" + i + "' placeholder='' required='true'>" +
@@ -195,7 +195,6 @@
                   "</label>" +
                 "</div>" +
                 "</a>" +
-                "</div>" +
 
                 "<div id='child_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 75%;'><tbody>" +
 
@@ -278,6 +277,7 @@
                     "</td>" +
                   "</tr>" +
                 "</tbody></table></div>" +
+              "</div>" +
               "</div>" +
             "</div>"
           );
