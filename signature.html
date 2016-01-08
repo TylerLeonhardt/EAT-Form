@@ -51,9 +51,22 @@
 
       <form class="form-horizontal" id="signatureForm" name="signatureForm" action="yourself.html">
         <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
-          <div class="col-sm-6 col-md-offset-3">
-            <label for="signature">Signature</label>
-            <input name="signature" type="text" class="form-control" id="signature" placeholder="legal name">
+          <div class="col-sm-12">
+
+            <div class='col-sm-3'>
+              <label for='first'>first name</label>
+              <input name='first' type='text' class='form-control' id='first' placeholder='' required='true'>
+            </div>
+
+            <div class='col-sm-2' style='width: 70px;'>
+              <label for='mi'>MI</label>
+              <input name='mi' type='text' class='form-control' id='mi' placeholder='' required='true'>
+            </div>
+
+            <div class='col-sm-4'>
+              <label for='last'>last name</label>
+              <input name='last' type='text' class='form-control' id='last' placeholder='' required='true'>
+            </div>
           </div>
         </div>
 

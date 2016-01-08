@@ -78,7 +78,7 @@
         if(localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") != null) {
             $("#desc-heading").html("are all " + localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") + " children in your household foster children and currently in school?");
         }
-        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormsignature").split(" ")[0] + ", ");
+        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
       } );
 
       $("form").submit(function() {
