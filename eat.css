@@ -127,6 +127,22 @@ body {
   transition: background-color 0.5s ease;
 }
 
+.btn-back {
+  float: left;
+  background-color: white;
+  color: #5EBBA4;
+  border-color: #D4D4D4;
+  transition: background-color 0.5s ease;
+}
+
+.btn-back:hover, .btn-back:active, .btn-back:focus {
+  float: left;
+  background-color: #D4D4D4;
+  color: #5EBBA4;
+  border-color: #D4D4D4;
+  transition: background-color 0.5s ease;
+}
+
 .header-bar span {
   color: #004E3A;
 }
@@ -195,6 +211,12 @@ h3 {
   border-bottom-color: #434a54;
 }
 
+.text_label {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 500;
+}
+
 /**
   Page 6
 **/
@@ -203,8 +225,11 @@ h3 {
 }
 
 .child_info, .adult_info {
-  margin-top: 50px;
   min-height: 135px;
+}
+
+.child_name {
+  min-height: 105px;
 }
 
 .radio-label {

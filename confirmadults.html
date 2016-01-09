@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>EAT Lunch</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="eat.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/tipped/tipped.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/tipped/tipped.css"/>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="header-bar">
+        <img src="assets/img/usda.png" width="50px" />
+        <span>Free & Reduced Price School Meals Application</span>
+      </div>
+    </nav>
+
+    <div class="container animate fadeIn">
+
+      <h2 class="form-signin-heading center-text heading" id="desc-heading">please confirm the information of the # adults in your household</h2>
+
+      <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
+
+          <div id="reviewAdults" class="col-md-12"><h6 style="text-align: left; padding: 6px 10px 6px 10px; background-color: #F7F7F7; margin: 0;">Adults</h6></div>
+
+      </div>
+
+      <div class="form-group">
+        <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+        <a class="btn btn-lg btn-primary btn-proceed" href="ssn.html">Looks good!</a>
+      </div>
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="main.js"></script>
+    <script type="text/javascript" src="assets/js/sisyphus.min.js"></script>
+
+    <!-- TouchSpin -->
+    <script src="assets/js/jquery.bootstrap-touchspin.js"></script>
+    <link href="assets/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+
+    <!-- Plugins -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script>
+      $( function() {
+        $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
+
+        var numAdults = localStorage.getItem("howManyAdultsFormhowManyAdultsFormnumAdults");
+
+        if(numAdults != null) {
+          if(+numAdults == 1) {
+            $("#desc-heading").html("please confirm the information of the " + (+numAdults)
+              + " adult in your household");
+          } else {
+            $("#desc-heading").html("please confirm the information of the " + (+numAdults)
+              + " adults in your household");
+          }
+        }
+
+        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
+
+        for(var i = 1; i <= +numAdults; i++) {
+          console.log("adult");
+          var description = // Child Template
+          "<span style='display:block; text-align: left; padding: 6px 10px 6px 10px;'><p style='display: inline; font-weight: 500;'>" +
+              localStorage.getItem("aboutAdultsFormaboutAdultsFormfirst_"+i) + " " +
+              localStorage.getItem("aboutAdultsFormaboutAdultsFormmi_"+i) + " " +
+              localStorage.getItem("aboutAdultsFormaboutAdultsFormlast_"+i) + "</p> ";
+
+            if(localStorage.getItem("aboutAdultsFormaboutAdultsFormradioGroup_adult_"+i) == ("adult_"+i+"_has_income")) {
+              description += "earns:<br/><div style='margin-left: 20px; margin-top: 10px; margin-bottom: 10px; border-left: 2px solid #004E3A; padding-left: 10px;'>"
+
+              for(var income = 1; income <= 4; income++) {
+                description += "<h6 style='display: inline;'>$" + localStorage.getItem("aboutAdultsFormaboutAdultsFormoption"+income+"_adult_"+i) + " " + localStorage.getItem("aboutChildrenFormaboutChildrenFormfrequency_income_category_"+income+"_child_"+i) + "</h6> from ";
+
+                if(income == 1) description += "<h6 style='display: inline;'>SALARY or WAGE</h6> from a job";
+                else if(income == 2) description += "<h6 style='display: inline;'>MILITARY</h6> basic pay or allowance";
+                else if(income == 3) description += "<h6 style='display: inline;'>OTHER</h6> income from public assistance, alimony, or child support";
+                else if(income == 4) description += "<h6 style='display: inline;'>INVESTMENTS</h6> or any other income";
+
+                description += "<br/> ";
+              }
+
+              description += "</div>";
+            } else {
+              description += "does not earn any income."
+            }
+
+            description += "</span>";
+
+          $("#reviewAdults").append(description);
+        }
+
+        $("#reviewAdults").append("<a style='width: 50%;border-top-left-radius: 0; border-top-right-radius: 0;' class='btn btn-sm btn-primary btn-proceed' href='howmanyadults.html'>Add or Remove Adult</a>");
+        $("#reviewAdults").append("<a style='width: 50%;border-top-left-radius: 0; border-top-right-radius: 0;' class='btn btn-sm btn-primary btn-proceed' href='aboutadults.html'>Edit Adult Information</a>");
+
+      } );
+    </script>
+  </body>
+</html>

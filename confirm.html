@@ -55,6 +55,7 @@
       </div>
 
       <div class="form-group">
+        <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
         <a class="btn btn-lg btn-primary btn-proceed" href="ssn.html">Next</a>
       </div>
     </div> <!-- /container -->
@@ -80,7 +81,7 @@
         var numAdults = localStorage.getItem("howManyAdultsFormhowManyAdultsFormnumAdults");
 
         if(numChildren != null && numAdults != null ) {
-            $("#desc-heading").html("please confirm that there are " + (+numChildren + +numAdults + 1)
+            $("#desc-heading").html("please confirm that there are " + (+numChildren + +numAdults)
               + " people in your household, including all children and adults");
         }
         $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
@@ -98,7 +99,7 @@
           );
         }
 
-        $("#reviewChildren").append("<a style='width: 100%;' class='btn btn-sm btn-primary btn-proceed' href='howmanychildren.html'>Add Another Child</a>");
+        $("#reviewChildren").append("<a style='width: 100%;border-top-left-radius: 0; border-top-right-radius: 0;' class='btn btn-sm btn-primary btn-proceed' href='howmanychildren.html'>Add Another Child</a>");
 
         for(var i = 1; i <= +numAdults; i++) {
           console.log("adult " + i);
@@ -113,7 +114,7 @@
             "</span>"
           );
         }
-        $("#reviewAdults").append("<a style='width: 100%;' class='btn btn-sm btn-primary btn-proceed' href='howmanyadults.html'>Add Another Adult</a>");
+        $("#reviewAdults").append("<a style='width: 100%;border-top-left-radius: 0; border-top-right-radius: 0;' class='btn btn-sm btn-primary btn-proceed' href='howmanyadults.html'>Add Another Adult</a>");
       } );
     </script>
   </body>

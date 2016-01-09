@@ -45,23 +45,26 @@
 
       <h2 class="form-signin-heading center-text heading" id="desc-heading">do any household members (including you) participate in an Assistance Program such as SNAP, TANF, of FDPIR?</h2>
 
-      <form class="form-horizontal" id="hasSnapForm" name="hasSnapForm" action="howmanyadults.html">
-        <div class="btn-group col-md-2 col-md-offset-5" data-toggle="buttons">
-            <label class="btn btn-primary" onclick="show();">
+      <form class="form-horizontal col-md-12" id="hasSnapForm" name="hasSnapForm" action="howmanyadults.html">
+        <div class="btn-group col-md-12" data-toggle="buttons">
+          <div data-toggle="buttons">
+            <label class="btn btn-primary" onclick="show();" style="margin-right: -3px; border-top-right-radius: 0; border-bottom-right-radius: 0;">
                 <input type="radio" name='Option' value='yes' required />Yes</label>
-          <label class="btn btn-primary" onclick="hide();">
+          <label class="btn btn-primary" onclick="hide();" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
             <input type="radio" name='Option' value='no' required />No</label>
+          </div>
         </div>
 
-        <div class="col-md-6 col-md-offset-3" id="withCaseNumber" style="margin-top: 40px;">
+        <div class="col-md-12" id="withCaseNumber" style="margin-top: 40px;">
+          <div class="col-md-4 col-md-offset-4">
           <label for="caseNumber">Case number</label>
           <input name="caseNumber" type="text" class="form-control" id="caseNumber" placeholder="">
         </div>
+        </div>
 
-        <div class="form-group col-md-12" style="margin: 30px 0 30px 0;">
-          <div class="col-sm-8 col-md-offset-2">
-            <button class="btn btn-lg btn-primary btn-proceed btn-block">Next</>
-          </div>
+        <div class="form-group">
+          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+          <button class="btn btn-lg btn-primary btn-proceed">Next</button>
         </div>
     </form>
     </div> <!-- /container -->
