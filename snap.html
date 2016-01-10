@@ -45,7 +45,7 @@
 
       <h2 class="form-signin-heading center-text heading" id="desc-heading">do any household members (including you) participate in an Assistance Program such as SNAP, TANF, of FDPIR?</h2>
 
-      <form class="form-horizontal col-md-12" id="hasSnapForm" name="hasSnapForm" action="howmanyadults.html">
+      <form class="form-horizontal col-md-12" id="hasSnapForm" name="hasSnapForm" action="#">
         <div class="btn-group col-md-12" data-toggle="buttons">
           <div data-toggle="buttons">
             <label class="btn btn-primary" onclick="show();" style="margin-right: -3px; border-top-right-radius: 0; border-bottom-right-radius: 0;">
@@ -64,7 +64,7 @@
 
         <div class="form-group">
           <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
-          <button class="btn btn-lg btn-primary btn-proceed">Next</button>
+          <button type="submit" class="btn btn-lg btn-primary btn-proceed">Next</button>
         </div>
     </form>
     </div> <!-- /container -->
@@ -99,7 +99,23 @@
       } );
 
       $("form").submit(function() {
-        return true;
+        if($(this).serializeArray()[0] == undefined) {
+          return false;
+        }
+
+        console.log($(this).serializeArray()[0]);
+
+        // Store this value
+        localStorage.setItem("householdOnSNAP", $(this).serializeArray()[0].value);
+
+        // Take the user to the correct page based on their answer
+        if($(this).serializeArray()[0].value == "no") {
+          $(location).attr('href', 'howmanyadults.html');
+        } else if($(this).serializeArray()[0].value == "yes") {
+          $(location).attr('href', 'review.html');
+        }
+
+        return false;
       });
     </script>
   </body>
