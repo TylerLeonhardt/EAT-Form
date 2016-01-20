@@ -121,7 +121,7 @@ body {
   transition: background-color 0.5s ease;
 }
 
-.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary {
   background-color: #3D947F;
   border-color: #3D947F;
   transition: background-color 0.5s ease;
