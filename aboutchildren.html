@@ -30,6 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/autoNumeric-min.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -284,6 +285,12 @@
           } else {
             hide("child_"+i+"_income_table");
           }
+
+          $("#option1_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
+          $("#option2_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
+          $("#option3_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
+          $("#option4_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
+          $("#option5_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
 
           $("#defineIncome_"+i).tooltip();
         }
