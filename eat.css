@@ -441,3 +441,12 @@ select {
 .btn-group-radio > .btn {
   margin-left: -1px;
 }
+
+/**
+* Google Translate
+**/
+
+#google_translate_element {
+  margin-top: 4px;
+  float: right;
+}
