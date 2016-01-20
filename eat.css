@@ -451,6 +451,5 @@ select {
   float: right;
 }
 
-.goog-te-banner-frame.skiptranslate {
-  display: none !important;
-}
+body {top: 0px !important; position: static !important; }
+.goog-te-banner-frame {display:none !important}
