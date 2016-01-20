@@ -446,7 +446,7 @@ select {
 * Google Translate
 **/
 
-#google_translate_element {
+#translator {
   margin-top: 4px;
   float: right;
 }
