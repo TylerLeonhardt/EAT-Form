@@ -450,3 +450,7 @@ select {
   margin-top: 4px;
   float: right;
 }
+
+.skiptranslate {
+    display: none;
+}

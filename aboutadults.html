@@ -30,6 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/autoNumeric-min.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -50,7 +51,7 @@
         <h5 class="form-signin-heading center-text heading-with-hover">who live in your household, even if they are not related to you</h5>
       </a>
 
-      <form class="form-horizontal col-md-12" style="margin-top: 20px;" id="aboutAdultsForm" name="aboutAdultsForm" action="confirm.html">
+      <form class="form-horizontal col-md-12" style="margin-top: 20px;" id="aboutAdultsForm" name="aboutAdultsForm" action="confirmchildren.html">
         <div id="adultsInfo"></div>
 
         <div class="form-group">
@@ -158,19 +159,19 @@
 
               "<div class='form-group col-md-12' style='margin: 0 0 30px 15px;'>" +
 
-                "<a id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from salary, wages, bonuses, self-employment <br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> military basic pay or allowances for off-base housing<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  public assistance<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  college financial aid<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  worker’s compensation<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  unemployment benefits<br/>" +
-                  "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> strike benefits<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> pensions<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> annuities<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> trusts or estates<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> disability payments<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> child support<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> interest, dividends, or other investment income<br/>" +
-                  "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> rental income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> regular cash payments from people outside the household<br/>\"" +
-                "<div class='col-sm-12'>" +
+                  "<a id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from salary, wages, bonuses, self-employment <br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> military basic pay or allowances for off-base housing<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  public assistance<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  college financial aid<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  worker’s compensation<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  unemployment benefits<br/>" +
+                    "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> strike benefits<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> pensions<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> annuities<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> trusts or estates<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> disability payments<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> child support<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> interest, dividends, or other investment income<br/>" +
+                    "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> rental income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> regular cash payments from people outside the household<br/>\"" +
 
-                  "<label class='radio-inline'>" +
-                    "<input name='radioGroup_adult_" + i + "' id='adult_" + i + "_has_income' value='adult_" + i + "_has_income' type='radio' onclick='show(\"adult_"+i+"_income_table\")' required> This adult earns income." +
-                  "</label>" +
-                  "<label class='radio-inline'>" +
-                    "<input name='radioGroup_adult_" + i + "' id='adult_" + i + "_no_income' value='adult_" + i + "_no_income' type='radio' onclick='hide(\"adult_"+i+"_income_table\")' required> This adult does <b>not</b> earn income." +
-                  "</label>" +
-                "</div>" +
-                "</a>" +
+                  "<div class='col-sm-12'>" +
+                    "<label class='radio-inline'>" +
+                      "<input name='radioGroup_adult_" + i + "' id='adult_" + i + "_has_income' value='adult_" + i + "_has_income' type='radio' onclick='show(\"adult_"+i+"_income_table\")' required> This adult earns income." +
+                    "</label>" +
+                    "<label class='radio-inline'>" +
+                      "<input name='radioGroup_adult_" + i + "' id='adult_" + i + "_no_income' value='adult_" + i + "_no_income' type='radio' onclick='hide(\"adult_"+i+"_income_table\")' required> This adult does <b>not</b> earn income." +
+                    "</label>" +
+                  "</div>" +
+                  "</a>"+
 
                 "<div id='adult_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 75%;'><tbody>" +
 
@@ -246,6 +247,11 @@
           }
 
           $("#defineIncome_"+i).tooltip();
+
+          $("#option1_adult_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
+          $("#option2_adult_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
+          $("#option3_adult_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
+          $("#option4_adult_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
         }
 
         // Set the first person to autofill with your name

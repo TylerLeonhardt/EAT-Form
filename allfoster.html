@@ -76,7 +76,12 @@
 
       $( function() {
         if(localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") != null) {
-            $("#desc-heading").html("are all " + localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren") + " children in your household foster children and currently in school?");
+          var nc = localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren");
+          if(nc == 1) {
+            $("#desc-heading").html("is the " + nc + " child in your household a foster child and currently in school?");
+          } else {
+            $("#desc-heading").html("are all " + nc + " children in your household foster children and currently in school?");
+          }
         }
         $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
       } );
