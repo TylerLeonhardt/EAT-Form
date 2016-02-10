@@ -1,0 +1,20 @@
+<div class="container animate fadeIn">
+
+      <h2 class="form-signin-heading center-text heading" id="desc-heading">what are the last 4 digits of your Social Security Number?</h2>
+
+      <form class="form-horizontal" id="ssnForm" name="ssnForm" ng-submit="login.submit(ssnForm)">
+        <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
+          <div style="width: 70px; margin: 0 auto;">
+            <input id="ssn" type="text" class="form-control" value="" name="ssn" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' style="font-size: 20px;">
+          </div>
+
+          <label style='margin-top: 10px;'>
+            <input type='checkbox'><span style="margin-left: 5px; font-weight: normal;">No SSN</span>
+          </label>
+        </div>
+      </form>
+
+      <div class="form-group">
+        <div class="btn btn-lg btn-primary btn-proceed" type="submit">Next</div>
+      </div>
+    </div> <!-- /container -->

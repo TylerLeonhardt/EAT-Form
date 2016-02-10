@@ -1,0 +1,25 @@
+<div class="container animate fadeIn">
+
+      <h2 class="form-signin-heading center-text heading" id="desc-heading">do any household members (including you) participate in an Assistance Program such as SNAP, TANF, of FDPIR?</h2>
+
+      <form class="form-horizontal col-md-12" id="hasSnapForm" name="hasSnapForm" ng-submit="login.submit(hasSnapForm)">
+        <div class="btn-group col-md-12" data-toggle="buttons">
+          <div data-toggle="buttons">
+            <label class="btn btn-primary" ng-click="snap.show()" style="margin-right: -3px; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                <input type="radio" name='Option' value='yes' required />Yes</label>
+          <label class="btn btn-primary" ng-click="snap.hide()" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+            <input type="radio" name='Option' value='no' required />No</label>
+          </div>
+
+          <div class="col-md-4 col-md-offset-4" id="withCaseNumber" style="margin-top: 20px;">
+            <label for="caseNumber">Case number</label>
+            <input name="caseNumber" type="text" class="form-control" id="caseNumber" placeholder="">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+          <button type="submit" class="btn btn-lg btn-primary btn-proceed">Next</button>
+        </div>
+    </form>
+    </div> <!-- /container -->

@@ -42,6 +42,15 @@
       </div>
     </nav>
 
+    <div class="container">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="40"
+        aria-valuemin="0" aria-valuemax="100" style="width:30%">
+          <span class="sr-only">40% Complete</span>
+        </div>
+      </div>
+    </div>
+
     <div class="container animate fadeIn">
 
       <a id="defineChild" style='color: #333; text-decoration: none;' class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES CHILDREN:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> 18 or younger AND supported with the household’s income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> in your care under foster arrangements<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> homeless, migrant, or runaway<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> attending high school or below, regardless of age" data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
@@ -171,6 +180,12 @@
         }
 
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
+
+        $( window ).load(function() {
+          $(".progress-bar").delay(500).animate({
+              width: "40%"
+          });
+        });
 
       } );
     </script>

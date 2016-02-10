@@ -1,0 +1,19 @@
+<div class="container animate fadeIn">
+
+      <h2 class="form-signin-heading center-text" id="desc-heading">are all children in your household foster children and currently in school?</h2>
+      <h5 class="form-signin-heading center-text heading">and are not considered homeless, migrant, or runaway</h5>
+
+      <form class="form-horizontal" id="allFosterForm" name="allFosterForm" ng-submit="login.submit(allFosterForm)">
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input name="allFosterStatus" id="allFosterStatus_yes" value='yes' type="radio" required="true" />Yes</label>
+          <label class="btn btn-primary">
+            <input name="allFosterStatus" id="allFosterStatus_no" value='no'  type="radio" required="true" />No</label>
+        </div>
+
+        <div class="form-group">
+          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+          <button class="btn btn-lg btn-primary btn-proceed" type="submit">Next</button>
+        </div>
+    </form>
+    </div> <!-- /container -->
