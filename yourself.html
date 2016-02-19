@@ -42,15 +42,6 @@
       </div>
     </nav>
 
-    <div class="container">
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="10"
-        aria-valuemin="0" aria-valuemax="100" style="width:0%">
-          <span class="sr-only">10% Complete</span>
-        </div>
-      </div>
-    </div>
-
     <div class="container animate fadeIn">
 
       <h2 class="form-signin-heading center-text heading" id="desc-heading">tell us about yourself</h2>
@@ -111,12 +102,6 @@
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
 
         $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
-
-        $( window ).load(function() {
-          $(".progress-bar").delay(500).animate({
-              width: "10%"
-          });
-        });
 
         var input = document.getElementById('city');
         var options = {componentRestrictions: {country: 'us'}};
