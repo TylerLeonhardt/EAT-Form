@@ -49,7 +49,7 @@
       <h2 class="form-signin-heading center-text heading" id="desc-heading">Before submitting, please read the following statements</h2>
 
       <h5 style="text-align: left;">USDA Non-Discrimination Statement</h5>
-      <div class="col-md-12 well" style="text-align: left; max-height: 175px; overflow-y: scroll; margin-bottom: 30px;">
+      <div class="col-md-12 well" style="text-align: left; max-height: 150px; overflow-y: scroll; margin-bottom: 30px;">
         In accordance with Federal civil rights law and U.S. Department of Agriculture (USDA) civil rights regulations and policies, the USDA, its Agencies, offices, and employees, and institutions participating in or administering USDA programs are prohibited from discriminating based on race, color, national origin, sex, disability, age, or reprisal or retaliation for prior civil rights activity in any program or activity conducted or funded by USDA.
         <br/><br/>
         Persons with disabilities who require alternative means of communication for program information (e.g. Braille, large print, audiotape, American Sign Language, etc.), should contact the Agency (State or local) where they applied for benefits. Individuals who are deaf, hard of hearing or have speech disabilities may contact USDA through the Federal Relay Service at (800) 877-8339. Additionally, program information may be made available in languages other than English.
@@ -69,16 +69,56 @@
       </div>
 
       <h5 style="text-align: left; margin-top: 20px;">Use of Information Statement</h5>
-      <div class="col-md-12 well" style="text-align: left; max-height: 175px; overflow-y: scroll;">
+      <div class="col-md-12 well" style="text-align: left; max-height: 150px; overflow-y: scroll; margin-bottom: 30px;">
         The Richard B. Russell National School Lunch Act requires the information on this application. You do not have to give the information, but if you do not submit all needed information, we cannot approve your child for free or reduced price meals. You must include the last four digits of the social security number of the adult household member who signs the application. The social security number is not required when you apply on behalf of a foster child or you list a Supplemental Nutrition Assistance Program (SNAP), Temporary Assistance for Needy Families (TANF) Program or Food Distribution Program on Indian Reservations (FDPIR) case number or other FDPIR identifier for your child or when you indicate that the adult household member signing the application does not have a social security number. We will use your information to determine if your child is eligible for free or reduced price meals, and for administration and enforcement of the lunch and breakfast programs.
         <br/><br/>
         We may share your eligibility information with education, health, and nutrition programs to help them evaluate, fund, or determine benefits for their programs, auditors for program reviews, and law enforcement officials to help them look into violations of program rules.
       </div>
+
+      <h5 style="text-align: left;">Children’s Racial & Ethnic Identities Question</h5>
+      <div class="col-md-12 well" style="text-align: left; min-height: 200px;">
+        <p>We are required to ask for information about your children’s race and ethnicity. This information is important and helps to make sure we are fully serving our community. Responding to this section is <b>optional</b> and does <b>not</b> affect your children’s eligibility for free or reduced price meals.</p>
+        <div style="width: 50%; float: left;">
+          <b>Ethnicity</b>
+          <div class='col-sm-12'>
+            <label class='radio-inline'>
+              <input name='radioGroup_hispanic' id='radioGroup_hispanic' value='radioGroup_hispanic' type='radio'> Hispanic or Latino
+            </label>
+            <label class='radio-inline'>
+              <input name='radioGroup_nothispanic' id='radioGroup_hispanic' value='radioGroup_hispanic' type='radio'> Not Hispanic or Latino
+            </label>
+          </div>
+        </div>
+        <div style="width: 50%; float: right; display: inline;">
+          <b>Race</b>
+          <div class='col-sm-12'>
+            <label style="margin-right: 20px; font-weight: normal;">
+              <input name='race_americanindian_alaskannative' id='race_americanindian_alaskannative' value='race_americanindian_alaskannative' type='checkbox'> American Indian or Alaskan Native
+            </label>
+            <label style="margin-right: 20px; font-weight: normal;">
+              <input name='race_asian' id='race_asian' value='race_asian' type='checkbox'> Asian
+            </label>
+            <label style="margin-right: 20px; font-weight: normal;">
+              <input name='race_white' id='race_white' value='race_white' type='checkbox'> White
+            </label>
+            <label style="margin-right: 20px; font-weight: normal;">
+              <input name='race_black' id='race_black' value='race_black' type='checkbox'> Black or African American
+            </label>
+            <label style="margin-right: 20px; font-weight: normal;">
+              <input name='race_pacific' id='race_pacific' value='race_pacific' type='checkbox'> Native Hawaiian or Other Pacific Islander
+            </label>
+          </div>
+        </div>
+      </div>
+
       <div class="form-group">
         <a class="btn btn-lg btn-primary btn-proceed" href="done.html">Submit Application</a>
       </div>
     </div> <!-- /container -->
 
+    <img src="assets/img/school.png" id="school"/>
+    <div id="footer" class="footer">
+    </div>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>

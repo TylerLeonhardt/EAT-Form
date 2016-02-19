@@ -44,21 +44,39 @@
 
     <div class="container animate fadeIn">
 
-      <h2 class="form-signin-heading center-text heading" id="desc-heading">do any household members (including you) participate in an Assistance Program such as SNAP, TANF, of FDPIR?</h2>
+      <h2 class="form-signin-heading center-text heading" id="desc-heading">do any household members (including you) participate in an Assistance Program?</h2>
 
       <form class="form-horizontal col-md-12" id="hasSnapForm" name="hasSnapForm" action="#">
-        <div class="btn-group col-md-12" data-toggle="buttons">
-          <div data-toggle="buttons">
-            <label class="btn btn-primary" onclick="show();" style="margin-right: -3px; border-top-right-radius: 0; border-bottom-right-radius: 0;">
-                <input type="radio" name='Option' value='yes' required />Yes</label>
-          <label class="btn btn-primary" onclick="hide();" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
-            <input type="radio" name='Option' value='no' required />No</label>
-          </div>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary" onclick="show();">
+            <input name="hasSNAP" id="hasSNAP_yes" value='yes' type="radio" required="true" />Yes</label>
+          <label class="btn btn-primary" onclick="hide();">
+            <input name="hasSNAP" id="hasSNAP_no" value='no'  type="radio" required="true" />No</label>
+        </div>
 
-          <div class="col-md-4 col-md-offset-4" id="withCaseNumber" style="margin-top: 20px;">
-            <label for="caseNumber">Case number</label>
-            <input name="caseNumber" type="text" class="form-control" id="caseNumber" placeholder="">
-          </div>
+        <div class="col-md-4 col-md-offset-4" id="withCaseNumber" style="margin-top: 20px;">
+          <label for="caseNumber">Case number</label>
+          <input name="caseNumber" type="text" class="form-control" id="caseNumber" placeholder="">
+        </div>
+
+        <div class="col-md-10 col-md-offset-2" style="text-align: left; margin-top: 40px; margin-bottom: 40px;">
+          <span style='font-weight: bold; color: #aab2bd;'>THIS INCLUDES PROGRAMS LIKE:</span><br/>
+          <table class="pretty_desc" style="margin-top: 10px;">
+            <tr>
+              <th><img src="assets/img/tanf_logo.jpg" height="75px" width="150px"/></th>
+              <th style="vertical-align: bottom; text-align: center; margin-right: 20px;">OR</th>
+              <th><img src="assets/img/snap_logo.gif" height="75px"/></th>
+              <th style="vertical-align: bottom; text-align: center; margin-right: 20px;">OR</th>
+              <th><img src="assets/img/usda.png" height="75px"/></th>
+            </tr>
+            <tr>
+              <td>Temporary Assistance for Needy Families (TANF)</td>
+              <th style="padding-right: 50px;"></th>
+              <td>Supplemental Nutrition Assistance Program (SNAP) (formerly known as food stamps)</td>
+              <th style="padding-right: 50px;"></th>
+              <td>Food Distribution Program on Indian Reservations (FDPIR)</td>
+            </tr>
+          </table>
         </div>
 
         <div class="form-group">
@@ -68,6 +86,9 @@
     </form>
     </div> <!-- /container -->
 
+    <img src="assets/img/school.png" id="school"/>
+    <div id="footer" class="footer">
+    </div>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
@@ -80,13 +101,13 @@
     <script>
       var show = function() {
         console.log("showing");
-        $("#withCaseNumber").show("slow");
+        $("#withCaseNumber").show();
         $("#caseNumber").attr("required", true);
       };
 
       var hide = function() {
         console.log("hiding");
-        $("#withCaseNumber").hide("slow");
+        $("#withCaseNumber").hide();
         $("#caseNumber").removeAttr("required");
       };
 
@@ -95,6 +116,11 @@
         $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
         hide();
+
+        // Force user to click Yes or No every time they visit this page
+        $("#hasSNAP_yes").prop('checked', false);
+        $("#hasSNAP_no").prop('checked', false);
+        localStorage.removeItem("hasSnapFormhasSnapFormhasSNAP");
       } );
 
       $("form").submit(function() {
@@ -105,16 +131,18 @@
         console.log($(this).serializeArray()[0]);
 
         // Store this value
-        localStorage.setItem("householdOnSNAP", $(this).serializeArray()[0].value);
+        localStorage.setItem("hasSnapFormhasSnapFormhasSNAP", $(this).serializeArray()[0].value);
 
         // Take the user to the correct page based on their answer
         if($(this).serializeArray()[0].value == "no") {
           $(location).attr('href', 'howmanyadults.html');
+          return false;
         } else if($(this).serializeArray()[0].value == "yes") {
           $(location).attr('href', 'review.html');
+          return false;
         }
 
-        return false;
+        return;
       });
     </script>
     <script type="text/javascript">

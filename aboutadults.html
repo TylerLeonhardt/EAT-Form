@@ -51,6 +51,30 @@
         <h5 class="form-signin-heading center-text heading-with-hover">who live in your household, even if they are not related to you</h5>
       </a>
 
+      <div class="col-md-5 col-md-offset-1" style="text-align: left; margin-top: 20px;">
+        <span style='font-weight: bold; color: #aab2bd;'>THIS INCLUDES ADULTS WHO:</span><br/>
+        <table class="pretty_desc" style="width: 250px;">
+          <tr>
+            <th><img src="assets/img/piggy.png" height="75px"/></th>
+          </tr>
+          <tr>
+            <td><span style="display: block;">contribute to any household income or expenses</span><span style=" margin-top: 5px; font-style: italic; font-weight: 200; display: block;">(even if they are not related to you or don't have their own income)</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="col-md-6 col-md-offset-0" style="text-align: left; margin-top: 20px;">
+        <span style='font-weight: bold; color: #aab2bd;'>THIS DOESN'T INCLUDE ADULTS WHO:</span><br/>
+        <table class="pretty_desc" style="width: 250px;">
+          <tr>
+            <th><img src="assets/img/piggy_no.png" height="75px"/></th>
+          </tr>
+          <tr>
+            <td>do not contribute to any household income or expenses</td>
+          </tr>
+        </table>
+      </div>
+
       <form class="form-horizontal col-md-12" style="margin-top: 20px;" id="aboutAdultsForm" name="aboutAdultsForm" action="confirmchildren.html">
         <div id="adultsInfo"></div>
 
@@ -61,6 +85,9 @@
       </form>
     </div> <!-- /container -->
 
+    <img src="assets/img/school.png" id="school"/>
+    <div id="footer" class="footer">
+    </div>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
@@ -159,7 +186,7 @@
 
               "<div class='form-group col-md-12' style='margin: 0 0 30px 15px;'>" +
 
-                  "<a id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from salary, wages, bonuses, self-employment <br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> military basic pay or allowances for off-base housing<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  public assistance<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  college financial aid<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  worker’s compensation<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  unemployment benefits<br/>" +
+                  "<div id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from salary, wages, bonuses, self-employment <br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> military basic pay or allowances for off-base housing<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  public assistance<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  college financial aid<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  worker’s compensation<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  unemployment benefits<br/>" +
                     "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> strike benefits<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> pensions<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> annuities<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> trusts or estates<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> disability payments<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> child support<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> interest, dividends, or other investment income<br/>" +
                     "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> rental income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> regular cash payments from people outside the household<br/>\"" +
 
@@ -171,7 +198,7 @@
                       "<input name='radioGroup_adult_" + i + "' id='adult_" + i + "_no_income' value='adult_" + i + "_no_income' type='radio' onclick='hide(\"adult_"+i+"_income_table\")' required> This adult does <b>not</b> earn income." +
                     "</label>" +
                   "</div>" +
-                  "</a>"+
+                  "</div>"+
 
                 "<div id='adult_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 75%;'><tbody>" +
 
@@ -246,7 +273,7 @@
             hide("adult_"+i+"_income_table");
           }
 
-          $("#defineIncome_"+i).tooltip();
+          $("#defineIncome_"+i).tooltip({trigger : 'hover'});
 
           $("#option1_adult_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
           $("#option2_adult_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});

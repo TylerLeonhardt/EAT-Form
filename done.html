@@ -52,6 +52,9 @@
 
     </div> <!-- /container -->
 
+    <img src="assets/img/school.png" id="school"/>
+    <div id="footer" class="footer">
+    </div>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
@@ -67,6 +70,8 @@
 
     <script>
       $( function() {
+
+        // Draw checkmark
         var start = 100;
         var mid = 145;
         var end = 250;
@@ -79,7 +84,7 @@
 
         var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
         ctx.lineWidth = width;
-        ctx.strokeStyle = '#5EBBA4';
+        ctx.strokeStyle = '#67B345';
 
         for (i = start; i < mid; i++) {
             var drawLeft = window.setTimeout(function () {
@@ -102,6 +107,18 @@
                 rightY--;
             }, 1 + (i * animationSpeed) / 3);
         }
+
+        // Package all data
+        var LS = localStorage;
+
+        $.ajax({
+          type: "POST",
+          url: "http://fun-projects.cloudapp.net/api",
+          data: LS,
+          dataType: json
+        }).done(function() {
+          console.log("Server has received this application.");
+        });
       } );
     </script>
     <script type="text/javascript">

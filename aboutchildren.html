@@ -50,6 +50,30 @@
         <h5 class="form-signin-heading center-text heading">who live in your household, even if they are not related to you</h5>
       </a>
 
+      <div class="col-md-12 col-md-offset-0" style="text-align: left; margin-bottom: 40px;">
+        <span style='font-weight: bold; color: #aab2bd;'>THIS INCLUDES CHILDREN:</span><br/>
+        <table class="pretty_desc">
+          <tr>
+            <th><img src="assets/img/under18.png" height="75px"/></th>
+            <th style="vertical-align: bottom; text-align: center; margin-right: 20px;">OR</th>
+            <th><img src="assets/img/care.png" height="75px"/></th>
+            <th style="vertical-align: bottom; text-align: center; margin-right: 20px;">OR</th>
+            <th><img src="assets/img/run.png" height="75px"/></th>
+            <th style="vertical-align: bottom; text-align: center; margin-right: 20px;">OR</th>
+            <th><img src="assets/img/brain.png" height="75px"/></th>
+          </tr>
+          <tr>
+            <td>18 or younger AND supported with the household’s income</td>
+            <th style="padding-right: 50px;"></th>
+            <td>in your care under foster arrangements</td>
+            <th style="padding-right: 50px;"></th>
+            <td>homeless, migrant, runaway, or Head Start</td>
+            <th style="padding-right: 50px;"></th>
+            <td>attending high school or below, regardless of age</td>
+          </tr>
+        </table>
+      </div>
+
       <form class="form-horizontal col-md-12" id="aboutChildrenForm" name="aboutChildrenForm" action="snap.html">
         <div id="childrenInfo">
 
@@ -62,6 +86,9 @@
       </form>
     </div> <!-- /container -->
 
+    <img src="assets/img/school.png" id="school"/>
+    <div id="footer" class="footer">
+    </div>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
@@ -173,6 +200,9 @@
                   "<label style='margin-left: 15px;'>" +
                     "<input name='is_foster_child_" + i + "' id='is_foster_child_" + i + "' value='is_foster_child_" + i + "'type='checkbox'><span class='check-label'>foster</span>" +
                   "</label>" +
+                  "<label style='margin-left: 15px;'>" +
+                    "<input name='is_headstart_child_" + i + "' id='is_headstart_child_" + i + "' value='is_headstart_child_" + i + "'type='checkbox'><span class='check-label'>Head Start</span>" +
+                  "</label>" +
                   "<label>" +
                     "<input name='is_hmr_child_" + i + "' id='is_hmr_child_" + i + "' value='is_hmr_child_" + i + "' type='checkbox'><span class='check-label'>homeless, migrant, or runaway</span>" +
                   "</label>" +
@@ -181,7 +211,8 @@
 
               "<div class='form-group col-md-12' style='margin: 0 0 30px 15px;'>" +
 
-              "<a id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from work<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits for the child’s disability<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits because a parent is disabled, retired, or deceased<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  pension income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> trust income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> annuity income<br/>" +
+              "<div id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from work<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits for the child’s disability<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits because a parent is disabled, retired, or deceased<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  pension income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> trust income<br/>" +
+              "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> annuity income<br/>" +
                 "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> regular income, including spending money, from a relative or friend outside the household<br/>\"" +
                 "<div class='col-sm-12'>" +
 
@@ -192,7 +223,7 @@
                     "<input name='radioGroup_child_" + i + "' id='child_" + i + "_no_income' value='child_" + i + "_no_income' type='radio' onclick='hide(\"child_"+i+"_income_table\")' required> This child does <b>not</b> earn income." +
                   "</label>" +
                 "</div>" +
-                "</a>" +
+                "</div>" +
 
                 "<div id='child_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 75%;'><tbody>" +
 
@@ -292,7 +323,7 @@
           $("#option4_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
           $("#option5_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
 
-          $("#defineIncome_"+i).tooltip();
+          $("#defineIncome_"+i).tooltip({trigger : 'hover'});
         }
 
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form

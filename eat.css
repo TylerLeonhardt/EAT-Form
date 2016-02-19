@@ -4,6 +4,42 @@ body {
   padding-top: 70px;
 }
 
+/**
+* Footer
+**/
+#footer, .footer {
+  background-image: url("assets/img/short-grass.png");
+  width: 100%;
+  height: 27px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+#school {
+  position: fixed;
+  bottom: 23px;
+  left: 20px;
+  width: 100px;
+  z-index: 999;
+}
+
+#withCaseNumber {
+  margin-right: 100%;
+  margin-top: 50px;
+}
+
+.pretty_desc td {
+  vertical-align: top;
+  padding-top: 10px;
+  width: 150px;
+  text-align: center;
+}
+
+.pretty_desc th {
+  text-align: center;
+}
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -42,6 +78,7 @@ body {
 .container {
   text-align: center;
   width: 60%;
+  padding-bottom: 100px;
 }
 
 .btn-proceed {
@@ -116,21 +153,21 @@ body {
   Color scheme
 **/
 .btn-primary {
-  background-color: #5EBBA4;
-  border-color: #3D947F;
+  background-color: #82b549;
+  border-color: #638642;
   transition: background-color 0.5s ease;
 }
 
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary {
-  background-color: #3D947F;
-  border-color: #3D947F;
+  background-color: #638642;
+  border-color: #638642;
   transition: background-color 0.5s ease;
 }
 
 .btn-back {
   float: left;
   background-color: white;
-  color: #5EBBA4;
+  color: #82b549;
   border-color: #D4D4D4;
   transition: background-color 0.5s ease;
 }
@@ -138,7 +175,7 @@ body {
 .btn-back:hover, .btn-back:active, .btn-back:focus {
   float: left;
   background-color: #D4D4D4;
-  color: #5EBBA4;
+  color: #638642;
   border-color: #D4D4D4;
   transition: background-color 0.5s ease;
 }

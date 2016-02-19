@@ -51,12 +51,32 @@
       <form class="form-horizontal" id="howManyAdultsForm" name="howManyAdultsForm">
         <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
           <div style="width: 120px; margin: 0 auto;">
+            <input id="numAdults" type="text" class="form-control" value="" name="numAdults">
+          </div>
 
-            <a id="defineAdult" class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES ADULTS LIVING WITH YOU WHO:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> share household income and expenses<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> even if they are not related to you<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> even if they don't have their own income<br/><br/><span style='font-weight: bold; color: #aab2bd; '>THIS DOESN'T INCLUDE ADULTS LIVING WITH YOU WHO:</span><br/><span style='color:#dd3e3e;' class='glyphicon glyphicon-remove' aria-hidden='true'></span> are not supported by the household income<br/><span style='color:#dd3e3e;' class='glyphicon glyphicon-remove' aria-hidden='true'></span> do not contribute income to the household income"
-              data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
-              <input id="numAdults" type="text" class="form-control" value="" name="numAdults">
-            </a>
+          <div class="col-md-5 col-md-offset-1" style="text-align: left; margin-top: 40px;">
+            <span style='font-weight: bold; color: #aab2bd;'>THIS INCLUDES ADULTS WHO:</span><br/>
+            <table class="pretty_desc" style="width: 250px;">
+              <tr>
+                <th><img src="assets/img/piggy.png" height="75px"/></th>
+              </tr>
+              <tr>
+                <!-- <td><span style="display: block;">contribute to any household income or expenses</span><span style="margin-top: 8px; margin-bottom: 8px; font-weight: 700; display: block;">EVEN IF</span><span>they are not related to you or don't have their own income</span></td> -->
+                <td><span style="display: block;">contribute to any household income or expenses</span><span style=" margin-top: 5px; font-style: italic; font-weight: 200; display: block;">(even if they are not related to you or don't have their own income)</span></td>
+              </tr>
+            </table>
+          </div>
 
+          <div class="col-md-6 col-md-offset-0" style="text-align: left; margin-top: 40px;">
+            <span style='font-weight: bold; color: #aab2bd;'>THIS DOESN'T INCLUDE ADULTS WHO:</span><br/>
+            <table class="pretty_desc" style="width: 250px;">
+              <tr>
+                <th><img src="assets/img/piggy_no.png" height="75px"/></th>
+              </tr>
+              <tr>
+                <td>do not contribute to any household income or expenses</td>
+              </tr>
+            </table>
           </div>
         </div>
       </form>
@@ -67,6 +87,9 @@
       </div>
     </div> <!-- /container -->
 
+    <img src="assets/img/school.png" id="school"/>
+    <div id="footer" class="footer">
+    </div>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
