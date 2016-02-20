@@ -45,8 +45,8 @@
     <div class="container animate fadeIn">
 
       <a id="defineChild" style='color: #333; text-decoration: none;' class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES CHILDREN:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> 18 or younger AND supported with the household’s income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> in your care under foster arrangements<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> homeless, migrant, or runaway<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> attending high school or below, regardless of age" data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
-        <h2 class="form-signin-heading center-text" id="desc-heading">tell us the foster children's names</h2>
-        <h5 class="form-signin-heading center-text heading">who live in your household, even if they are not related to you</h5>
+        <h2 class="form-signin-heading center-text" id="desc-heading">tell us the names of all the students who live in your household</h2>
+        <h5 class="form-signin-heading center-text heading">and indicate which status(es) each of the students meets</h5>
       </a>
 
       <form class="form-horizontal col-md-12" id="aboutChildrenForm" name="aboutChildrenForm" action="review.html">
@@ -140,7 +140,10 @@
           // Delete status
           localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_foster_child_"+x);
           localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_student_child_"+x);
-          localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_hmr_child_"+x);
+          localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_homeless_child_"+x);
+          localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_migrant_child_"+x);
+          localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_runaway_child_"+x);
+          localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_headstart_child_"+x);
 
           // Delete has income
           localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioGroup_child_"+x);
@@ -179,7 +182,13 @@
                     "<input name='is_headstart_child_" + i + "' id='is_headstart_child_" + i + "' value='is_headstart_child_" + i + "'type='checkbox'><span class='check-label'>Head Start</span>" +
                   "</label>" +
                   "<label>" +
-                    "<input name='is_hmr_child_" + i + "' id='is_hmr_child_" + i + "' value='is_hmr_child_" + i + "' type='checkbox'><span class='check-label'>homeless, migrant, or runaway</span>" +
+                    "<input name='is_homeless_child_" + i + "' id='is_homeless_child_" + i + "' value='is_homeless_child_" + i + "' type='checkbox'><span class='check-label'>homeless</span>" +
+                  "</label>" +
+                  "<label style='margin-left: 15px;'>" +
+                    "<input name='is_migrant_child_" + i + "' id='is_migrant_child_" + i + "' value='is_migrant_child_" + i + "' type='checkbox'><span class='check-label'>migrant</span>" +
+                  "</label>" +
+                  "<label style='margin-left: 15px;'>" +
+                    "<input name='is_runaway_child_" + i + "' id='is_runaway_child_" + i + "' value='is_runaway_child_" + i + "' type='checkbox'><span class='check-label'>runaway</span>" +
                   "</label>" +
                 "</div>" +
               "</div>" +

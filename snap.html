@@ -44,7 +44,8 @@
 
     <div class="container animate fadeIn">
 
-      <h2 class="form-signin-heading center-text heading" id="desc-heading">do any household members (including you) participate in an Assistance Program?</h2>
+      <h2 class="form-signin-heading center-text" id="desc-heading">do any household members (including you) participate in an assistance program?</h2>
+      <h5 class="form-signin-heading center-text heading">If any household member participates in an assistance program, all children in your household are eligible for free meals.</h5>
 
       <form class="form-horizontal col-md-12" id="hasSnapForm" name="hasSnapForm" action="#">
         <div class="btn-group" data-toggle="buttons">
@@ -70,11 +71,11 @@
               <th><img src="assets/img/usda.png" height="75px"/></th>
             </tr>
             <tr>
-              <td>Temporary Assistance for Needy Families (TANF)</td>
+              <td><b>TANF</b><br/>Temporary Assistance for Needy Families</td>
               <th style="padding-right: 50px;"></th>
-              <td>Supplemental Nutrition Assistance Program (SNAP) (formerly known as food stamps)</td>
+              <td><b>SNAP</b><br/>Supplemental Nutrition Assistance Program (formerly known as food stamps)</td>
               <th style="padding-right: 50px;"></th>
-              <td>Food Distribution Program on Indian Reservations (FDPIR)</td>
+              <td><b>FDPIR</b><br/>Food Distribution Program on Indian Reservations</td>
             </tr>
           </table>
         </div>
@@ -135,10 +136,10 @@
 
         // Take the user to the correct page based on their answer
         if($(this).serializeArray()[0].value == "no") {
-          $(location).attr('href', 'howmanyadults.html');
+          $(location).attr('href', 'aboutchildren.html');
           return false;
         } else if($(this).serializeArray()[0].value == "yes") {
-          $(location).attr('href', 'review.html');
+          $(location).attr('href', 'childrennames.html');
           return false;
         }
 
