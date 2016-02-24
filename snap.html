@@ -83,24 +83,30 @@
           <input name="caseNumber" type="text" class="form-control" id="caseNumber" placeholder="">
         </div>
 
-        <div class="col-md-10 col-md-offset-2" style="text-align: left; margin-top: 40px; margin-bottom: 40px;">
+        <div style="text-align: left; margin-top: 40px; margin-bottom: 40px;">
           <span style='font-weight: bold; color: #aab2bd;'>THIS INCLUDES PROGRAMS LIKE:</span><br/>
-          <table class="pretty_desc" style="margin-top: 10px;">
-            <tr>
-              <th><img src="assets/img/tanf_logo.jpg" height="75px" width="150px"/></th>
-              <th style="vertical-align: bottom; text-align: center; margin-right: 20px;">OR</th>
-              <th><img src="assets/img/snap_logo.gif" height="75px"/></th>
-              <th style="vertical-align: bottom; text-align: center; margin-right: 20px;">OR</th>
-              <th><img src="assets/img/usda.png" height="75px"/></th>
-            </tr>
-            <tr>
-              <td><b>TANF</b><br/>Temporary Assistance for Needy Families</td>
-              <th style="padding-right: 50px;"></th>
-              <td><b>SNAP</b><br/>Supplemental Nutrition Assistance Program (formerly known as food stamps)</td>
-              <th style="padding-right: 50px;"></th>
-              <td><b>FDPIR</b><br/>Food Distribution Program on Indian Reservations</td>
-            </tr>
-          </table>
+          <div class="row Programs">
+              <div class="TANF col-md-3 col-md-offset-1" style="vertical-align: bottom; text-align: center;">
+                <img src="assets/img/tanf_logo.jpg" height="75px" width="150px"/>
+                <div>
+                  <b>TANF</b><br/>Temporary Assistance for Needy Families
+                </div>
+              </div>
+              <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
+              <div class="SNAP col-md-2" style="vertical-align: bottom; text-align: center;">
+                <img src="assets/img/snap_logo.gif" height="75px"/>
+                <div>
+                  <b>SNAP</b><br/>Supplemental Nutrition Assistance Program (formerly known as food stamps)
+                </div>
+              </div>
+              <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
+              <div class="USDA col-md-3" style="vertical-align: bottom; text-align: center;">
+                <img src="assets/img/usda.png" height="75px"/>
+                <div>
+                  <b>FDPIR</b><br/>Food Distribution Program on Indian Reservations
+                </div>
+              </div>
+          </div>
         </div>
 
         <div class="form-group">
