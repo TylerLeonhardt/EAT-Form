@@ -66,36 +66,50 @@
       </div>
     </nav>
 
-    <div class="container animate fadeIn">
+    <!-- progressbar -->
+    <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
+      <ul id="progressbar">
+        <li class="active">Begin</li>
+        <li class="active">Background</li>
+        <li class="active">Children</li>
+        <li class="active">Adults</li>
+        <li>Review</li>
+        <li>Done</li>
+      </ul>
+    </div>
 
-      <a id="defineAdult" style='color: #333; text-decoration: none;' class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES ADULTS LIVING WITH YOU WHO:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> share household income and expenses<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> even if they are not related to you<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> even if they don't have their own income<br/><br/><span style='font-weight: bold; color: #aab2bd; '>THIS DOESN'T INCLUDE ADULTS LIVING WITH YOU WHO:</span><br/><span style='color:#dd3e3e;' class='glyphicon glyphicon-remove' aria-hidden='true'></span> are not supported by the household income<br/><span style='color:#dd3e3e;' class='glyphicon glyphicon-remove' aria-hidden='true'></span> do not contribute income to the household income"
-        data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
-        <h2 class="form-signin-heading center-text" id="desc-heading">tell us about the adults</h2>
-        <h5 class="form-signin-heading center-text heading-with-hover">who live in your household, even if they are not related to you</h5>
-      </a>
+    <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
+      <div class="container animate fadeIn">
 
-      <div class="row Piggies" style="text-align: center;">
-          <div class="Includes col-md-offset-1 col-md-5" style="margin-top: 40px;">
-            <div style='font-weight: bold; color: #aab2bd; text-align: left;'>THIS INCLUDES ADULTS WHO:</div>
-            <img src="assets/img/piggy.png" height="75px"/>
-            <span style="display: block;">contribute to any household income or expenses</span><span style=" margin-top: 5px; font-style: italic; font-weight: 200; display: block;">(even if they are not related to you or don't have their own income)</span>
-          </div>
-          <div class="Excludes col-md-5" style="margin-top: 40px;">
-            <div style='font-weight: bold; color: #aab2bd; text-align: left;'>THIS DOESN'T INCLUDE ADULTS WHO:</div>
-            <img src="assets/img/piggy_no.png" height="75px"/>
-            <div>do not contribute to any household income or expenses</div>
-          </div>
-      </div>
+        <a id="defineAdult" style='color: #333; text-decoration: none;' class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES ADULTS LIVING WITH YOU WHO:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> share household income and expenses<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> even if they are not related to you<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> even if they don't have their own income<br/><br/><span style='font-weight: bold; color: #aab2bd; '>THIS DOESN'T INCLUDE ADULTS LIVING WITH YOU WHO:</span><br/><span style='color:#dd3e3e;' class='glyphicon glyphicon-remove' aria-hidden='true'></span> are not supported by the household income<br/><span style='color:#dd3e3e;' class='glyphicon glyphicon-remove' aria-hidden='true'></span> do not contribute income to the household income"
+          data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
+          <h2 class="form-signin-heading center-text" id="desc-heading">tell us about the adults</h2>
+          <h5 class="form-signin-heading center-text heading-with-hover">who live in your household, even if they are not related to you</h5>
+        </a>
 
-      <form class="form-horizontal col-md-12" style="margin-top: 20px;" id="aboutAdultsForm" name="aboutAdultsForm" action="confirmchildren.html">
-        <div id="adultsInfo"></div>
-
-        <div class="form-group">
-          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
-          <button class="btn btn-lg btn-primary btn-proceed">Next</button>
+        <div class="row Piggies" style="text-align: center;">
+            <div class="Includes col-md-offset-1 col-md-5" style="margin-top: 20px;">
+              <div class="table_desc">THIS INCLUDES ADULTS WHO:</div>
+              <img src="assets/img/piggy.png" height="75px"/>
+              <span style="display: block;">contribute to any household income or expenses</span><span style=" margin-top: 5px; font-style: italic; font-weight: 200; display: block;">(even if they are not related to you or don't have their own income)</span>
+            </div>
+            <div class="Excludes col-md-5" style="margin-top: 20px;">
+              <div class="table_desc">THIS DOESN'T INCLUDE ADULTS WHO:</div>
+              <img src="assets/img/piggy_no.png" height="75px"/>
+              <div>do not contribute to any household income or expenses</div>
+            </div>
         </div>
-      </form>
-    </div> <!-- /container -->
+
+        <form class="form-horizontal col-md-12" style="margin-top: 20px;" id="aboutAdultsForm" name="aboutAdultsForm" action="ssn.html">
+          <div id="adultsInfo"></div>
+
+          <div class="form-group">
+            <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+            <button class="btn btn-lg btn-primary btn-proceed">Next</button>
+          </div>
+        </form>
+      </div> <!-- /container -->
+    </div>
 
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">
@@ -216,7 +230,7 @@
 
                   // Wages Income
                   "<tr>" +
-                    "<td class='amount-label'><span><h6>SALARY</h6> or <h6>WAGE</h6> from a job</span></td>" +
+                    "<td class='amount-label'><span><h6>SALARY</h6> or <h6>WAGE</h6> from a job</span><br/><i>(net income if self-employed)</i></td>" +
                     "<td class='amount-field'>" +
                       "<input name='option1_adult_" + i + "' type='text' class='form-control' id='option1_adult_" + i + "' placeholder=''>" +
                     "</td>" +
@@ -246,7 +260,7 @@
 
                   // Other Income
                   "<tr>" +
-                    "<td class='amount-label'><span><h6>OTHER</h6> income from public assistance, alimony, or child support</span></td>" +
+                    "<td class='amount-label'><span><h6>OTHER</h6> income from public assistance, alimony, child support, unemployment benefits, worker's compensation, veteran's benefits</span></td>" +
                     "<td class='amount-field'>" +
                       "<input name='option3_adult_" + i + "' type='text' class='form-control' id='option3_adult_" + i + "' placeholder=''>" +
                     "</td>" +

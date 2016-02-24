@@ -1,7 +1,66 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic);
+
 body {
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color: #F7F7F7;
   padding-top: 70px;
+}
+
+/*progressbar*/
+#progressbar {
+  margin: 0 auto;
+  margin-top: 10px;
+  overflow: hidden;
+  counter-reset: step;
+  max-width: 450px;
+  padding: 0;
+  width: 100%;
+  z-index: 50;
+}
+#progressbar li {
+	list-style-type: none;
+	color: #909090;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 16.66%;
+	float: left;
+	position: relative;
+  text-align: center;
+  z-index: 50;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #909090;
+	background: #D4D3D3;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+  z-index: 50;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: #D4D3D3;
+	position: absolute;
+	left: -37%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #69B344;
+	color: white;
 }
 
 /**
@@ -79,6 +138,37 @@ body {
   text-align: center;
   width: 60%;
   padding-bottom: 100px;
+  margin-top: 20px;
+}
+
+.container h2 {
+  color: #777676;
+  text-transform: uppercase;
+  font-size: 24px;
+  text-shadow: 1px 1px #D6D6D6;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+}
+
+.container h5 {
+  color: #8F97A2;
+  text-shadow: 1px 1px white;
+  padding-left: 20%;
+  padding-right: 20%;
+  margin-top: 20px;
+}
+
+.Programs, .Children, .Piggies {
+  margin-top: 20px;
+}
+
+.table_desc {
+  font-weight: bold;
+  color: #8F97A2;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 15px;
+  text-shadow: 1px 1px white;
+  text-align: left;
 }
 
 .btn-proceed {
@@ -87,6 +177,15 @@ body {
 
 .page-description {
   margin-bottom: 60px;
+}
+
+/**
+  Media Queries
+**/
+@media (max-width: 750px) {
+  #site_title {
+    display: none;
+  }
 }
 
 /**
@@ -144,9 +243,10 @@ body {
 
 .header-bar span {
   margin-left: 20px;
-  font-size: 14px;
-  font-weight: 500;
   text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 /**

@@ -67,21 +67,36 @@
       </div>
     </nav>
 
-    <div class="container animate fadeIn">
+    <!-- progressbar -->
+    <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
+      <ul id="progressbar">
+        <li class="active">Begin</li>
+        <li class="active">Background</li>
+        <li class="active">Children</li>
+        <li class="active">Adults</li>
+        <li class="active">Review</li>
+        <li>Done</li>
+      </ul>
+    </div>
 
-      <h2 class="form-signin-heading center-text heading" id="desc-heading">please confirm the information of the # adults in your household</h2>
+    <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
 
-      <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
+      <div class="container animate fadeIn">
 
-          <div id="reviewAdults" class="col-md-12"><h6 style="text-align: left; padding: 6px 10px 6px 10px; background-color: #F7F7F7; margin: 0;">Adults</h6></div>
+        <h2 class="form-signin-heading center-text heading" id="desc-heading">please confirm the information of the # adults in your household</h2>
 
-      </div>
+        <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
 
-      <div class="form-group">
-        <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
-        <a class="btn btn-lg btn-primary btn-proceed" href="ssn.html">Looks good!</a>
-      </div>
-    </div> <!-- /container -->
+            <div id="reviewAdults" class="col-md-12"><h6 style="text-align: left; padding: 6px 10px 6px 10px; background-color: #F7F7F7; margin: 0;">Adults</h6></div>
+
+        </div>
+
+        <div class="form-group">
+          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+          <a class="btn btn-lg btn-primary btn-proceed" href="review.html">Looks good!</a>
+        </div>
+      </div> <!-- /container -->
+    </div>
 
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">

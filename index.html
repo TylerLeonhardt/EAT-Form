@@ -59,7 +59,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="header-bar">
         <img src="assets/img/usda.png" width="50px" />
-        <span>Free & Reduced Price School Meals Application</span>
+        <span id="site_title">Free & Reduced Price School Meals Application</span>
 
         <div id="translator" style="margin-top: 4px; float: right;"><div id="google_translate_element"></div></div>
       </div>
@@ -71,17 +71,31 @@
       </noscript>
     </nav>
 
-    <div class="container animate fadeIn" style="margin-top: 50px;">
+    <!-- progressbar -->
+    <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
+      <ul id="progressbar">
+        <li class="active">Begin</li>
+        <li>Background</li>
+        <li>Children</li>
+        <li>Adults</li>
+        <li>Review</li>
+        <li>Done</li>
+      </ul>
+    </div>
 
-      <h1 class="heading">Free & Reduced Price School Meals</h1>
+    <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
+      <div class="container animate fadeIn" style="margin-top: 20px;">
 
-      <h3 class="page-description">
-        This system will guide you through applying for free and reduced price meals for your <b>entire</b> household, even if the children in your household attend more than one school in the county.
-      </h3>
+        <h2 class="heading">Free & Reduced Price School Meals</h2>
 
-      <button class="btn btn-lg btn-primary btn-proceed" id="beginButton" disabled>Begin Application</button>
+        <h3 class="page-description">
+          This system will guide you through applying for free and reduced price meals for your <b>entire</b> household, even if the children in your household attend more than one school in the county.
+        </h3>
 
-    </div> <!-- /container -->
+        <button class="btn btn-lg btn-primary btn-proceed" id="beginButton" disabled>Begin Application</button>
+
+      </div> <!-- /container -->
+    </div>
 
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">

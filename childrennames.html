@@ -65,57 +65,71 @@
       </div>
     </nav>
 
-    <div class="container animate fadeIn">
+    <!-- progressbar -->
+    <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
+      <ul id="progressbar">
+        <li class="active">Begin</li>
+        <li class="active">Background</li>
+        <li class="active">Children</li>
+        <li>Adults</li>
+        <li>Review</li>
+        <li>Done</li>
+      </ul>
+    </div>
 
-      <a id="defineChild" style='color: #333; text-decoration: none;' class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES CHILDREN:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> 18 or younger AND supported with the household’s income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> in your care under foster arrangements<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> homeless, migrant, or runaway<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> attending high school or below, regardless of age" data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
-        <h2 class="form-signin-heading center-text" id="desc-heading">tell us the names of all the students who live in your household</h2>
-        <h5 class="form-signin-heading center-text heading">and indicate which status(es) each of the students meets</h5>
-      </a>
+    <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
+      <div class="container animate fadeIn">
 
-      <div class="col-md-12 col-md-offset-0" style="text-align: left; margin-bottom: 40px;">
-        <span style='font-weight: bold; color: #aab2bd;'>THIS INCLUDES CHILDREN:</span><br/>
-        <div class="row Children">
-            <div class="young18 col-md-2" style="vertical-align: bottom; text-align: center;">
-              <img src="assets/img/under18.png" height="75px"/>
-              <div>
-                18 or younger AND supported with the household’s income
+        <a id="defineChild" style='color: #333; text-decoration: none;' class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES CHILDREN:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> 18 or younger AND supported with the household’s income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> in your care under foster arrangements<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> homeless, migrant, or runaway<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> attending high school or below, regardless of age" data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
+          <h2 class="form-signin-heading center-text" id="desc-heading">tell us the names of all the students who live in your household</h2>
+          <h5 class="form-signin-heading center-text heading">and indicate which status(es) each of the students meets</h5>
+        </a>
+
+        <div class="col-md-12 col-md-offset-0" style="text-align: left; margin-bottom: 40px;">
+          <span style='font-weight: bold; color: #aab2bd;'>THIS INCLUDES CHILDREN:</span><br/>
+          <div class="row Children">
+              <div class="young18 col-md-2" style="vertical-align: bottom; text-align: center;">
+                <img src="assets/img/under18.png" height="75px"/>
+                <div>
+                  18 or younger AND supported with the household’s income
+                </div>
               </div>
-            </div>
-            <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
-            <div class="incare col-md-2" style="vertical-align: bottom; text-align: center;">
-              <img src="assets/img/care.png" height="75px"/>
-              <div>
-                in your care under foster arrangements
+              <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
+              <div class="incare col-md-2" style="vertical-align: bottom; text-align: center;">
+                <img src="assets/img/care.png" height="75px"/>
+                <div>
+                  in your care under foster arrangements
+                </div>
               </div>
-            </div>
-            <div class="or col-md-2"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
-            <div class="homeless col-md-2" style="vertical-align: bottom; text-align: center;">
-              <img src="assets/img/run.png" height="75px"/>
-              <div>
-                homeless, migrant, runaway, or Head Start
+              <div class="or col-md-2"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
+              <div class="homeless col-md-2" style="vertical-align: bottom; text-align: center;">
+                <img src="assets/img/run.png" height="75px"/>
+                <div>
+                  homeless, migrant, runaway, or Head Start
+                </div>
               </div>
-            </div>
-            <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
-            <div class="highschool col-md-2" style="vertical-align: bottom; text-align: center;">
-              <img src="assets/img/brain.png" height="75px"/>
-              <div>
-                attending high school or below, regardless of age
+              <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
+              <div class="highschool col-md-2" style="vertical-align: bottom; text-align: center;">
+                <img src="assets/img/brain.png" height="75px"/>
+                <div>
+                  attending high school or below, regardless of age
+                </div>
               </div>
-            </div>
+          </div>
         </div>
-      </div>
 
-      <form class="form-horizontal col-md-12" id="aboutChildrenForm" name="aboutChildrenForm" action="review.html">
-        <div id="childrenInfo">
+        <form class="form-horizontal col-md-12" id="aboutChildrenForm" name="aboutChildrenForm" action="review.html">
+          <div id="childrenInfo">
 
-        </div>
+          </div>
 
-        <div class="form-group">
-          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
-          <button type="submit" class="btn btn-lg btn-primary btn-proceed">Next</button>
-        </div>
-      </form>
-    </div> <!-- /container -->
+          <div class="form-group">
+            <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+            <button type="submit" class="btn btn-lg btn-primary btn-proceed">Next</button>
+          </div>
+        </form>
+      </div> <!-- /container -->
+    </div>
 
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">

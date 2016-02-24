@@ -65,54 +65,68 @@
       </div>
     </nav>
 
-    <div class="container animate fadeIn">
+    <!-- progressbar -->
+    <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
+      <ul id="progressbar">
+        <li class="active">Begin</li>
+        <li class="active">Background</li>
+        <li>Children</li>
+        <li>Adults</li>
+        <li>Review</li>
+        <li>Done</li>
+      </ul>
+    </div>
 
-      <h2 class="form-signin-heading center-text heading" id="desc-heading">tell us about yourself</h2>
+    <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
+      <div class="container animate fadeIn">
 
-      <form class="form-horizontal" id="addressForm" name="addressForm" action="howmanychildren.html">
-        <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
-          <span style="font-weight: 200;color: grey;text-shadow: 2px 1px 0px rgba(255, 255, 255, 1);margin-bottom: 10px;" class="col-sm-7 col-md-offset-1">REQUIRED</span>
-          <div class="col-sm-7 col-md-offset-1">
-            <label for="city" class="text_label">City, State</label>
-            <input name="city" type="text" class="form-control" id="city" placeholder="" required="true">
+        <h2 class="form-signin-heading center-text heading" id="desc-heading">tell us about yourself</h2>
+
+        <form class="form-horizontal" id="addressForm" name="addressForm" action="howmanychildren.html">
+          <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
+            <span style="font-weight: 200;color: grey;text-shadow: 2px 1px 0px rgba(255, 255, 255, 1);margin-bottom: 10px;" class="col-sm-7 col-md-offset-1">REQUIRED</span>
+            <div class="col-sm-7 col-md-offset-1">
+              <label for="city" class="text_label">City, State</label>
+              <input name="city" type="text" class="form-control" id="city" placeholder="" required="true">
+            </div>
+
+            <div class="col-sm-3">
+              <label for="zip" class="text_label">Zip Code</label>
+              <input name="zip" type="text" class="form-control" id="zip" placeholder="" required="true">
+            </div>
           </div>
 
-          <div class="col-sm-3">
-            <label for="zip" class="text_label">Zip Code</label>
-            <input name="zip" type="text" class="form-control" id="zip" placeholder="" required="true">
-          </div>
-        </div>
+          <div class="form-group col-md-12" style="margin: 20px 0 30px 0;">
+            <span style="font-weight: 200;color: grey;text-shadow: 2px 1px 0px rgba(255, 255, 255, 1);margin-bottom: 10px;" class="col-sm-7 col-md-offset-1">OPTIONAL</span>
+            <div class="col-md-7 col-md-offset-1">
+              <label for="address" class="text_label">Address</label>
+              <input name="address" type="text" class="form-control" id="address" placeholder="">
+            </div>
 
-        <div class="form-group col-md-12" style="margin: 20px 0 30px 0;">
-          <span style="font-weight: 200;color: grey;text-shadow: 2px 1px 0px rgba(255, 255, 255, 1);margin-bottom: 10px;" class="col-sm-7 col-md-offset-1">OPTIONAL</span>
-          <div class="col-md-7 col-md-offset-1">
-            <label for="address" class="text_label">Address</label>
-            <input name="address" type="text" class="form-control" id="address" placeholder="">
-          </div>
-
-          <div class="col-sm-3">
-            <label for="apt" class="text_label">Apt #</label>
-            <input name="apt" type="text" class="form-control" id="apt" placeholder="">
-          </div>
-        </div>
-
-        <div class="form-group col-md-12" style="margin: -20px 0 30px 0;">
-          <div class="col-sm-7 col-md-offset-1">
-            <label for="email" class="text_label">Email</label>
-            <input name="email" type="text" class="form-control" id="email" placeholder="">
+            <div class="col-sm-3">
+              <label for="apt" class="text_label">Apt #</label>
+              <input name="apt" type="text" class="form-control" id="apt" placeholder="">
+            </div>
           </div>
 
-          <div class="col-sm-3">
-            <label for="phone" class="text_label">Phone</label>
-            <input name="phone" type="text" class="form-control" id="phone" placeholder="">
+          <div class="form-group col-md-12" style="margin: -20px 0 30px 0;">
+            <div class="col-sm-7 col-md-offset-1">
+              <label for="email" class="text_label">Email</label>
+              <input name="email" type="text" class="form-control" id="email" placeholder="">
+            </div>
+
+            <div class="col-sm-3">
+              <label for="phone" class="text_label">Phone</label>
+              <input name="phone" type="text" class="form-control" id="phone" placeholder="">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
-          <button type="submit" class="btn btn-lg btn-primary btn-proceed">Next</button>
-        </div>
-      </form>
-    </div> <!-- /container -->
+          <div class="form-group">
+            <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+            <button type="submit" class="btn btn-lg btn-primary btn-proceed">Next</button>
+          </div>
+        </form>
+      </div> <!-- /container -->
+    </div>
 
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">

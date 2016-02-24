@@ -67,36 +67,50 @@
       </div>
     </nav>
 
-    <div class="container animate fadeIn">
+    <!-- progressbar -->
+    <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
+      <ul id="progressbar">
+        <li class="active">Begin</li>
+        <li class="active">Background</li>
+        <li class="active">Children</li>
+        <li class="active">Adults</li>
+        <li>Review</li>
+        <li>Done</li>
+      </ul>
+    </div>
 
-      <h2 class="form-signin-heading center-text heading" id="desc-heading">how many adults live in your household, including yourself?</h2>
+    <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
+      <div class="container animate fadeIn">
 
-      <form class="form-horizontal" id="howManyAdultsForm" name="howManyAdultsForm">
-        <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
-          <div style="width: 120px; margin: 0 auto;">
-            <input id="numAdults" type="text" class="form-control" value="" name="numAdults">
+        <h2 class="form-signin-heading center-text heading" id="desc-heading">how many adults live in your household, including yourself?</h2>
+
+        <form class="form-horizontal" id="howManyAdultsForm" name="howManyAdultsForm">
+          <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
+            <div style="width: 120px; margin: 0 auto;">
+              <input id="numAdults" type="text" class="form-control" value="" name="numAdults">
+            </div>
+
+            <div class="row Piggies" style="text-align: center;">
+                <div class="Includes col-md-offset-1 col-md-5" style="margin-top: 40px;">
+                  <div class="table_desc">THIS INCLUDES ADULTS WHO:</div>
+                  <img src="assets/img/piggy.png" height="75px"/>
+                  <span style="display: block;">contribute to any household income or expenses</span><span style=" margin-top: 5px; font-style: italic; font-weight: 200; display: block;">(even if they are not related to you or don't have their own income)</span>
+                </div>
+                <div class="Excludes col-md-5" style="margin-top: 40px;">
+                  <div style='font-weight: bold; color: #aab2bd; text-align: left;'>THIS DOESN'T INCLUDE ADULTS WHO:</div>
+                  <img src="assets/img/piggy_no.png" height="75px"/>
+                  <div>do not contribute to any household income or expenses</div>
+                </div>
+            </div>
           </div>
+        </form>
 
-          <div class="row Piggies" style="text-align: center;">
-              <div class="Includes col-md-offset-1 col-md-5" style="margin-top: 40px;">
-                <div style='font-weight: bold; color: #aab2bd; text-align: left;'>THIS INCLUDES ADULTS WHO:</div>
-                <img src="assets/img/piggy.png" height="75px"/>
-                <span style="display: block;">contribute to any household income or expenses</span><span style=" margin-top: 5px; font-style: italic; font-weight: 200; display: block;">(even if they are not related to you or don't have their own income)</span>
-              </div>
-              <div class="Excludes col-md-5" style="margin-top: 40px;">
-                <div style='font-weight: bold; color: #aab2bd; text-align: left;'>THIS DOESN'T INCLUDE ADULTS WHO:</div>
-                <img src="assets/img/piggy_no.png" height="75px"/>
-                <div>do not contribute to any household income or expenses</div>
-              </div>
-          </div>
+        <div class="form-group">
+          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+          <a class="btn btn-lg btn-primary btn-proceed" href="aboutadults.html">Next</a>
         </div>
-      </form>
-
-      <div class="form-group">
-        <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
-        <a class="btn btn-lg btn-primary btn-proceed" href="aboutadults.html">Next</a>
-      </div>
-    </div> <!-- /container -->
+      </div> <!-- /container -->
+    </div>
 
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">

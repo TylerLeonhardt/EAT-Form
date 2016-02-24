@@ -65,56 +65,70 @@
       </div>
     </nav>
 
-    <div class="container animate fadeIn">
+    <!-- progressbar -->
+    <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
+      <ul id="progressbar">
+        <li class="active">Begin</li>
+        <li class="active">Background</li>
+        <li>Children</li>
+        <li>Adults</li>
+        <li>Review</li>
+        <li>Done</li>
+      </ul>
+    </div>
 
-      <h2 class="form-signin-heading center-text" id="desc-heading">do any household members (including you) participate in an assistance program?</h2>
-      <h5 class="form-signin-heading center-text heading">If any household member participates in an assistance program, all children in your household are eligible for free meals.</h5>
+    <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
+      <div class="container animate fadeIn">
 
-      <form class="form-horizontal col-md-12" id="hasSnapForm" name="hasSnapForm" action="#">
-        <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary" onclick="show();">
-            <input name="hasSNAP" id="hasSNAP_yes" value='yes' type="radio" required="true" />Yes</label>
-          <label class="btn btn-primary" onclick="hide();">
-            <input name="hasSNAP" id="hasSNAP_no" value='no'  type="radio" required="true" />No</label>
-        </div>
+        <h2 class="form-signin-heading center-text" id="desc-heading">do any household members (including you) participate in an assistance program?</h2>
+        <h5 class="form-signin-heading center-text heading">If any household member participates in an assistance program, all children in your household are eligible for free meals.</h5>
 
-        <div class="col-md-4 col-md-offset-4" id="withCaseNumber" style="margin-top: 20px;">
-          <label for="caseNumber">Case number</label>
-          <input name="caseNumber" type="text" class="form-control" id="caseNumber" placeholder="">
-        </div>
-
-        <div style="text-align: left; margin-top: 40px; margin-bottom: 40px;">
-          <span style='font-weight: bold; color: #aab2bd;'>THIS INCLUDES PROGRAMS LIKE:</span><br/>
-          <div class="row Programs">
-              <div class="TANF col-md-3 col-md-offset-1" style="vertical-align: bottom; text-align: center;">
-                <img src="assets/img/tanf_logo.jpg" height="75px" width="150px"/>
-                <div>
-                  <b>TANF</b><br/>Temporary Assistance for Needy Families
-                </div>
-              </div>
-              <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
-              <div class="SNAP col-md-2" style="vertical-align: bottom; text-align: center;">
-                <img src="assets/img/snap_logo.gif" height="75px"/>
-                <div>
-                  <b>SNAP</b><br/>Supplemental Nutrition Assistance Program (formerly known as food stamps)
-                </div>
-              </div>
-              <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
-              <div class="USDA col-md-3" style="vertical-align: bottom; text-align: center;">
-                <img src="assets/img/usda.png" height="75px"/>
-                <div>
-                  <b>FDPIR</b><br/>Food Distribution Program on Indian Reservations
-                </div>
-              </div>
+        <form class="form-horizontal col-md-12" id="hasSnapForm" name="hasSnapForm" action="#">
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary" onclick="show();">
+              <input name="hasSNAP" id="hasSNAP_yes" value='yes' type="radio" required="true" />Yes</label>
+            <label class="btn btn-primary" onclick="hide();">
+              <input name="hasSNAP" id="hasSNAP_no" value='no'  type="radio" required="true" />No</label>
           </div>
-        </div>
 
-        <div class="form-group">
-          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
-          <button type="submit" class="btn btn-lg btn-primary btn-proceed">Next</button>
-        </div>
-    </form>
-    </div> <!-- /container -->
+          <div class="col-md-4 col-md-offset-4" id="withCaseNumber" style="margin-top: 20px;">
+            <label for="caseNumber">Case number</label>
+            <input name="caseNumber" type="text" class="form-control" id="caseNumber" placeholder="">
+          </div>
+
+          <div style="text-align: left; margin-top: 40px; margin-bottom: 40px;">
+            <span class="table_desc">THIS INCLUDES PROGRAMS LIKE:</span><br/>
+            <div class="row Programs">
+                <div class="TANF col-md-3 col-md-offset-1" style="vertical-align: bottom; text-align: center;">
+                  <img src="assets/img/tanf_logo.jpg" height="75px" width="150px"/>
+                  <div>
+                    <b>TANF</b><br/>Temporary Assistance for Needy Families
+                  </div>
+                </div>
+                <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
+                <div class="SNAP col-md-2" style="vertical-align: bottom; text-align: center;">
+                  <img src="assets/img/snap_logo.gif" height="75px"/>
+                  <div>
+                    <b>SNAP</b><br/>Supplemental Nutrition Assistance Program (formerly known as food stamps)
+                  </div>
+                </div>
+                <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
+                <div class="USDA col-md-3" style="vertical-align: bottom; text-align: center;">
+                  <img src="assets/img/usda.png" height="75px"/>
+                  <div>
+                    <b>FDPIR</b><br/>Food Distribution Program on Indian Reservations
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+            <button type="submit" class="btn btn-lg btn-primary btn-proceed">Next</button>
+          </div>
+      </form>
+      </div> <!-- /container -->
+    </div>
 
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">

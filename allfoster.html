@@ -65,24 +65,39 @@
       </div>
     </nav>
 
-    <div class="container animate fadeIn">
+    <!-- progressbar -->
+    <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
+      <ul id="progressbar">
+        <li class="active">Begin</li>
+        <li class="active">Background</li>
+        <li>Children</li>
+        <li>Adults</li>
+        <li>Review</li>
+        <li>Done</li>
+      </ul>
+    </div>
 
-      <h2 class="form-signin-heading center-text heading" id="desc-heading">do all students in your household	meet the criteria for one of these statuses: foster, homeless, migrant, runaway, or Head Start?</h2>
+    <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
+      <div class="container animate fadeIn">
 
-      <form class="form-horizontal" id="allFosterForm" name="allFosterForm" action="#">
-        <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary">
-            <input name="allFosterStatus" id="allFosterStatus_yes" value='yes' type="radio" required="true" />Yes</label>
-          <label class="btn btn-primary">
-            <input name="allFosterStatus" id="allFosterStatus_no" value='no'  type="radio" required="true" />No</label>
-        </div>
+        <h2 class="form-signin-heading center-text" id="desc-heading">do all students in your household	meet the criteria for one of these statuses: foster, homeless, migrant, runaway, or Head Start?</h2>
+        <h5 class="form-signin-heading center-text heading">Don't worry if all the students don't meet this critera - we'll determine each child's eligibility later.</h5>
 
-        <div class="form-group">
-          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
-          <button class="btn btn-lg btn-primary btn-proceed" >Next</button>
-        </div>
-    </form>
-    </div> <!-- /container -->
+        <form class="form-horizontal" id="allFosterForm" name="allFosterForm" action="#">
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary">
+              <input name="allFosterStatus" id="allFosterStatus_yes" value='yes' type="radio" required="true" />Yes</label>
+            <label class="btn btn-primary">
+              <input name="allFosterStatus" id="allFosterStatus_no" value='no'  type="radio" required="true" />No</label>
+          </div>
+
+          <div class="form-group">
+            <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+            <button class="btn btn-lg btn-primary btn-proceed" >Next</button>
+          </div>
+      </form>
+      </div> <!-- /container -->
+    </div>
 
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">

@@ -67,27 +67,41 @@
       </div>
     </nav>
 
-    <div class="container animate fadeIn">
+    <!-- progressbar -->
+    <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
+      <ul id="progressbar">
+        <li class="active">Begin</li>
+        <li class="active">Background</li>
+        <li class="active">Children</li>
+        <li class="active">Adults</li>
+        <li>Review</li>
+        <li>Done</li>
+      </ul>
+    </div>
 
-      <h2 class="form-signin-heading center-text" id="desc-heading">what are the last 4 digits of your Social Security Number?</h2>
-      <h5 class="form-signin-heading center-text heading">United States citizenship or immigration status is NOT a condition of eligibility for free and reduced price benefits</h5>
+    <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
+      <div class="container animate fadeIn">
 
-      <form class="form-horizontal" id="ssnForm" name="ssnForm" action="#">
-        <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
-          <div style="width: 70px; margin: 0 auto;">
-            <input id="ssn" type="text" class="form-control" value="" name="ssn" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' style="font-size: 20px;">
+        <h2 class="form-signin-heading center-text" id="desc-heading">what are the last 4 digits of your Social Security Number?</h2>
+        <h5 class="form-signin-heading center-text heading">United States citizenship or immigration status is NOT required to be eligible for free and reduced price meals.</h5>
+
+        <form class="form-horizontal" id="ssnForm" name="ssnForm" action="#">
+          <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
+            <div style="width: 70px; margin: 0 auto;">
+              <input id="ssn" type="text" class="form-control" value="" name="ssn" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' style="font-size: 20px;">
+            </div>
+
+            <label style='margin-top: 10px;'>
+              <input type='checkbox'><span style="margin-left: 5px; font-weight: normal;">No SSN</span>
+            </label>
           </div>
+        </form>
 
-          <label style='margin-top: 10px;'>
-            <input type='checkbox'><span style="margin-left: 5px; font-weight: normal;">No SSN</span>
-          </label>
+        <div class="form-group">
+          <a class="btn btn-lg btn-primary btn-proceed" href="confirmchildren.html">Next</a>
         </div>
-      </form>
-
-      <div class="form-group">
-        <a class="btn btn-lg btn-primary btn-proceed" href="review.html">Next</a>
-      </div>
-    </div> <!-- /container -->
+      </div> <!-- /container -->
+    </div>
 
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">
