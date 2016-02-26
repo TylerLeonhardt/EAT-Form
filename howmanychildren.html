@@ -72,7 +72,7 @@
       <ul id="progressbar">
         <li class="active">Begin</li>
         <li class="active">Background</li>
-        <li>Children</li>
+        <li class="active">Children</li>
         <li>Adults</li>
         <li>Review</li>
         <li>Done</li>
@@ -124,12 +124,12 @@
               </div>
             </div>
           </div>
-        </form>
 
-        <div class="form-group">
-          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
-          <a class="btn btn-lg btn-primary btn-proceed" href="allfoster.html">Next</a>
-        </div>
+          <div class="form-group">
+            <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+            <button type="submit" class="btn btn-lg btn-primary btn-proceed">Next</button>
+          </div>
+        </form>
       </div> <!-- /container -->
     </div>
 
@@ -150,6 +150,26 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script>
+      $("form").submit(function() {
+        // Get previous data - if on SNAP: just need children names; else: ask if foster.
+        var onSNAP = localStorage.getItem("hasSnapFormhasSnapFormhasSNAP");
+
+        console.log(onSNAP);
+
+        // Take the user to the correct page based on their answer
+        if(onSNAP == "no") {
+          // $(location).attr('href', 'aboutchildren.html');
+          $(location).attr('href', 'allfoster.html');
+          return false;
+        } else if(onSNAP == "yes") {
+          // $(location).attr('href', 'childrennames.html');
+          $(location).attr('href', 'childrennames.html');
+          return false;
+        }
+
+        return;
+      });
+
       $( function() {
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
         $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");

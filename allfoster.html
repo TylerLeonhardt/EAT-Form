@@ -70,7 +70,7 @@
       <ul id="progressbar">
         <li class="active">Begin</li>
         <li class="active">Background</li>
-        <li>Children</li>
+        <li class="active">Children</li>
         <li>Adults</li>
         <li>Review</li>
         <li>Done</li>
@@ -148,7 +148,7 @@
             localStorage.setItem("aboutChildrenFormaboutChildrenFormis_headstart_child_"+i, "false");
           }
 
-          $(location).attr('href', 'snap.html');
+          $(location).attr('href', 'aboutchildren.html');
           return false;
         } else if($(this).serializeArray()[0].value == "yes") {
           // Store that all children are students
