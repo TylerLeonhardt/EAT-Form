@@ -179,12 +179,12 @@
 
         // Take the user to the correct page based on their answer
         if($(this).serializeArray()[0].value == "no") {
-          // $(location).attr('href', 'aboutchildren.html');
-          $(location).attr('href', 'howmanychildren.html');
+          // $(location).attr('href', '/aboutchildren');
+          $(location).attr('href', '/howmanychildren');
           return false;
         } else if($(this).serializeArray()[0].value == "yes") {
-          // $(location).attr('href', 'childrennames.html');
-          $(location).attr('href', 'howmanychildren.html');
+          // $(location).attr('href', '/childrennames');
+          $(location).attr('href', '/howmanychildren');
           return false;
         }
 

@@ -148,7 +148,7 @@
             localStorage.setItem("aboutChildrenFormaboutChildrenFormis_headstart_child_"+i, "false");
           }
 
-          $(location).attr('href', 'aboutchildren.html');
+          $(location).attr('href', '/aboutchildren');
           return false;
         } else if($(this).serializeArray()[0].value == "yes") {
           // Store that all children are students
@@ -158,7 +158,7 @@
             localStorage.setItem("aboutChildrenFormaboutChildrenFormis_student_child_"+i, "true");
           }
 
-          $(location).attr('href', 'childrennames.html');
+          $(location).attr('href', '/childrennames');
           return false;
         }
 
