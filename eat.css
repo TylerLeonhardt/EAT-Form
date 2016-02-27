@@ -4,6 +4,7 @@ body {
   padding-bottom: 40px;
   background-color: #F7F7F7;
   padding-top: 70px;
+  overflow-x: hidden;
 }
 
 /*progressbar*/
@@ -83,7 +84,7 @@ body {
   z-index: 999;
 }
 
-#withCaseNumber {
+#withCaseNumber, #ssnDiv {
   margin-right: 100%;
   margin-top: 50px;
 }
@@ -139,6 +140,7 @@ body {
   width: 60%;
   padding-bottom: 100px;
   margin-top: 20px;
+  min-width: 400px;
 }
 
 .container h2 {
@@ -408,9 +410,39 @@ h3 {
     background-color: #F7F7F7;
 }
 
-select {
-  width: 100px !important;
+#childrenInfo .container, #adultsInfo .container {
+  width: 85%;
+  padding-bottom: 0;
 }
+
+#childrenInfo .row input, #adultsInfo .row input {
+  max-width: 170px;
+}
+
+#childrenInfo .row, #adultsInfo .row {
+  margin-bottom: 30px;
+  text-align: left;
+  margin-left: 0;
+}
+
+#childrenInfo .col-sm-4, #adultsInfo .col-sm-4 {
+  min-width: 170px;
+}
+
+#childrenInfo .col-sm-3, #adultsInfo .col-sm-3 {
+  min-width: 125px;
+}
+
+#childrenInfo .col-sm-5, #adultsInfo .col-sm-5 {
+  max-width: 300px;
+}
+
+
+.row span, .row h6 {
+  display: inline;
+}
+
+/*select:invalid { color: gray; }*/
 
 /**
   Animations

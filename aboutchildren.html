@@ -32,6 +32,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="assets/js/autoNumeric-min.js" type="text/javascript"></script>
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+
     <!-- favicon stuff-->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-touch-icon-60x60.png">
@@ -61,7 +68,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="header-bar">
         <img src="assets/img/usda.png" width="50px" />
-        <span>Free & Reduced Price School Meals Application</span>
+        <span id="site_title">Free & Reduced Price School Meals Application</span>
         <div id="translator" style="margin-top: 4px; float: right;"><div id="google_translate_element"></div></div>
       </div>
     </nav>
@@ -174,6 +181,7 @@
           // Make inputs required
           $(("#child_"+x+"_income_table input:text")).attr("required", true);
           $(("#child_"+x+"_income_table input:radio")).attr("required", true);
+          $(("#child_"+x+"_income_table select")).attr("required", true);
       };
 
       var hide = function(el) {
@@ -193,10 +201,10 @@
           // Make hidden inputs not required
           $(("#child_"+x+"_income_table input:text")).removeAttr("required");
           $(("#child_"+x+"_income_table input:radio")).removeAttr("required");
+          $(("#child_"+x+"_income_table select")).removeAttr("required");
       };
 
       $( function() {
-
         $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
         $("#defineChild").tooltip();
 
@@ -272,87 +280,97 @@
                 "</div>" +
                 "</div>" +
 
-                "<div id='child_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 75%;'><tbody>" +
+                "<div id='child_"+i+"_income_table'>"+
 
-                  // Wages Income
-                  "<tr>" +
-                    "<td class='amount-label'><span><h6>SALARY</h6> or <h6>WAGE</h6> from a job</span></td>" +
-                    "<td class='amount-field'>" +
-                      "<input name='option1_child_" + i + "' type='text' class='form-control' id='option1_child_" + i + "' placeholder=''>" +
-                    "</td>" +
-                    "<td style='border: none !important;'>" +
-                      "<select id='frequency_income_category_1_child_" + i + "' name='frequency_income_category_1_child_" + i + "' class='form-control'>" +
-                        "<option value='weekly'>weekly</option>" +
-                        "<option value='2x month'>2x month</option>" +
-                        "<option value='monthly'>monthly</option>" +
-                      "</select>" +
-                    "</td>" +
-                  "</tr>" +
+                  // RESPONSIVE INCOME TABLE
+                  "<div class='container'>"+
 
-                  // Child SS Income
-                  "<tr>" +
-                    "<td class='amount-label'><span><h6>SOCIAL SECURITY</h6> income from child’s own disability or blindness</span></td>" +
-                    "<td class='amount-field'>" +
-                      "<input name='option2_child_" + i + "' type='text' class='form-control' id='option2_child_" + i + "' placeholder=''>" +
-                    "</td>" +
+                    // SALARY
+                    "<div class='row'>"+
+                        "<div class='col-sm-5'>"+
+                          "<span><h6>SALARY</h6> or <h6>WAGE</h6> from a job</span>"+
+                        "</div>"+
+                        "<div class='col-sm-3'>"+
+                          "<input name='option1_child_" + i + "' type='text' class='form-control' id='option1_child_" + i + "' placeholder=''>" +
+                        "</div>"+
+                        "<div class='col-sm-4'>"+
+                          "<select id='frequency_income_category_1_child_" + i + "' name='frequency_income_category_1_child_" + i + "' class='selectpicker' title='select frequency'>" +
+                            "<option value='weekly'>weekly</option>" +
+                            "<option value='2x month'>2x month</option>" +
+                            "<option value='monthly'>monthly</option>" +
+                          "</select>" +
+                        "</div>"+
+                    "</div>"+
 
-                    "<td style='border: none !important;'>" +
-                      "<select id='frequency_income_category_2_child_" + i + "' name='frequency_income_category_2_child_" + i + "' class='form-control'>" +
-                        "<option value='weekly'>weekly</option>" +
-                        "<option value='2x month'>2x month</option>" +
-                        "<option value='monthly'>monthly</option>" +
-                      "</select>" +
-                    "</td>" +
-                  "</tr>" +
+                    // CHILD SOCIAL SECURITY
+                    "<div class='row'>"+
+                      "<div class='col-sm-5'>"+
+                        "<span><h6>SOCIAL SECURITY</h6> income from child’s own disability or blindness</span>"+
+                      "</div>"+
+                      "<div class='col-sm-3'>"+
+                        "<input name='option2_child_" + i + "' type='text' class='form-control' id='option2_child_" + i + "' placeholder=''>" +
+                      "</div>"+
+                      "<div class='col-sm-4'>"+
+                        "<select id='frequency_income_category_2_child_" + i + "' name='frequency_income_category_2_child_" + i + "' class='selectpicker' title='select frequency'>" +
+                          "<option value='weekly'>weekly</option>" +
+                          "<option value='2x month'>2x month</option>" +
+                          "<option value='monthly'>monthly</option>" +
+                        "</select>" +
+                      "</div>"+
+                    "</div>"+
 
-                  // Parent SS Income
-                  "<tr>" +
-                    "<td class='amount-label'><span><h6>SOCIAL SECURITY</h6> income because parent is disabled, retired, or deceased</span></td>" +
-                    "<td class='amount-field'>" +
-                      "<input name='option3_child_" + i + "' type='text' class='form-control' id='option3_child_" + i + "' placeholder=''>" +
-                    "</td>" +
+                    // PARENT SOCIAL SECURITY
+                    "<div class='row'>"+
+                        "<div class='col-sm-5'>"+
+                          "<span><h6>SOCIAL SECURITY</h6> income because parent is disabled, retired, or deceased</span>"+
+                        "</div>"+
+                        "<div class='col-sm-3'>"+
+                          "<input name='option3_child_" + i + "' type='text' class='form-control' id='option3_child_" + i + "' placeholder=''>" +
+                        "</div>"+
+                        "<div class='col-sm-4'>"+
+                          "<select id='frequency_income_category_3_child_" + i + "' name='frequency_income_category_3_child_" + i + "' class='selectpicker' title='select frequency'>" +
+                            "<option value='weekly'>weekly</option>" +
+                            "<option value='2x month'>2x month</option>" +
+                            "<option value='monthly'>monthly</option>" +
+                          "</select>" +
+                        "</div>"+
+                    "</div>"+
 
-                    "<td style='border: none !important;'>" +
-                      "<select id='frequency_income_category_3_child_" + i + "' name='frequency_income_category_3_child_" + i + "' class='form-control'>" +
-                        "<option value='weekly'>weekly</option>" +
-                        "<option value='2x month'>2x month</option>" +
-                        "<option value='monthly'>monthly</option>" +
-                      "</select>" +
-                    "</td>" +
-                  "</tr>" +
+                    // REGULAR SPENDING
+                    "<div class='row'>"+
+                        "<div class='col-sm-5'>"+
+                          "<span><h6>REGULAR</h6> spending money from a person outside the household</span>"+
+                        "</div>"+
+                        "<div class='col-sm-3'>"+
+                          "<input name='option4_child_" + i + "' type='text' class='form-control' id='option4_child_" + i + "' placeholder=''>" +
+                        "</div>"+
+                        "<div class='col-sm-4'>"+
+                          "<select id='frequency_income_category_4_child_" + i + "' name='frequency_income_category_4_child_" + i + "' class='selectpicker' title='select frequency'>" +
+                            "<option value='weekly'>weekly</option>" +
+                            "<option value='2x month'>2x month</option>" +
+                            "<option value='monthly'>monthly</option>" +
+                          "</select>" +
+                        "</div>"+
+                    "</div>"+
 
-                  // Regular Income
-                  "<tr>" +
-                    "<td class='amount-label'><span><h6>REGULAR</h6> spending money from a person outside the household</span></td>" +
-                    "<td class='amount-field'>" +
-                      "<input name='option4_child_" + i + "' type='text' class='form-control' id='option4_child_" + i + "' placeholder=''>" +
-                    "</td>" +
-
-                    "<td style='border: none !important;'>" +
-                      "<select id='frequency_income_category_4_child_" + i + "' name='frequency_income_category_4_child_" + i + "' class='form-control'>" +
-                        "<option value='weekly'>weekly</option>" +
-                        "<option value='2x month'>2x month</option>" +
-                        "<option value='monthly'>monthly</option>" +
-                      "</select>" +
-                    "</td>" +
-                  "</tr>" +
-
-                  // Other Income
-                  "<tr>" +
-                    "<td class='amount-label'><span><h6>OTHER</h6> income such as from a pension fund, annuity, or trust</span></td>" +
-                    "<td class='amount-field'>" +
-                      "<input name='option5_child_" + i + "' type='text' class='form-control' id='option5_child_" + i + "' placeholder=''>" +
-                    "</td>" +
-
-                    "<td style='border: none !important;'>" +
-                      "<select id='frequency_income_category_5_child_" + i + "' name='frequency_income_category_5_child_" + i + "' class='form-control'>" +
-                        "<option value='weekly'>weekly</option>" +
-                        "<option value='2x month'>2x month</option>" +
-                        "<option value='monthly'>monthly</option>" +
-                      "</select>" +
-                    "</td>" +
-                  "</tr>" +
-                "</tbody></table></div>" +
+                    // OTHER INCOME
+                    "<div class='row'>"+
+                        "<div class='col-sm-5'>"+
+                          "<span><h6>OTHER</h6> income such as from a pension fund, annuity, or trust</span>"+
+                        "</div>"+
+                        "<div class='col-sm-3'>"+
+                          "<input name='option5_child_" + i + "' type='text' class='form-control' id='option5_child_" + i + "' placeholder=''>" +
+                        "</div>"+
+                        "<div class='col-sm-4'>"+
+                          "<select id='frequency_income_category_5_child_" + i + "' name='frequency_income_category_5_child_" + i + "' class='selectpicker' title='select frequency'>" +
+                            "<option value='weekly'>weekly</option>" +
+                            "<option value='2x month'>2x month</option>" +
+                            "<option value='monthly'>monthly</option>" +
+                          "</select>" +
+                        "</div>"+
+                    "</div>"+
+                "</div>"+
+                "</div>" +
               "</div>" +
               "</div>" +
             "</div>"
