@@ -32,6 +32,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="assets/js/autoNumeric-min.js" type="text/javascript"></script>
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+
     <!-- favicon stuff-->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-touch-icon-60x60.png">
@@ -150,6 +157,7 @@
           // Make visible inputs required
           $(("#adult_"+x+"_income_table input:text")).attr('required', true);
           $(("#adult_"+x+"_income_table input:radio")).attr('required', true);
+          $(("#adult_"+x+"_income_table select")).attr("required", true);
       };
 
       var hide = function(el) {
@@ -169,6 +177,7 @@
           // Make hidden inputs not required
           $(("#adult_"+x+"_income_table input:text")).removeAttr("required");
           $(("#adult_"+x+"_income_table input:radio")).removeAttr("required");
+          $(("#adult_"+x+"_income_table select")).removeAttr("required");
       };
 
       $( function() {
@@ -226,68 +235,80 @@
                   "</div>" +
                   "</div>"+
 
-                "<div id='adult_"+i+"_income_table'><table class='table' style='margin-left: 40px; width: 75%;'><tbody>" +
+                "<div id='adult_"+i+"_income_table'>"+
 
-                  // Wages Income
-                  "<tr>" +
-                    "<td class='amount-label'><span><h6>SALARY</h6> or <h6>WAGE</h6> from a job</span><br/><i>(net income if self-employed)</i></td>" +
-                    "<td class='amount-field'>" +
-                      "<input name='option1_adult_" + i + "' type='text' class='form-control' id='option1_adult_" + i + "' placeholder=''>" +
-                    "</td>" +
-                    "<td style='border: none !important;'>" +
-                      "<select id='frequency_income_category_1_adult_" + i + "' name='frequency_income_category_1_adult_" + i + "' class='form-control'>" +
-                        "<option value='weekly'>weekly</option>" +
-                        "<option value='2x month'>2x month</option>" +
-                        "<option value='monthly'>monthly</option>" +
-                      "</select>" +
-                    "</td>" +
-                  "</tr>" +
+                  // RESPONSIVE INCOME TABLE
+                  "<div class='container'>"+
 
-                  // Military
-                  "<tr>" +
-                    "<td class='amount-label'><span><h6>MILITARY</h6> basic pay or allowance</span></td>" +
-                    "<td class='amount-field'>" +
-                      "<input name='option2_adult_" + i + "' type='text' class='form-control' id='option2_adult_" + i + "' placeholder=''>" +
-                    "</td>" +
-                    "<td style='border: none !important;'>" +
-                      "<select id='frequency_income_category_2_adult_" + i + "' name='frequency_income_category_2_adult_" + i + "' class='form-control'>" +
-                        "<option value='weekly'>weekly</option>" +
-                        "<option value='2x month'>2x month</option>" +
-                        "<option value='monthly'>monthly</option>" +
-                      "</select>" +
-                    "</td>" +
-                  "</tr>" +
+                    // SALARY
+                    "<div class='row'>"+
+                        "<div class='col-sm-5'>"+
+                          "<span><h6>SALARY</h6> or <h6>WAGE</h6> from a job</span><br/><i>(net income if self-employed)</i>"+
+                        "</div>"+
+                        "<div class='col-sm-3'>"+
+                          "<input name='option1_adult_" + i + "' type='text' class='form-control' id='option1_adult_" + i + "' placeholder=''>" +
+                        "</div>"+
+                        "<div class='col-sm-4'>"+
+                          "<select id='frequency_income_category_1_adult_" + i + "' name='frequency_income_category_1_adult_" + i + "' class='selectpicker' title='select frequency'>" +
+                            "<option value='weekly'>weekly</option>" +
+                            "<option value='2x month'>2x month</option>" +
+                            "<option value='monthly'>monthly</option>" +
+                          "</select>" +
+                        "</div>"+
+                    "</div>"+
 
-                  // Other Income
-                  "<tr>" +
-                    "<td class='amount-label'><span><h6>OTHER</h6> income from public assistance, alimony, child support, unemployment benefits, worker's compensation, veteran's benefits</span></td>" +
-                    "<td class='amount-field'>" +
-                      "<input name='option3_adult_" + i + "' type='text' class='form-control' id='option3_adult_" + i + "' placeholder=''>" +
-                    "</td>" +
-                    "<td style='border: none !important;'>" +
-                      "<select id='frequency_income_category_3_adult_" + i + "' name='frequency_income_category_3_adult_" + i + "' class='form-control'>" +
-                        "<option value='weekly'>weekly</option>" +
-                        "<option value='2x month'>2x month</option>" +
-                        "<option value='monthly'>monthly</option>" +
-                      "</select>" +
-                    "</td>" +
-                  "</tr>" +
+                    // MILITARY WAGES
+                    "<div class='row'>"+
+                      "<div class='col-sm-5'>"+
+                        "<span><h6>MILITARY</h6> basic pay or allowance</span>"+
+                      "</div>"+
+                      "<div class='col-sm-3'>"+
+                        "<input name='option2_adult_" + i + "' type='text' class='form-control' id='option2_adult_" + i + "' placeholder=''>" +
+                      "</div>"+
+                      "<div class='col-sm-4'>"+
+                        "<select id='frequency_income_category_2_adult_" + i + "' name='frequency_income_category_2_adult_" + i + "' class='selectpicker' title='select frequency'>" +
+                           "<option value='weekly'>weekly</option>" +
+                           "<option value='2x month'>2x month</option>" +
+                           "<option value='monthly'>monthly</option>" +
+                         "</select>" +
+                      "</div>"+
+                    "</div>"+
 
-                  // Investment Income
-                  "<tr>" +
-                    "<td class='amount-label'><span><h6>INVESTMENTS</h6> or any other income</span></td>" +
-                    "<td class='amount-field'>" +
-                      "<input name='option4_adult_" + i + "' type='text' class='form-control' id='option4_adult_" + i + "' placeholder=''>" +
-                    "</td>" +
-                    "<td style='border: none !important;'>" +
-                      "<select id='frequency_income_category_4_adult_" + i + "' name='frequency_income_category_4_adult_" + i + "' class='form-control'>" +
-                        "<option value='weekly'>weekly</option>" +
-                        "<option value='2x month'>2x month</option>" +
-                        "<option value='monthly'>monthly</option>" +
-                      "</select>" +
-                    "</td>" +
-                  "</tr>" +
-                "</tbody></table></div>" +
+                    // OTHER INCOME
+                    "<div class='row'>"+
+                        "<div class='col-sm-5'>"+
+                          "<span><h6>OTHER</h6> income from public assistance, alimony, child support, unemployment benefits, worker's compensation, veteran's benefits</span>"+
+                        "</div>"+
+                        "<div class='col-sm-3'>"+
+                          "<input name='option3_adult_" + i + "' type='text' class='form-control' id='option3_adult_" + i + "' placeholder=''>" +
+                        "</div>"+
+                        "<div class='col-sm-4'>"+
+                          "<select id='frequency_income_category_3_adult_" + i + "' name='frequency_income_category_3_adult_" + i + "' class='selectpicker' title='select frequency'>" +
+                            "<option value='weekly'>weekly</option>" +
+                            "<option value='2x month'>2x month</option>" +
+                            "<option value='monthly'>monthly</option>" +
+                          "</select>" +
+                        "</div>"+
+                    "</div>"+
+
+                    // INVESTMENT INCOME
+                    "<div class='row'>"+
+                        "<div class='col-sm-5'>"+
+                          "<span><h6>INVESTMENTS</h6> or any other income</span>"+
+                        "</div>"+
+                        "<div class='col-sm-3'>"+
+                          "<input name='option4_adult_" + i + "' type='text' class='form-control' id='option4_adult_" + i + "' placeholder=''>" +
+                        "</div>"+
+                        "<div class='col-sm-4'>"+
+                          "<select id='frequency_income_category_4_adult_" + i + "' name='frequency_income_category_4_adult_" + i + "' class='selectpicker' title='select frequency'>" +
+                            "<option value='weekly'>weekly</option>" +
+                            "<option value='2x month'>2x month</option>" +
+                            "<option value='monthly'>monthly</option>" +
+                          "</select>" +
+                        "</div>"+
+                    "</div>"+
+                "</div>"+
+                "</div>" +
                 "</div>" +
               "</div>" +
             "</div>"

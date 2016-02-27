@@ -82,25 +82,28 @@
     <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
       <div class="container animate fadeIn">
 
-        <h2 class="form-signin-heading center-text" id="desc-heading">what are the last 4 digits of your Social Security Number?</h2>
-        <h5 class="form-signin-heading center-text heading">United States citizenship or immigration status is NOT required to be eligible for free and reduced price meals.</h5>
+        <h2 class="form-signin-heading center-text" id="desc-heading">does any adult in your household have a Social Security Number?</h2>
+        <h5 class="form-signin-heading center-text heading">United States citizenship, Social Security Number, or immigration status is NOT required to be eligible for free and reduced price meals.</h5>
 
-        <form class="form-horizontal" id="ssnForm" name="ssnForm" action="#">
-          <div class="form-group col-md-12" style="margin: 0 0 30px 0;">
-            <div style="width: 70px; margin: 0 auto;">
-              <input id="ssn" type="text" class="form-control" value="" name="ssn" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' style="font-size: 20px;">
-            </div>
+        <form class="form-horizontal col-md-12" id="ssnForm" name="ssnForm" action="#">
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary" onclick="show();">
+              <input name="hasSSN" id="hasSSN_yes" value='yes' type="radio" required="true" />Yes</label>
+            <label class="btn btn-primary" onclick="hide();">
+              <input name="hasSSN" id="hasSSN_no" value='no'  type="radio" required="true" />No</label>
+          </div>
 
-            <label style='margin-top: 10px;'>
-              <input type='checkbox'><span style="margin-left: 5px; font-weight: normal;">No SSN</span>
-            </label>
+          <div class="col-md-2 col-md-offset-5" id="ssnDiv" style="margin-top: 20px;text-align: left;">
+            <label for="ssn">last 4 digits</label>
+            <input name="ssn" type="text" class="form-control" id="ssn" placeholder="" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' style="font-size: 20px;">
+          </div>
+
+          <div class="form-group">
+            <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
+            <button type="submit" class="btn btn-lg btn-primary btn-proceed">Next</button>
+            <!-- <a class="btn btn-lg btn-primary btn-proceed" href="confirmchildren.html">Next</a> -->
           </div>
         </form>
-
-        <div class="form-group">
-          <a class="btn btn-lg btn-primary btn-proceed" href="/confirmchildren">Next</a>
-          <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
-        </div>
       </div> <!-- /container -->
     </div>
 
@@ -121,10 +124,45 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script>
+      var show = function() {
+        console.log("showing");
+        $("#ssnDiv").show();
+        $("#ssn").attr("required", true);
+      };
+
+      var hide = function() {
+        console.log("hiding");
+        $("#ssnDiv").hide();
+        $("#ssn").removeAttr("required");
+      };
+
       $( function() {
         $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
         $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
+
+        hide();
+
+        // Force user to click Yes or No every time they visit this page
+        $("#hasSSN_yes").prop('checked', false);
+        $("#hasSSN_no").prop('checked', false);
+        localStorage.removeItem("ssnFormssnFormhasSSN");
       } );
+
+      $("form").submit(function() {
+        if($(this).serializeArray()[0] == undefined) {
+          console.log("sos");
+          return false;
+        }
+
+        console.log($(this).serializeArray()[0]);
+
+        // Store this value
+        localStorage.setItem("ssnFormssnFormhasSSN", $(this).serializeArray()[0].value);
+
+        // Take the user to next page
+        $(location).attr('href', 'confirmchildren.html');
+        return false;
+      });
     </script>
     <script type="text/javascript">
       function googleTranslateElementInit() {
