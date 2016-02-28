@@ -1,64 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>EAT Lunch</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="eat.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/tipped/tipped.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/tipped/tipped.css"/>
-
-    <!-- favicon stuff-->
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="assets/img/favicon-194x194.png" sizes="194x194">
-    <link rel="icon" type="image/png" href="assets/img/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="assets/img/android-chrome-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="assets/img/manifest.json">
-    <link rel="mask-icon" href="assets/img/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="assets/img/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-TileImage" content="assets/img/mstile-144x144.png">
-    <meta name="msapplication-config" content="assets/img/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="import" href="assets/imports.html">
   </head>
 
   <body>
 
+    <!-- Header bar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="header-bar">
         <img src="assets/img/usda.png" width="50px" />
@@ -67,7 +15,7 @@
       </div>
     </nav>
 
-    <!-- progressbar -->
+    <!-- Progress bar -->
     <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
       <ul id="progressbar">
         <li class="active">Begin</li>
@@ -79,16 +27,21 @@
       </ul>
     </div>
 
+    <!-- Main container -->
     <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
       <div class="container animate fadeIn">
 
+        <!-- Success message -->
         <h2 class="form-signin-heading center-text heading" id="desc-heading">Your application has been submitted!</h2>
         <h5>Your application will be reviewed by the school district and your household will be informed whether the children have been approved for free or reduced price school meals.</h5>
+
+        <!-- Drawing check mark -->
         <canvas height="400"></canvas>
 
       </div> <!-- /container -->
     </div>
 
+    <!-- Footer image -->
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">
     </div>
@@ -107,58 +60,11 @@
 
     <script>
       $( function() {
+        // Draw the checkmark in the canvas
+        EAT.done.drawCheckmark();
 
-        // Draw checkmark
-        var start = 100;
-        var mid = 145;
-        var end = 250;
-        var width = 22;
-        var leftX = start;
-        var leftY = start;
-        var rightX = mid - (width / 2.7);
-        var rightY = mid + (width / 2.7);
-        var animationSpeed = 15;
-
-        var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
-        ctx.lineWidth = width;
-        ctx.strokeStyle = '#67B345';
-
-        for (i = start; i < mid; i++) {
-            var drawLeft = window.setTimeout(function () {
-                ctx.beginPath();
-                ctx.moveTo(start, start);
-                ctx.lineTo(leftX, leftY);
-                ctx.stroke();
-                leftX++;
-                leftY++;
-            }, 1 + (i * animationSpeed) / 3);
-        }
-
-        for (i = mid; i < end; i++) {
-            var drawRight = window.setTimeout(function () {
-                ctx.beginPath();
-                ctx.moveTo(leftX, leftY);
-                ctx.lineTo(rightX, rightY);
-                ctx.stroke();
-                rightX++;
-                rightY--;
-            }, 1 + (i * animationSpeed) / 3);
-        }
-
-        // Package all data
-        var LS = localStorage;
-
-        $.ajax({
-          type: "POST",
-          url: "http://fun-projects.cloudapp.net/api",
-          data: LS,
-          dataType: json
-        }).done(function() {
-          console.log("Server has received this application.");
-        });
-
-        // Clear the localStorage
-        localStorage.clear();
+        // Send data to server and clear local data
+        EAT.done.sendData();
       } );
     </script>
     <script type="text/javascript">
@@ -167,7 +73,7 @@
       }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<style type="text/css">iframe.goog-te-banner-frame{ display: none !important;}</style>
-<style type="text/css">body {position: static !important; top:0px !important;}</style>
+    <style type="text/css">iframe.goog-te-banner-frame{ display: none !important;}</style>
+    <style type="text/css">body {position: static !important; top:0px !important;}</style>
   </body>
 </html>

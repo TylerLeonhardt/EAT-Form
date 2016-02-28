@@ -1,64 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>EAT Lunch</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="eat.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/tipped/tipped.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/tipped/tipped.css"/>
-
-    <!-- favicon stuff-->
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="assets/img/favicon-194x194.png" sizes="194x194">
-    <link rel="icon" type="image/png" href="assets/img/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="assets/img/android-chrome-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="assets/img/manifest.json">
-    <link rel="mask-icon" href="assets/img/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="assets/img/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-TileImage" content="assets/img/mstile-144x144.png">
-    <meta name="msapplication-config" content="assets/img/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="import" href="assets/imports.html">
   </head>
 
   <body>
 
+    <!-- Header bar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="header-bar">
         <img src="assets/img/usda.png" width="50px" />
@@ -67,7 +15,7 @@
       </div>
     </nav>
 
-    <!-- progressbar -->
+    <!-- Progress bar -->
     <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
       <ul id="progressbar">
         <li class="active">Begin</li>
@@ -79,11 +27,14 @@
       </ul>
     </div>
 
+    <!-- Main container -->
     <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
       <div class="container animate fadeIn">
 
+        <!-- Instructions -->
         <h2 class="form-signin-heading center-text heading" id="desc-heading">Before submitting, please read the following statements</h2>
 
+        <!-- USDA Non-Discrimination Statement -->
         <h5 style="padding-left: 0; text-align: left;">USDA Non-Discrimination Statement</h5>
         <div class="col-md-12 well" style="text-align: left; max-height: 150px; overflow-y: scroll; margin-bottom: 30px;">
           In accordance with Federal civil rights law and U.S. Department of Agriculture (USDA) civil rights regulations and policies, the USDA, its Agencies, offices, and employees, and institutions participating in or administering USDA programs are prohibited from discriminating based on race, color, national origin, sex, disability, age, or reprisal or retaliation for prior civil rights activity in any program or activity conducted or funded by USDA.
@@ -104,6 +55,7 @@
           This institution is an equal opportunity provider.
         </div>
 
+        <!-- Use of Information Statement -->
         <h5 style="padding-left: 0; text-align: left; margin-top: 20px;">Use of Information Statement</h5>
         <div class="col-md-12 well" style="text-align: left; max-height: 150px; overflow-y: scroll; margin-bottom: 30px;">
           The <span class="notranslate">Richard B. Russell National School Lunch Act</span> requires the information on this application. You do not have to give the information, but if you do not submit all needed information, we cannot approve your child for free or reduced price meals. You must include the last four digits of the social security number of the adult household member who signs the application. The social security number is not required when you apply on behalf of a foster child or you list a Supplemental Nutrition Assistance Program (SNAP), Temporary Assistance for Needy Families (TANF) Program or Food Distribution Program on Indian Reservations (FDPIR) case number or other FDPIR identifier for your child or when you indicate that the adult household member signing the application does not have a social security number. We will use your information to determine if your child is eligible for free or reduced price meals, and for administration and enforcement of the lunch and breakfast programs.
@@ -111,6 +63,7 @@
           We may share your eligibility information with education, health, and nutrition programs to help them evaluate, fund, or determine benefits for their programs, auditors for program reviews, and law enforcement officials to help them look into violations of program rules.
         </div>
 
+        <!-- Children’s Racial & Ethnic Identities Question -->
         <h5 style="padding-left: 0; text-align: left;">Children’s Racial & Ethnic Identities Question</h5>
         <div class="col-md-12 well" style="text-align: left; min-height: 200px; overflow: auto;">
           <p>We are required to ask for information about your children’s race and ethnicity. This information is important and helps to make sure we are fully serving our community. Responding to this section is <b>optional</b> and does <b>not</b> affect your children’s eligibility for free or reduced price meals.</p>
@@ -147,12 +100,14 @@
           </div>
         </div>
 
+        <!-- Navigation buttons -->
         <div class="form-group">
           <a class="btn btn-lg btn-primary btn-proceed" href="done.html">Submit Application</a>
         </div>
       </div> <!-- /container -->
     </div>
 
+    <!-- Footer images -->
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">
     </div>
@@ -168,12 +123,6 @@
 
     <!-- Plugins -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <script>
-      $( function() {
-
-      } );
-    </script>
     <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');

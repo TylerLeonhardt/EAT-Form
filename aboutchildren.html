@@ -1,70 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>EAT Lunch</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="eat.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="assets/js/autoNumeric-min.js" type="text/javascript"></script>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-
-
-    <!-- favicon stuff-->
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="assets/img/favicon-194x194.png" sizes="194x194">
-    <link rel="icon" type="image/png" href="assets/img/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="assets/img/android-chrome-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="assets/img/manifest.json">
-    <link rel="mask-icon" href="assets/img/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="assets/img/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-TileImage" content="assets/img/mstile-144x144.png">
-    <meta name="msapplication-config" content="assets/img/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="import" href="assets/imports.html">
+    <script src="assets/js/aboutChildren.js" type="text/javascript"></script>
   </head>
 
   <body>
 
+    <!-- Header bar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="header-bar">
         <img src="assets/img/usda.png" width="50px" />
@@ -73,7 +16,7 @@
       </div>
     </nav>
 
-    <!-- progressbar -->
+    <!-- Progress bar -->
     <div style="background-color: #eee; height: 70px; margin-top: -15px; padding-top: 5px; border-bottom: 1px solid white; border-top: 1px solid white;">
       <ul id="progressbar">
         <li class="active">Begin</li>
@@ -85,53 +28,44 @@
       </ul>
     </div>
 
+    <!-- Main container -->
     <div style="border-top: 1px solid #E4E4E4; margin-top: 0px; width: 100%;">
-
       <div class="container animate fadeIn">
+        <!-- Instructions -->
+        <h2 class="form-signin-heading center-text" id="desc-heading">tell us about the children</h2>
+        <h5 class="form-signin-heading center-text heading-with-hover">who live in your household, even if they are not related to you</h5>
 
-        <a id="defineChild" style='color: #333; text-decoration: none;' class="bottom" title="<span style='font-weight: bold; color: #aab2bd; '>THIS INCLUDES CHILDREN:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> 18 or younger AND supported with the household’s income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> in your care under foster arrangements<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> homeless, migrant, or runaway<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> attending high school or below, regardless of age" data-html="true" data-placement="bottom" data-toggle="tooltip" href="#">
-          <h2 class="form-signin-heading center-text" id="desc-heading">tell us about the children</h2>
-          <h5 class="form-signin-heading center-text heading">who live in your household, even if they are not related to you</h5>
-        </a>
-
+        <!-- Description of who is considered a child -->
         <div class="col-md-12 col-md-offset-0" style="text-align: left; margin-bottom: 40px;">
           <span class="table_desc">THIS INCLUDES CHILDREN:</span><br/>
           <div class="row Children">
               <div class="young18 col-md-2" style="vertical-align: bottom; text-align: center;">
                 <img src="assets/img/under18.png" height="75px"/>
-                <div>
-                  18 or younger AND supported with the household’s income
-                </div>
+                <div>18 or younger AND supported with the household’s income</div>
               </div>
               <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
               <div class="incare col-md-2" style="vertical-align: bottom; text-align: center;">
                 <img src="assets/img/care.png" height="75px"/>
-                <div>
-                  in your care under foster arrangements
-                </div>
+                <div>in your care under foster arrangements</div>
               </div>
               <div class="or col-md-2"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
               <div class="homeless col-md-2" style="vertical-align: bottom; text-align: center;">
                 <img src="assets/img/run.png" height="75px"/>
-                <div>
-                  homeless, migrant, runaway, or Head Start
-                </div>
+                <div>homeless, migrant, runaway, or Head Start</div>
               </div>
               <div class="or col-md-1"><div style="font-weight:700; text-align: center; height: 90px; line-height: 90px;">OR</div></div>
               <div class="highschool col-md-2" style="vertical-align: bottom; text-align: center;">
                 <img src="assets/img/brain.png" height="75px"/>
-                <div>
-                  attending high school or below, regardless of age
-                </div>
+                <div>attending high school or below, regardless of age</div>
               </div>
           </div>
         </div>
 
+        <!-- Form -->
         <form class="form-horizontal col-md-12" id="aboutChildrenForm" name="aboutChildrenForm" action="howmanyadults.html">
-          <div id="childrenInfo">
+          <div id="childrenInfo"></div>
 
-          </div>
-
+          <!-- Navigation buttons -->
           <div class="form-group">
             <a class="btn btn-lg btn-primary btn-back" href="javascript:history.back();">Back</a>
             <button type="submit" class="btn btn-lg btn-primary btn-proceed">Next</button>
@@ -140,6 +74,7 @@
       </div> <!-- /container -->
     </div>
 
+    <!-- Footer images -->
     <img src="assets/img/school.png" id="school"/>
     <div id="footer" class="footer">
     </div>
@@ -153,245 +88,21 @@
     <!-- Plugins -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
-      var deleteIncome = function(childId) {
-        // Delete income
-        localStorage.removeItem("aboutChildrenFormaboutChildrenFormoption1_child_"+childId);
-        localStorage.removeItem("aboutChildrenFormaboutChildrenFormoption2_child_"+childId);
-        localStorage.removeItem("aboutChildrenFormaboutChildrenFormoption3_child_"+childId);
-        localStorage.removeItem("aboutChildrenFormaboutChildrenFormoption4_child_"+childId);
-        localStorage.removeItem("aboutChildrenFormaboutChildrenFormoption5_child_"+childId);
-
-        // Delete income time frame
-        localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioOption1_child_"+childId);
-        localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioOption2_child_"+childId);
-        localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioOption3_child_"+childId);
-        localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioOption4_child_"+childId);
-        localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioOption5_child_"+childId);
-      };
-
-      var show = function(el) {
-          console.log("showing ");
-          console.log(el);
-          $("#" + el).show("slow");
-
-          // Get child id
-          var vals = el.split("_");
-          var x = +vals[1];
-
-          // Make inputs required
-          $(("#child_"+x+"_income_table input:text")).attr("required", true);
-          $(("#child_"+x+"_income_table input:radio")).attr("required", true);
-          $(("#child_"+x+"_income_table select")).attr("required", true);
-      };
-
-      var hide = function(el) {
-          console.log("hiding ");
-          console.log(el);
-          $("#" + el).hide("slow");
-
-          // Delete the data stored locally
-          var vals = el.split("_");
-          var x = +vals[1];
-          deleteIncome(x);
-
-          // Delete data in this form
-          $(("#child_"+x+"_income_table input:text")).val('');
-          $(("#child_"+x+"_income_table input:radio")).attr('checked',false);
-
-          // Make hidden inputs not required
-          $(("#child_"+x+"_income_table input:text")).removeAttr("required");
-          $(("#child_"+x+"_income_table input:radio")).removeAttr("required");
-          $(("#child_"+x+"_income_table select")).removeAttr("required");
-      };
-
       $( function() {
-        $("#desc-heading").prepend(localStorage.getItem("signatureFormsignatureFormfirst") + ", ");
-        $("#defineChild").tooltip();
+        // Set up the page
+        EAT.aboutChildren.setupPage();
 
+        // Add in a row for each child based on the template
         var numChildren = localStorage.getItem("howManyChildrenFormhowManyChildrenFormnumChildren");
-
-        // Delete old localStorage items (in case we decreased the number of children)
-        for(var x = +numChildren+1; x <= 15; x++) {
-          // Delete name
-          localStorage.removeItem("aboutChildrenFormaboutChildrenFormfirst_"+x);
-          localStorage.removeItem("aboutChildrenFormaboutChildrenFormlast_"+x);
-          localStorage.removeItem("aboutChildrenFormaboutChildrenFormmi_"+x);
-
-          // Delete status
-          localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_foster_child_"+x);
-          localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_student_child_"+x);
-          localStorage.removeItem("aboutChildrenFormaboutChildrenFormis_hmr_child_"+x);
-
-          // Delete has income
-          localStorage.removeItem("aboutChildrenFormaboutChildrenFormradioGroup_child_"+x);
-
-          // Delete income
-          deleteIncome(x);
-        }
-
-        // Add in a row for each child
         for(var i = 1; i <= numChildren; i++) {
-          $("#childrenInfo").append(
-            "<div id='child_" + i + "' class='child_info well'><div class='form-group col-md-12' style='margin: 0;'>" +
-                "<div class='col-sm-3'>" +
-                  "<label class='text_label' for='first_" + i + "'>first name</label>" +
-                  "<input name='first_" + i + "' type='text' class='form-control' id='first_" + i + "' placeholder='' required='true'>" +
-                "</div>" +
+          $("#childrenInfo").append(EAT.templates.generateChild(false, i));
 
-                "<div class='col-sm-1' style='width: 40px; padding: 0;'>" +
-                  "<label class='text_label' for='mi_" + i + "'>MI</label>" +
-                  "<input name='mi_" + i + "' type='text' class='form-control' id='mi_" + i + "' placeholder='' required='true'>" +
-                "</div>" +
-
-                "<div class='col-sm-3'>" +
-                  "<label class='text_label' for='last_" + i + "'>last name</label>" +
-                  "<input name='last_" + i + "' type='text' class='form-control' id='last_" + i + "' placeholder='' required='true'>" +
-                "</div>" +
-
-                "<div class='col-sm-5' style='margin-top: 16px;'>" +
-                  "<label>" +
-                    "<input name='is_student_child_" + i + "' id='is_student_child_" + i + "' value='is_student_child_" + i + "' type='checkbox'><span class='check-label'>student</span>" +
-                  "</label>" +
-                  "<label style='margin-left: 15px;'>" +
-                    "<input name='is_foster_child_" + i + "' id='is_foster_child_" + i + "' value='is_foster_child_" + i + "'type='checkbox'><span class='check-label'>foster</span>" +
-                  "</label>" +
-                  "<label style='margin-left: 15px;'>" +
-                    "<input name='is_headstart_child_" + i + "' id='is_headstart_child_" + i + "' value='is_headstart_child_" + i + "'type='checkbox'><span class='check-label'>Head Start</span>" +
-                  "</label>" +
-                  "<label>" +
-                    "<input name='is_hmr_child_" + i + "' id='is_hmr_child_" + i + "' value='is_hmr_child_" + i + "' type='checkbox'><span class='check-label'>homeless, migrant, or runaway</span>" +
-                  "</label>" +
-                "</div>" +
-              "</div>" +
-
-              "<div class='form-group col-md-12' style='margin: 0 0 30px 15px;'>" +
-
-              "<div id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from work<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits for the child’s disability<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits because a parent is disabled, retired, or deceased<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  pension income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> trust income<br/>" +
-              "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> annuity income<br/>" +
-                "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> regular income, including spending money, from a relative or friend outside the household<br/>\"" +
-                "<div class='col-sm-12'>" +
-
-                  "<label class='radio-inline'>" +
-                    "<input name='radioGroup_child_" + i + "' id='child_" + i + "_has_income' value='child_" + i + "_has_income' type='radio' onclick='show(\"child_"+i+"_income_table\")' required> This child earns income." +
-                  "</label>" +
-                  "<label class='radio-inline'>" +
-                    "<input name='radioGroup_child_" + i + "' id='child_" + i + "_no_income' value='child_" + i + "_no_income' type='radio' onclick='hide(\"child_"+i+"_income_table\")' required> This child does <b>not</b> earn income." +
-                  "</label>" +
-                "</div>" +
-                "</div>" +
-
-                "<div id='child_"+i+"_income_table'>"+
-
-                  // RESPONSIVE INCOME TABLE
-                  "<div class='container'>"+
-
-                    // SALARY
-                    "<div class='row'>"+
-                        "<div class='col-sm-5'>"+
-                          "<span><h6>SALARY</h6> or <h6>WAGE</h6> from a job</span>"+
-                        "</div>"+
-                        "<div class='col-sm-3'>"+
-                          "<input name='option1_child_" + i + "' type='text' class='form-control' id='option1_child_" + i + "' placeholder=''>" +
-                        "</div>"+
-                        "<div class='col-sm-4'>"+
-                          "<select id='frequency_income_category_1_child_" + i + "' name='frequency_income_category_1_child_" + i + "' class='selectpicker' title='select frequency'>" +
-                            "<option value='weekly'>weekly</option>" +
-                            "<option value='2x month'>2x month</option>" +
-                            "<option value='monthly'>monthly</option>" +
-                          "</select>" +
-                        "</div>"+
-                    "</div>"+
-
-                    // CHILD SOCIAL SECURITY
-                    "<div class='row'>"+
-                      "<div class='col-sm-5'>"+
-                        "<span><h6>SOCIAL SECURITY</h6> income from child’s own disability or blindness</span>"+
-                      "</div>"+
-                      "<div class='col-sm-3'>"+
-                        "<input name='option2_child_" + i + "' type='text' class='form-control' id='option2_child_" + i + "' placeholder=''>" +
-                      "</div>"+
-                      "<div class='col-sm-4'>"+
-                        "<select id='frequency_income_category_2_child_" + i + "' name='frequency_income_category_2_child_" + i + "' class='selectpicker' title='select frequency'>" +
-                          "<option value='weekly'>weekly</option>" +
-                          "<option value='2x month'>2x month</option>" +
-                          "<option value='monthly'>monthly</option>" +
-                        "</select>" +
-                      "</div>"+
-                    "</div>"+
-
-                    // PARENT SOCIAL SECURITY
-                    "<div class='row'>"+
-                        "<div class='col-sm-5'>"+
-                          "<span><h6>SOCIAL SECURITY</h6> income because parent is disabled, retired, or deceased</span>"+
-                        "</div>"+
-                        "<div class='col-sm-3'>"+
-                          "<input name='option3_child_" + i + "' type='text' class='form-control' id='option3_child_" + i + "' placeholder=''>" +
-                        "</div>"+
-                        "<div class='col-sm-4'>"+
-                          "<select id='frequency_income_category_3_child_" + i + "' name='frequency_income_category_3_child_" + i + "' class='selectpicker' title='select frequency'>" +
-                            "<option value='weekly'>weekly</option>" +
-                            "<option value='2x month'>2x month</option>" +
-                            "<option value='monthly'>monthly</option>" +
-                          "</select>" +
-                        "</div>"+
-                    "</div>"+
-
-                    // REGULAR SPENDING
-                    "<div class='row'>"+
-                        "<div class='col-sm-5'>"+
-                          "<span><h6>REGULAR</h6> spending money from a person outside the household</span>"+
-                        "</div>"+
-                        "<div class='col-sm-3'>"+
-                          "<input name='option4_child_" + i + "' type='text' class='form-control' id='option4_child_" + i + "' placeholder=''>" +
-                        "</div>"+
-                        "<div class='col-sm-4'>"+
-                          "<select id='frequency_income_category_4_child_" + i + "' name='frequency_income_category_4_child_" + i + "' class='selectpicker' title='select frequency'>" +
-                            "<option value='weekly'>weekly</option>" +
-                            "<option value='2x month'>2x month</option>" +
-                            "<option value='monthly'>monthly</option>" +
-                          "</select>" +
-                        "</div>"+
-                    "</div>"+
-
-                    // OTHER INCOME
-                    "<div class='row'>"+
-                        "<div class='col-sm-5'>"+
-                          "<span><h6>OTHER</h6> income such as from a pension fund, annuity, or trust</span>"+
-                        "</div>"+
-                        "<div class='col-sm-3'>"+
-                          "<input name='option5_child_" + i + "' type='text' class='form-control' id='option5_child_" + i + "' placeholder=''>" +
-                        "</div>"+
-                        "<div class='col-sm-4'>"+
-                          "<select id='frequency_income_category_5_child_" + i + "' name='frequency_income_category_5_child_" + i + "' class='selectpicker' title='select frequency'>" +
-                            "<option value='weekly'>weekly</option>" +
-                            "<option value='2x month'>2x month</option>" +
-                            "<option value='monthly'>monthly</option>" +
-                          "</select>" +
-                        "</div>"+
-                    "</div>"+
-                "</div>"+
-                "</div>" +
-              "</div>" +
-              "</div>" +
-            "</div>"
-          );
-
-          if(localStorage.getItem("aboutChildrenFormaboutChildrenFormradioGroup_child_"+i) == ("child_"+i+"_has_income")) {
-            show("child_"+i+"_income_table");
-          } else {
-            hide("child_"+i+"_income_table");
-          }
-
-          $("#option1_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
-          $("#option2_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
-          $("#option3_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
-          $("#option4_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
-          $("#option5_child_"+i).autoNumeric('init',{aSep: ',', aDec: '.', aSign: '$ '});
-
-          $("#defineIncome_"+i).tooltip({trigger : 'hover'});
+          // Set display based on previously stored values for this child (if navigating back to this page)
+          EAT.aboutChildren.setupChild(i);
         }
 
-        $("form").sisyphus({timeout: 1, autoRelease: false }); //Autosave form
+        // Now that the entire form is rendered, setup autosave
+        $("form").sisyphus({timeout: 1, autoRelease: false });
 
       } );
     </script>
@@ -401,7 +112,7 @@
       }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<style type="text/css">iframe.goog-te-banner-frame{ display: none !important;}</style>
-<style type="text/css">body {position: static !important; top:0px !important;}</style>
+    <style type="text/css">iframe.goog-te-banner-frame{ display: none !important;}</style>
+    <style type="text/css">body {position: static !important; top:0px !important;}</style>
   </body>
 </html>
