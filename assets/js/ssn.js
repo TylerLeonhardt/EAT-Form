@@ -35,14 +35,16 @@ EAT.ssn = {
     localStorage.setItem("ssnFormssnFormhasSSN", status.value);
 
     // Take the user to next page
-    var hasSNAP = localStorage.getItem("hasSnapFormhasSnapFormhasSNAP");
-    var allFoster = localStorage.getItem("allFosterChildren");
+    // var hasSNAP = localStorage.getItem("hasSnapFormhasSnapFormhasSNAP");
+    // var allFoster = localStorage.getItem("allFosterChildren");
+    //
+    // if(hasSNAP == "yes" || allFoster == "yes") {  // Skip right to the end of the form
+    //   $(location).attr('href', 'review.html');
+    // } else {  // Force to confirm all data
+    //   $(location).attr('href', 'confirmchildren.html');
+    // }
 
-    if(hasSNAP == "yes" || allFoster == "yes") {  // Skip right to the end of the form
-      $(location).attr('href', '/review');
-    } else {  // Force to confirm all data
-      $(location).attr('href', '/confirmchildren');
-    }
+    $(location).attr('href', '/confirmchildren');
     return false;
   }
 };
