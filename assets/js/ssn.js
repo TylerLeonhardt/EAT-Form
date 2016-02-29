@@ -39,9 +39,9 @@ EAT.ssn = {
     var allFoster = localStorage.getItem("allFosterChildren");
 
     if(hasSNAP == "yes" || allFoster == "yes") {  // Skip right to the end of the form
-      $(location).attr('href', 'review.html');
+      $(location).attr('href', '/review');
     } else {  // Force to confirm all data
-      $(location).attr('href', 'confirmchildren.html');
+      $(location).attr('href', '/confirmchildren');
     }
     return false;
   }

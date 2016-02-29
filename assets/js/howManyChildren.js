@@ -11,10 +11,10 @@ EAT.howManyChildren = {
   nextPage: function(onSNAP) {
     // Take the user to the correct page based on their answer
     if(onSNAP == "no") {
-      $(location).attr('href', 'allfoster.html');
+      $(location).attr('href', '/allfoster');
       return false;
     } else if(onSNAP == "yes") {
-      $(location).attr('href', 'childrennames.html');
+      $(location).attr('href', '/childrennames');
       return false;
     }
   }

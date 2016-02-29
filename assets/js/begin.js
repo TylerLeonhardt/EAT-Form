@@ -7,7 +7,7 @@ EAT.begin = {
     $('#beginButton').removeAttr('disabled');
 
     $("#beginButton").click( function() {
-      $(location).attr('href', 'signature.html');
+      $(location).attr('href', '/signature');
     });
   }
 };

@@ -7,12 +7,23 @@ EAT.done = {
     var LS = localStorage;
 
     $.ajax({
-      type: "POST",
-      url: "http://fun-projects.cloudapp.net/api",
-      data: LS,
-      dataType: "json"
-    }).done(function() {
-      console.log("Server has received this application.");
+        url: "http://fun-projects.cloudapp.net:8080/api",
+        type: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        contentType: "application/json",
+        data: JSON.stringify(LS)
+    })
+    .done(function(data, textStatus, jqXHR) {
+        console.log("HTTP Request Succeeded: " + jqXHR.status);
+        console.log(data);
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log("HTTP Request Failed");
+    })
+    .always(function() {
+        /* ... */
     });
 
     // Clear the localStorage

@@ -33,7 +33,7 @@ EAT.snap = {
     // Store this value
     localStorage.setItem("hasSnapFormhasSnapFormhasSNAP", status.value);
 
-    $(location).attr('href', 'howmanychildren.html');
+    $(location).attr('href', '/howmanychildren');
     return false;
   }
 };

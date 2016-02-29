@@ -22,7 +22,7 @@ EAT.allFoster = {
         localStorage.setItem("aboutChildrenFormaboutChildrenFormis_headstart_child_"+i, "false");
       }
 
-      $(location).attr('href', 'aboutchildren.html');
+      $(location).attr('href', '/aboutchildren');
       return false;
     } else if(status == "yes") {
       // Store that all children are students
@@ -32,7 +32,7 @@ EAT.allFoster = {
         localStorage.setItem("aboutChildrenFormaboutChildrenFormis_student_child_"+i, "true");
       }
 
-      $(location).attr('href', 'childrennames.html');
+      $(location).attr('href', '/childrennames');
       return false;
     }
 
