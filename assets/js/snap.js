@@ -11,6 +11,7 @@ EAT.snap = {
     $("#hasSNAP_yes").prop('checked', false);
     $("#hasSNAP_no").prop('checked', false);
     localStorage.removeItem("hasSnapFormhasSnapFormhasSNAP");
+    localStorage.removeItem("hasSnapFormhasSnapFormcaseNumber");
   },
 
   showCaseNumber: function() {

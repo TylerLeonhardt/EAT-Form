@@ -22,6 +22,7 @@ EAT.ssn = {
     $("#hasSSN_yes").prop('checked', false);
     $("#hasSSN_no").prop('checked', false);
     localStorage.removeItem("ssnFormssnFormhasSSN");
+    localStorage.removeItem("ssnFormssnFormssn");
   },
 
   setStatus: function(status) {
@@ -34,7 +35,14 @@ EAT.ssn = {
     localStorage.setItem("ssnFormssnFormhasSSN", status.value);
 
     // Take the user to next page
-    $(location).attr('href', 'confirmchildren.html');
+    var hasSNAP = localStorage.getItem("hasSnapFormhasSnapFormhasSNAP");
+    var allFoster = localStorage.getItem("allFosterChildren");
+
+    if(hasSNAP == "yes" || allFoster == "yes") {  // Skip right to the end of the form
+      $(location).attr('href', 'review.html');
+    } else {  // Force to confirm all data
+      $(location).attr('href', 'confirmchildren.html');
+    }
     return false;
   }
 };

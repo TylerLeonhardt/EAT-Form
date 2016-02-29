@@ -45,7 +45,7 @@ EAT.templates = {
 
       return description;
   },
-  
+
   generateAdultSummary: function(i) {
     var description = "<span style='display:block; text-align: left; padding: 6px 10px 6px 10px;'><p style='display: inline; font-weight: 500;'>" +
         localStorage.getItem("aboutAdultsFormaboutAdultsFormfirst_"+i) + " " +
@@ -152,7 +152,7 @@ EAT.templates = {
 
         "<div class='form-group col-md-12' style='margin: 0 0 30px 15px;'>" +
 
-        "<div id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from work<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits for the child’s disability<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits because a parent is disabled, retired, or deceased<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  pension income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> trust income<br/>" +
+        "<div id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from work<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits for the child's disability<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security benefits because a parent is disabled, retired, or deceased<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  pension income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> trust income<br/>" +
         "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> annuity income<br/>" +
           "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> regular income, including spending money, from a relative or friend outside the household<br/>\"" +
           "<div class='col-sm-12'>" +
@@ -191,7 +191,7 @@ EAT.templates = {
               // CHILD SOCIAL SECURITY
               "<div class='row'>"+
                 "<div class='col-sm-5'>"+
-                  "<span><h6>SOCIAL SECURITY</h6> income from child’s own disability or blindness</span>"+
+                  "<span><h6>SOCIAL SECURITY</h6> income from child's own disability or blindness</span>"+
                 "</div>"+
                 "<div class='col-sm-3'>"+
                   "<input name='option2_child_" + i + "' type='text' class='form-control' id='option2_child_" + i + "' placeholder=''>" +
@@ -283,7 +283,7 @@ EAT.templates = {
 
       "<div class='form-group col-md-12' style='margin: 0 0 30px 15px;'>" +
 
-          "<div id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from salary, wages, bonuses, self-employment <br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> military basic pay or allowances for off-base housing<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  public assistance<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  college financial aid<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  worker’s compensation<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  unemployment benefits<br/>" +
+          "<div id='defineIncome_"+i+"' style='color: #333; text-decoration: none;' data-html='true' data-placement='bottom' data-toggle='tooltip' href='#' class='bottom' title=\"<span style='font-weight: bold; color: #aab2bd; '>INCOME INCLUDES:</span><br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> earnings from salary, wages, bonuses, self-employment <br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> military basic pay or allowances for off-base housing<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  public assistance<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  college financial aid<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  worker's compensation<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span>  unemployment benefits<br/>" +
             "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> strike benefits<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> pensions<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> annuities<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> trusts or estates<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> disability payments<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> Social Security<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> child support<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> interest, dividends, or other investment income<br/>" +
             "<span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> rental income<br/><span style='color:#37bc9b;' class='glyphicon glyphicon-ok' aria-hidden='true'></span> regular cash payments from people outside the household<br/>\"" +
 
